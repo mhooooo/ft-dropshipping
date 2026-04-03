@@ -1,0 +1,2200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FT Dropshipping — Deliverables Hub | Powered by Monie</title>
+<meta name="description" content="ศูนย์รวมผลงานทั้งหมดที่ Monie (DeerFlow AI Agent) สร้างให้ FT Dropshipping — 11 deliverables, 12 skills, 1 AI partner.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS RESET & VARIABLES ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-deep: #0A0A0F;
+  --bg-surface: #111118;
+  --bg-card: rgba(17, 17, 24, 0.6);
+  --bg-card-hover: rgba(24, 24, 36, 0.8);
+  --glass-border: rgba(124, 58, 237, 0.15);
+  --glass-border-hover: rgba(124, 58, 237, 0.35);
+  --purple: #7C3AED;
+  --purple-light: #A78BFA;
+  --purple-glow: rgba(124, 58, 237, 0.3);
+  --cyan: #06B6D4;
+  --cyan-light: #67E8F9;
+  --cyan-glow: rgba(6, 182, 212, 0.3);
+  --green: #10B981;
+  --amber: #F59E0B;
+  --rose: #F43F5E;
+  --text-primary: #F1F0F5;
+  --text-secondary: #9594A3;
+  --text-muted: #5D5C6D;
+  --gradient-main: linear-gradient(135deg, #7C3AED, #06B6D4);
+  --gradient-card: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(6,182,212,0.05));
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'IBM Plex Sans Thai', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== AMBIENT BACKGROUND ===== */
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.12;
+  animation: orbFloat 20s ease-in-out infinite;
+}
+
+.ambient-orb:nth-child(1) {
+  width: 600px; height: 600px;
+  background: var(--purple);
+  top: -200px; left: -100px;
+  animation-delay: 0s;
+}
+
+.ambient-orb:nth-child(2) {
+  width: 500px; height: 500px;
+  background: var(--cyan);
+  bottom: -200px; right: -100px;
+  animation-delay: -10s;
+}
+
+.ambient-orb:nth-child(3) {
+  width: 400px; height: 400px;
+  background: var(--purple-light);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -5s;
+  opacity: 0.06;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(40px, -30px) scale(1.05); }
+  50% { transform: translate(-20px, 40px) scale(0.95); }
+  75% { transform: translate(30px, 20px) scale(1.02); }
+}
+
+/* Noise texture overlay */
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ===== GRID LINE OVERLAY ===== */
+.grid-lines {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ===== MAIN CONTENT ===== */
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(10, 10, 15, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nav.scrolled {
+  padding: 12px 32px;
+  background: rgba(10, 10, 15, 0.9);
+  border-bottom-color: rgba(124, 58, 237, 0.2);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--gradient-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.nav-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.nav-title span {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.nav-link.active {
+  color: var(--purple-light);
+  background: rgba(124, 58, 237, 0.12);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  padding: 160px 32px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(124,58,237,0.15), transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px 6px 8px;
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--purple-light);
+  margin-bottom: 28px;
+  animation: fadeInDown 0.8s ease;
+}
+
+.hero-eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 7vw, 80px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 8px;
+  animation: fadeInUp 0.8s ease 0.1s both;
+}
+
+.hero-title .gradient-text {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle-th {
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero-subtitle-en {
+  font-family: var(--font-display);
+  font-size: clamp(13px, 1.8vw, 16px);
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 48px;
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== STATS BAR ===== */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  min-width: 180px;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: var(--glass-border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.stat-icon.purple { background: rgba(124, 58, 237, 0.15); color: var(--purple-light); }
+.stat-icon.cyan { background: rgba(6, 182, 212, 0.15); color: var(--cyan-light); }
+.stat-icon.green { background: rgba(16, 185, 129, 0.15); color: #34D399; }
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* ===== FILTER TABS ===== */
+.section-deliverables {
+  padding: 80px 32px 120px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  padding: 6px;
+  background: rgba(17, 17, 24, 0.5);
+  border: 1px solid rgba(124, 58, 237, 0.08);
+  border-radius: 100px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filter-btn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  color: var(--text-secondary);
+  background: rgba(124, 58, 237, 0.06);
+}
+
+.filter-btn.active {
+  color: var(--text-primary);
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+/* ===== DELIVERABLE GRID ===== */
+.deliverable-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 24px;
+}
+
+/* ===== DELIVERABLE CARD ===== */
+.d-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: default;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.d-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.d-card:hover {
+  border-color: var(--glass-border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 60px rgba(124, 58, 237, 0.1),
+    0 0 0 1px rgba(124, 58, 237, 0.1);
+}
+
+.d-card.visible:hover {
+  transform: translateY(-4px);
+}
+
+/* Card number badge */
+.d-card-number {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--purple-light);
+  z-index: 2;
+}
+
+/* Card preview area */
+.d-card-preview {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.d-card-preview-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+}
+
+.d-card-preview-icon {
+  position: relative;
+  z-index: 1;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.4s ease;
+}
+
+.d-card:hover .d-card-preview-icon {
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.2);
+}
+
+/* Individual card themes */
+.d-card[data-id="1"] .d-card-preview-bg { background: linear-gradient(135deg, #1a0f2e, #0d1b2a); }
+.d-card[data-id="1"] .d-card-preview-icon { background: rgba(124, 58, 237, 0.2); }
+
+.d-card[data-id="2"] .d-card-preview-bg { background: linear-gradient(135deg, #0d1b2a, #0a2025); }
+.d-card[data-id="2"] .d-card-preview-icon { background: rgba(6, 182, 212, 0.2); }
+
+.d-card[data-id="3"] .d-card-preview-bg { background: linear-gradient(135deg, #1a0f2e, #2d1045); }
+.d-card[data-id="3"] .d-card-preview-icon { background: rgba(167, 139, 250, 0.2); }
+
+.d-card[data-id="4"] .d-card-preview-bg { background: linear-gradient(135deg, #1a0520, #0d1b2a); }
+.d-card[data-id="4"] .d-card-preview-icon { background: rgba(244, 63, 94, 0.2); }
+
+.d-card[data-id="5"] .d-card-preview-bg { background: linear-gradient(135deg, #0a1628, #0f1a2e); }
+.d-card[data-id="5"] .d-card-preview-icon { background: rgba(59, 130, 246, 0.2); }
+
+.d-card[data-id="6"] .d-card-preview-bg { background: linear-gradient(135deg, #1a1005, #2a1a05); }
+.d-card[data-id="6"] .d-card-preview-icon { background: rgba(245, 158, 11, 0.2); }
+
+.d-card[data-id="7"] .d-card-preview-bg { background: linear-gradient(135deg, #1a0a0a, #2a0f0f); }
+.d-card[data-id="7"] .d-card-preview-icon { background: rgba(244, 63, 94, 0.25); }
+
+.d-card[data-id="8"] .d-card-preview-bg { background: linear-gradient(135deg, #051a0f, #0a2518); }
+.d-card[data-id="8"] .d-card-preview-icon { background: rgba(16, 185, 129, 0.2); }
+
+.d-card[data-id="9"] .d-card-preview-bg { background: linear-gradient(135deg, #0f0a1a, #1a0f2e); }
+.d-card[data-id="9"] .d-card-preview-icon { background: rgba(139, 92, 246, 0.2); }
+
+.d-card[data-id="10"] .d-card-preview-bg { background: linear-gradient(135deg, #0d1b2a, #051520); }
+.d-card[data-id="10"] .d-card-preview-icon { background: rgba(6, 182, 212, 0.2); }
+
+.d-card[data-id="11"] .d-card-preview-bg { background: linear-gradient(135deg, #1a0f2e, #120a20); }
+.d-card[data-id="11"] .d-card-preview-icon { background: rgba(124, 58, 237, 0.2); }
+
+/* Animated grid pattern in preview */
+.d-card-preview::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  z-index: 0;
+}
+
+/* Shimmer line */
+.d-card-preview .shimmer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--purple), var(--cyan), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.d-card:hover .d-card-preview .shimmer {
+  opacity: 1;
+}
+
+/* Card body */
+.d-card-body {
+  padding: 24px;
+}
+
+.d-card-title-th {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.d-card-title-en {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.d-card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.d-card-desc strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Stat pills inside card */
+.d-card-stats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.d-stat-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(6, 182, 212, 0.08);
+  color: var(--cyan-light);
+  border: 1px solid rgba(6, 182, 212, 0.12);
+}
+
+.d-stat-pill.purple-pill {
+  background: rgba(124, 58, 237, 0.08);
+  color: var(--purple-light);
+  border-color: rgba(124, 58, 237, 0.12);
+}
+
+.d-stat-pill.green-pill {
+  background: rgba(16, 185, 129, 0.08);
+  color: #34D399;
+  border-color: rgba(16, 185, 129, 0.12);
+}
+
+.d-stat-pill.amber-pill {
+  background: rgba(245, 158, 11, 0.08);
+  color: #FCD34D;
+  border-color: rgba(245, 158, 11, 0.12);
+}
+
+.d-stat-pill.rose-pill {
+  background: rgba(244, 63, 94, 0.08);
+  color: #FB7185;
+  border-color: rgba(244, 63, 94, 0.12);
+}
+
+/* Skill badges */
+.d-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.skill-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: var(--gradient-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--purple-light);
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.skill-badge:hover {
+  border-color: var(--glass-border-hover);
+  background: rgba(124, 58, 237, 0.12);
+}
+
+.skill-badge::before {
+  content: '⚡';
+  font-size: 9px;
+}
+
+.d-card-action {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cyan);
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.15);
+  padding: 6px 14px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.d-card-action:hover {
+  background: rgba(6, 182, 212, 0.15);
+  border-color: rgba(6, 182, 212, 0.3);
+  color: var(--cyan-light);
+}
+
+.d-card-action svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ===== FEATURED CARD (wider) ===== */
+.d-card.featured {
+  grid-column: span 2;
+}
+
+/* ===== INLINE CHART PREVIEW ===== */
+.mini-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 48px;
+  padding: 0 8px;
+}
+
+.mini-chart-bar {
+  flex: 1;
+  border-radius: 2px 2px 0 0;
+  min-width: 6px;
+  transition: all 0.3s ease;
+}
+
+.d-card:hover .mini-chart-bar {
+  filter: brightness(1.2);
+}
+
+/* ===== INLINE CODE PREVIEW ===== */
+.code-preview {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  background: rgba(0,0,0,0.3);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  margin-top: 12px;
+  border: 1px solid rgba(124, 58, 237, 0.06);
+  overflow: hidden;
+  max-height: 80px;
+}
+
+.code-preview .kw { color: var(--purple-light); }
+.code-preview .fn { color: var(--cyan-light); }
+.code-preview .str { color: #34D399; }
+.code-preview .cm { color: var(--text-muted); }
+
+/* ===== INLINE WAVEFORM ===== */
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 32px;
+  padding: 0 4px;
+}
+
+.waveform-bar {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--purple-light);
+  opacity: 0.5;
+  animation: wave 1.2s ease-in-out infinite;
+}
+
+.waveform-bar:nth-child(odd) { animation-delay: 0.1s; }
+.waveform-bar:nth-child(3n) { animation-delay: 0.2s; }
+.waveform-bar:nth-child(5n) { animation-delay: 0.3s; }
+
+.d-card:hover .waveform-bar { opacity: 0.8; }
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.3); }
+}
+
+/* ===== SKILL MAP SECTION ===== */
+.skill-map-section {
+  padding: 0 32px 120px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.skill-map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.skill-map-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+}
+
+.skill-map-item:hover {
+  border-color: var(--glass-border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.skill-map-icon {
+  font-size: 18px;
+  width: 32px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.skill-map-name {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.skill-map-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* ===== TIMELINE ===== */
+.timeline-section {
+  padding: 0 32px 120px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--purple), var(--cyan), transparent);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 32px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -29px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--purple);
+  border: 2px solid var(--bg-deep);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+}
+
+.timeline-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--cyan);
+  font-weight: 600;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+
+.timeline-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.timeline-text strong {
+  color: var(--text-primary);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 48px 32px;
+  border-top: 1px solid rgba(124, 58, 237, 0.08);
+  text-align: center;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.footer-logo-ft {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-x {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.footer-logo-mhoooo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.footer-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: 0 auto 24px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.footer-link {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover { color: var(--purple-light); }
+
+.footer-deerflow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.footer-deerflow:hover { opacity: 1; }
+
+.footer-deerflow a {
+  color: var(--purple-light);
+  text-decoration: none;
+}
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  max-width: 720px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 40px;
+  transform: translateY(20px) scale(0.97);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modal-overlay.active .modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  color: var(--text-secondary);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: rgba(124, 58, 237, 0.2);
+  color: var(--text-primary);
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.modal-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.modal-content {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.modal-content h3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 20px 0 8px;
+}
+
+.modal-content ul {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.modal-content li {
+  margin-bottom: 4px;
+}
+
+.modal-content code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: rgba(124, 58, 237, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--purple-light);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .d-card.featured { grid-column: span 1; }
+}
+
+@media (max-width: 860px) {
+  .deliverable-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav { padding: 12px 16px; }
+  .hero { padding: 130px 20px 60px; }
+  .section-deliverables { padding: 60px 16px 80px; }
+  .skill-map-section { padding: 0 16px 80px; }
+  .timeline-section { padding: 0 16px 80px; }
+
+  .stats-bar { gap: 8px; }
+  .stat-card { padding: 12px 16px; min-width: 140px; }
+  .stat-value { font-size: 20px; }
+
+  .nav-links { display: none; }
+
+  .filter-bar {
+    border-radius: var(--radius-md);
+    gap: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-card {
+    flex: 1;
+    min-width: 100px;
+    padding: 10px 12px;
+  }
+  .stat-icon { width: 32px; height: 32px; font-size: 14px; }
+  .stat-value { font-size: 18px; }
+
+  .d-card-preview { height: 140px; }
+  .d-card-body { padding: 18px; }
+
+  .skill-map-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: rgba(124, 58, 237, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(124, 58, 237, 0.5); }
+
+/* ===== SELECTION ===== */
+::selection {
+  background: rgba(124, 58, 237, 0.3);
+  color: #fff;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== AMBIENT BACKGROUND ===== -->
+<div class="ambient">
+  <div class="ambient-orb"></div>
+  <div class="ambient-orb"></div>
+  <div class="ambient-orb"></div>
+</div>
+<div class="noise"></div>
+<div class="grid-lines"></div>
+
+<!-- ===== CONTENT ===== -->
+<div class="content-wrapper">
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-brand">
+      <div class="nav-logo">FT</div>
+      <div class="nav-title"><span>FT</span> Dropshipping</div>
+    </a>
+    <div class="nav-links">
+      <a href="#deliverables" class="nav-link active">ผลงาน</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#timeline" class="nav-link">Timeline</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Powered by Monie — DeerFlow AI Agent
+    </div>
+
+    <h1 class="hero-title">
+      <span class="gradient-text">FT Dropshipping</span>
+    </h1>
+    <p class="hero-subtitle-th">ทุกสิ่งที่ AI สร้างให้ — ในที่เดียว</p>
+    <p class="hero-subtitle-en">Every deliverable Monie built for FT Dropshipping, in one place.</p>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-icon purple">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <div class="stat-value" data-count="11">0</div>
+          <div class="stat-label">Deliverables</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon cyan">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div>
+          <div class="stat-value" data-count="12">0</div>
+          <div class="stat-label">Skills Used</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div>
+          <div class="stat-value">Monie</div>
+          <div class="stat-label">AI Partner</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DELIVERABLES ===== -->
+  <section class="section-deliverables" id="deliverables">
+    <div class="section-header">
+      <div class="section-label">// deliverables</div>
+      <h2 class="section-title">ผลงานทั้งหมด 11 ชิ้น</h2>
+      <p class="section-desc">ตั้งแต่แผนธุรกิจยันเครื่องมือ AI — ทั้งหมดสร้างด้วย DeerFlow Skills</p>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+      <button class="filter-btn" data-filter="strategy">กลยุทธ์</button>
+      <button class="filter-btn" data-filter="content">คอนเทนต์</button>
+      <button class="filter-btn" data-filter="tools">เครื่องมือ</button>
+      <button class="filter-btn" data-filter="ai">AI Agent</button>
+    </div>
+
+    <div class="deliverable-grid" id="deliverableGrid">
+
+      <!-- 1. Business Plan -->
+      <div class="d-card featured" data-id="1" data-category="strategy" data-delay="0">
+        <div class="d-card-number">01</div>
+        <div class="d-card-preview">
+          <div class="d-card-preview-bg"></div>
+          <div class="d-card-preview-icon">📋</div>
+          <div class="shimmer"></div>
+        </div>
+        <div class="d-card-body">
+          <div class="d-card-title-th">แผนธุรกิจฉบับสมบูรณ์</div>
+          <div class="d-card-title-en">Comprehensive Business Plan</div>
+          <p class="d-card-desc">
+            แผนธุรกิจ 10 บท พร้อมวิเคราะห์ตลาด, คู่แข่ง, การเงิน — คาดการณ์รายได้ปีแรก <strong>฿2.83M</strong> พร้อมแหล่งอ้างอิง 35+ แหล่ง
+          </p>
+          <div class="d-card-stats">
+            <span class="d-stat-pill purple-pill">10 Sections</span>
+            <span class="d-stat-pill">6 Charts</span>
+            <span class="d-stat-pill green-pill">35+ Sources</span>
+            <span class="d-stat-pill amber-pill">฿2.83M Y1</span>
+          </div>
+          <div class="d-card-footer">
+            <div class="skill-badges">
+              <span class="skill-badge">consulting-analysis</span>
+            </div>
+            <button class="d-card-action" onclick="openModal('plan')">
+              ดูรายละเอียด
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Financial Dashboard -->
+      <div class="d-card featured" data-id="2" data-category="strategy" data-delay="1">
+        <div class="d-card-number">02</div>
+        <div class="d-card-preview">
+          <div class="d-card-preview-bg"></div>
+          <div class="d-card-preview-icon" style="background: transparent;">
+            <div class="mini-chart" id="miniChart1"></div>
+          </div>
+          <div class="shimmer"></div>
+        </div>
+        <div class="d-card-body">
+          <div class="d-card-title-th">แดชบอร์ดการเงินแบบ Interactive</div>
+          <div class="d-card-title-en">Financial Dashboard</div>
+          <p class="d-card-desc">
+            แดชบอร์ด HTML พร้อมกราฟ 7 ตัว, ไฟล์ CSV 5 ชุด — คาดการณ์รายได้ <strong>฿2.27M</strong> ปีแรก, คืนทุนเดือนที่ 2
+          </p>
+          <div class="d-card-stats">
+            <span class="d-stat-pill">7 Charts</span>
+            <span class="d-stat-pill purple-pill">5 CSVs</span>
+            <span class="d-stat-pill green-pill">฿2.27M Y1</span>
+            <span class="d-stat-pill amber-pill">Break-even M2</span>
+          </div>
+          <div class="d-card-footer">
+            <div class="skill-badges">
+              <span class="skill-badge">data-analysis</span>
+            </div>
+            <button class="d-card-action" onclick="openModal('dashboard')">
+              ดูรายละเอียด
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Podcast Episode -->
+      <div class="d-card" data-id="3" data-category="content" data-delay="2">
+        <div class="d-card-number">03</div>
+        <div class="d-card-preview">
+          <div class="d-card-preview-bg"></div>
+          <div class="d-card-preview-icon" style="background: transparent;">
+            <div class="waveform" id="waveform1"></div>
+          </div>
+          <div class="shimmer"></div>
+        </div>
+        <div class="d-card-body">
+          <div class="d-card-title-th">พอดแคสต์: Dropshipping โอกาสทอง</div>
+          <div class="d-card-title-en">Podcast Episode</div>
+          <p class="d-card-desc">
+            'Dropshipping ในไทย ทำไมถึงเป็นโอกาสทอง' — พอดแคสต์ 2 พิธีกร, <strong>56 บทสนทนา</strong>, ครบ 7 หัวข้อสำคัญ, ภาษาไทย-อังกฤษมิกซ์
+          </p>
+          <div class="d-card-stats">
+            <span class="d-stat-pill purple-pill">2-Host Format</span>
+            <span class="d-stat-pill">56 Dialogues</span>
+            <span class="d-stat-pill green-pill">MP3 + Transcript</span>
+          </div>
+          <div class="d-card-footer">
+            <div class="skill-badges">
+              <span class="skill-badge">podcast-generation</span>
+            </div>
+            <button class="d-card-action" onclick="openModal('podcast')">
+              ดูรายละเอียด
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Promo Video -->
+      <div class="d-card" data-id="4" data-category="content" data-delay="3">
+        <div class="d-card-number">04</div>
+        <div class="d-card-preview">
+          <div class="d-card-preview-bg"></div>
+          <div class="d-card-preview-icon">🎬</div>
+          <div class="shimmer"></div>
+        </div>
+        <div class="d-card-body">
+          <div class="d-card-title-th">วิดีโอโปรโมท</div>
+          <div class="d-card-title-en">Promo Video</div>
+          <p class="d-card-desc">
+            วิดีโอสไตล์ Dark Neon, โชว์สินค้า, พาดหัวภาษาไทย, <strong>Brand Reveal</strong> — ผลิตด้วย AI Video Generation
+          </p>
+          <div class="d-card-stats">
+            <span class="d-stat-pill rose-pill">Dark Neon Style</span>
+            <span class="d-stat-pill purple-pill">Thai Headlines</span>
+            <span class="d-stat-pill">Brand Reveal</span>
+          </div>
+          <div class="d-card-footer">
+            <div class="skill-badges">
+              <span class="skill-badge">video-generation</span>
+            </div>
+            <button class="d-card-action" onclick="openModal('video')">
+              ดูรายละเอียด
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Landing Page -->
+      <div class="d-card" data-id="5" data-category="content" data-delay="4">
+        <div class="d-card-number">05</div>
+        <div class="d-card-preview">
+          <div class="d-card-preview-bg"></div>
+          <div class="d-card-preview-icon">🌐</div>
+          <div class="shimmer"></div>
+        </div>
+        <div class="d-card-body">
+          <div class="d-card-title-th">Landing Page แบบ Responsive</div>
+          <div class="d-card-title-en">Landing Page</div>
+          <p class="d-card-desc">
+            หน้าเว็บ <strong>1,675 บรรทัด</strong>, 7 sections, เอฟเฟกต์ Mouse Parallax + Scroll Reveal — พร้อมใช้งาน
+          </p>
+          <div class="d-card-stats">
+            <span class="d-stat-pill">1,675 Lines</span>
+            <span class="d-stat-pill purple-pill">7 Sections</span>
+            <span class="d-stat-pill green-pill">Parallax + Scroll</span>
+          </div>
+          <div class="d-card-footer">
+            <div class="skill-badges">
+              <span class="skill-badge">frontend-design</span>
+            </div>
+            <button class="d-card-action" onclick="openModal('landing')">
+              ดูรายละเอียด
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Marketing Content Pack -->
+      <div class="d-card featured" data-id="6" data-category="content" data-delay="5">
+        <div class="d-card-number">06</div>
+        <div class="d-card-preview">
+          <div class="d-card-preview-bg"></div>
+          <div class="d-card-preview-icon">📦</div>
+          <div class="shimmer"></div>
+        </div>
+        <div class="d-card-body">
+          <div class="d-card-title-th">แพ็คคอนเทนต์การตลาด</div>
+          <div class="d-card-title-en">Marketing Content Pack</div>
+          <p class="d-card-desc">
+            <strong>19 ชิ้นงาน</strong> ครบจบ — โฆษณา Facebook 5 ชิ้น, IG/TikTok Captions 5 ชิ้น, Listing Templates 3 ชิ้น, Banner, Stories 5 ชิ้น
+          </p>
+          <div class="d-card-stats">
+            <span class="d-stat-pill amber-pill">19 Assets</span>
+            <span class="d-stat-pill">5 FB Ads</span>
+            <span class="d-stat-pill purple-pill">5 IG/TikTok</span>
+            <span class="d-stat-pill green-pill">3 Listings</span>
+          </div>
+          <div class="d-card-footer">
+            <div class="skill-badges">
+              <span class="skill-badge">social-content</span>
+              <span class="skill-badge">image-generation</span>
+            </div>
+            <button class="d-card-action" onclick="openModal('marketing')">
+              ดูรายละเอียด
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. WAR ROOM -->
+      <div class="d-card featured" data-id="7" data-category="tools" data-delay="6">
+        <div class="d-card-number">07</div>
+        <div class="d-card-preview">
+          <div class="d-card-preview-bg"></div>
+          <div class="d-card-preview-icon">🎯</div>
+          <div class="shimmer"></div>
+        </div>
+        <div class="d-card-body">
+          <div class="d-card-title-th">WAR ROOM — ศูนย์บัญชาการสินค้า</div>
+          <div class="d-card-title-en">Product Intelligence Command Center</div>
+          <p class="d-card-desc">
+            <strong>1,907 บรรทัด</strong> — เครื่องคำนวณกำไร, Seasonal Heatmap, วิเคราะห์ช่องว่างคู่แข่ง, ข้อมูลผลิตภัณฑ์ทั้งหมดในหน้าเดียว
+          </p>
+          <div class="d-card-stats">
+            <span class="d-stat-pill rose-pill">1,907 Lines</span>
+            <span class="d-stat-pill">Margin Calculator</span>
+            <span class="d-stat-pill amber-pill">Seasonal Heatmap</span>
+            <span class="d-stat-pill green-pill">Competitor Gaps</span>
+          </div>
+          <div class="d-card-footer">
+            <div class="skill-badges">
+              <span class="skill-badge">surprise-me</span>
+            </div>
+            <button class="d-card-action" onclick="openModal('warroom')">
+              ดูรายละเอียด
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Open Source Tools Research -->
+      <div class="d-card" data-id="8" data-category="tools" data-delay="7">
+        <div class="d-card-number">08</div>
+        <div class="d-card-preview">
+          <div class="d-card-preview-bg"></div>
+          <div class="d-card-preview-icon">🔬</div>
+          <div class="shimmer"></div>
+        </div>
+        <div class="d-card-body">
+          <div class="d-card-title-th">วิจัย Open Source Stack</div>
+          <div class="d-card-title-en">Open Source Tools Research</div>
+          <p class="d-card-desc">
+            สำรวจ <strong>60+ repos</strong> — ได้ $0 SaaS Stack: n8n, NocoDB, changedetection.io, Postiz — ทดแทนเครื่องมือเสียเงินทั้งหมด
+          </p>
+          <div class="d-card-stats">
+            <span class="d-stat-pill green-pill">60+ Repos</span>
+            <span class="d-stat-pill">$0 SaaS Stack</span>
+            <span class="d-stat-pill purple-pill">4 Core Tools</span>
+          </div>
+          <div class="d-card-footer">
+            <div class="skill-badges">
+              <span class="skill-badge">github-deep-research</span>
+            </div>
+            <button class="d-card-action" onclick="openModal('opensource')">
+              ดูรายละเอียด
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+          <div class="code-preview">
+<span class="cm"># $0 SaaS Stack</span>
+<span class="kw">automation</span>: <span class="str">n8n</span>         <span class="cm"># Zapier replacement</span>
+<span class="kw">database</span>:   <span class="str">NocoDB</span>      <span class="cm"># Airtable replacement</span>
+<span class="kw">monitor</span>:    <span class="str">changedetection.io</span>
+<span class="kw">social</span>:     <span class="str">Postiz</span>      <span class="cm"># Buffer replacement</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Skills Discovery -->
+      <div class="d-card" data-id="9" data-category="ai" data-delay="8">
+        <div class="d-card-number">09</div>
+        <div class="d-card-preview">
+          <div class="d-card-preview-bg"></div>
+          <div class="d-card-preview-icon">🔍</div>
+          <div class="shimmer"></div>
+        </div>
+        <div class="d-card-body">
+          <div class="d-card-title-th">สำรวจ Skills ที่เกี่ยวข้อง</div>
+          <div class="d-card-title-en">Skills Discovery</div>
+          <p class="d-card-desc">
+            ค้นพบ <strong>78 skills</strong> ที่เกี่ยวข้อง, ติดตั้ง 7 ตัวสำคัญ, ระบุ 7 gap opportunities สำหรับสร้าง custom skills
+          </p>
+          <div class="d-card-stats">
+            <span class="d-stat-pill purple-pill">78 Skills Found</span>
+            <span class="d-stat-pill green-pill">7 Installed</span>
+            <span class="d-stat-pill amber-pill">7 Gaps</span>
+          </div>
+          <div class="d-card-footer">
+            <div class="skill-badges">
+              <span class="skill-badge">find-skills</span>
+            </div>
+            <button class="d-card-action" onclick="openModal('skills')">
+              ดูรายละเอียด
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Dropshipping Assistant -->
+      <div class="d-card featured" data-id="10" data-category="ai" data-delay="9">
+        <div class="d-card-number">10</div>
+        <div class="d-card-preview">
+          <div class="d-card-preview-bg"></div>
+          <div class="d-card-preview-icon">🤖</div>
+          <div class="shimmer"></div>
+        </div>
+        <div class="d-card-body">
+          <div class="d-card-title-th">Dropshipping Assistant — Custom Skill</div>
+          <div class="d-card-title-en">Custom AI Skill</div>
+          <p class="d-card-desc">
+            Skill เฉพาะทาง <strong>3,095 บรรทัด</strong>, 31 คำสั่ง CLI, 8 โมดูล, ฐานข้อมูล SQLite — เครื่องมือ AI สำหรับ Dropshipping โดยเฉพาะ
+          </p>
+          <div class="d-card-stats">
+            <span class="d-stat-pill">3,095 Lines</span>
+            <span class="d-stat-pill purple-pill">31 CLI Commands</span>
+            <span class="d-stat-pill green-pill">8 Modules</span>
+            <span class="d-stat-pill amber-pill">SQLite DB</span>
+          </div>
+          <div class="d-card-footer">
+            <div class="skill-badges">
+              <span class="skill-badge">skill-creator</span>
+            </div>
+            <button class="d-card-action" onclick="openModal('assistant')">
+              ดูรายละเอียด
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+          <div class="code-preview">
+<span class="cm"># 31 CLI Commands across 8 modules</span>
+<span class="kw">ft</span> <span class="fn">product add</span> <span class="str">"Portable Neck Fan"</span> --margin 62%
+<span class="kw">ft</span> <span class="fn">competitor scan</span> --platform lazada shopee
+<span class="kw">ft</span> <span class="fn">pricing optimize</span> --target-margin 45%
+<span class="kw">ft</span> <span class="fn">inventory check</span> --supplier cjdropshipping
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Dealer JARVIS Identity -->
+      <div class="d-card" data-id="11" data-category="ai" data-delay="10">
+        <div class="d-card-number">11</div>
+        <div class="d-card-preview">
+          <div class="d-card-preview-bg"></div>
+          <div class="d-card-preview-icon">🧠</div>
+          <div class="shimmer"></div>
+        </div>
+        <div class="d-card-body">
+          <div class="d-card-title-th">Dealer — ตัวตน JARVIS ของ FT</div>
+          <div class="d-card-title-en">Dedicated JARVIS Identity</div>
+          <p class="d-card-desc">
+            SOUL.md สำหรับ AI Agent เฉพาะ FT Dropshipping — บุคลิก, ความรู้เฉพาะทาง, วิธีคิด, <strong>พร้อมทำงานตั้งแต่วันแรก</strong>
+          </p>
+          <div class="d-card-stats">
+            <span class="d-stat-pill purple-pill">SOUL.md</span>
+            <span class="d-stat-pill">Custom Personality</span>
+            <span class="d-stat-pill green-pill">Day-1 Ready</span>
+          </div>
+          <div class="d-card-footer">
+            <div class="skill-badges">
+              <span class="skill-badge">bootstrap</span>
+            </div>
+            <button class="d-card-action" onclick="openModal('jarvis')">
+              ดูรายละเอียด
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SKILL MAP ===== -->
+  <section class="skill-map-section" id="skills">
+    <div class="section-header">
+      <div class="section-label">// skills used</div>
+      <h2 class="section-title">12 DeerFlow Skills</h2>
+      <p class="section-desc">ทุก Skill ที่ใช้สร้างผลงานทั้ง 11 ชิ้น</p>
+    </div>
+
+    <div class="skill-map-grid">
+      <div class="skill-map-item">
+        <div class="skill-map-icon">📊</div>
+        <div>
+          <div class="skill-map-name">consulting-analysis</div>
+          <div class="skill-map-count">Used in #1</div>
+        </div>
+      </div>
+      <div class="skill-map-item">
+        <div class="skill-map-icon">📈</div>
+        <div>
+          <div class="skill-map-name">data-analysis</div>
+          <div class="skill-map-count">Used in #2</div>
+        </div>
+      </div>
+      <div class="skill-map-item">
+        <div class="skill-map-icon">🎙️</div>
+        <div>
+          <div class="skill-map-name">podcast-generation</div>
+          <div class="skill-map-count">Used in #3</div>
+        </div>
+      </div>
+      <div class="skill-map-item">
+        <div class="skill-map-icon">🎬</div>
+        <div>
+          <div class="skill-map-name">video-generation</div>
+          <div class="skill-map-count">Used in #4</div>
+        </div>
+      </div>
+      <div class="skill-map-item">
+        <div class="skill-map-icon">🌐</div>
+        <div>
+          <div class="skill-map-name">frontend-design</div>
+          <div class="skill-map-count">Used in #5</div>
+        </div>
+      </div>
+      <div class="skill-map-item">
+        <div class="skill-map-icon">📱</div>
+        <div>
+          <div class="skill-map-name">social-content</div>
+          <div class="skill-map-count">Used in #6</div>
+        </div>
+      </div>
+      <div class="skill-map-item">
+        <div class="skill-map-icon">🖼️</div>
+        <div>
+          <div class="skill-map-name">image-generation</div>
+          <div class="skill-map-count">Used in #6</div>
+        </div>
+      </div>
+      <div class="skill-map-item">
+        <div class="skill-map-icon">🎲</div>
+        <div>
+          <div class="skill-map-name">surprise-me</div>
+          <div class="skill-map-count">Used in #7</div>
+        </div>
+      </div>
+      <div class="skill-map-item">
+        <div class="skill-map-icon">🔬</div>
+        <div>
+          <div class="skill-map-name">github-deep-research</div>
+          <div class="skill-map-count">Used in #8</div>
+        </div>
+      </div>
+      <div class="skill-map-item">
+        <div class="skill-map-icon">🔍</div>
+        <div>
+          <div class="skill-map-name">find-skills</div>
+          <div class="skill-map-count">Used in #9</div>
+        </div>
+      </div>
+      <div class="skill-map-item">
+        <div class="skill-map-icon">🛠️</div>
+        <div>
+          <div class="skill-map-name">skill-creator</div>
+          <div class="skill-map-count">Used in #10</div>
+        </div>
+      </div>
+      <div class="skill-map-item">
+        <div class="skill-map-icon">🧠</div>
+        <div>
+          <div class="skill-map-name">bootstrap</div>
+          <div class="skill-map-count">Used in #11</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIMELINE ===== -->
+  <section class="timeline-section" id="timeline">
+    <div class="section-header">
+      <div class="section-label">// build log</div>
+      <h2 class="section-title">ลำดับการสร้าง</h2>
+      <p class="section-desc">จากไอเดียสู่ 11 deliverables — ทั้งหมดสร้างด้วย Monie</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-label">Phase 1 — วิจัยและวางแผน</div>
+        <div class="timeline-text"><strong>Business Plan</strong> (consulting-analysis) → วิเคราะห์ตลาด, คู่แข่ง, การเงิน 10 บท, 35+ แหล่งอ้างอิง</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-label">Phase 2 — การเงินเชิงลึก</div>
+        <div class="timeline-text"><strong>Financial Dashboard</strong> (data-analysis) → กราฟ 7 ตัว, CSV 5 ชุด, คาดการณ์คืนทุนเดือน 2</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-label">Phase 3 — คอนเทนต์และการตลาด</div>
+        <div class="timeline-text"><strong>Podcast, Video, Landing Page, Marketing Pack</strong> → คอนเทนต์ครบทุกช่องทาง 19+ ชิ้นงาน</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-label">Phase 4 — เครื่องมือปฏิบัติการ</div>
+        <div class="timeline-text"><strong>WAR ROOM + Open Source Research</strong> → Command center + $0 SaaS stack สำหรับดำเนินงาน</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-label">Phase 5 — AI Agent เฉพาะทาง</div>
+        <div class="timeline-text"><strong>Skills Discovery + Custom Skill + JARVIS Identity</strong> → AI partner พร้อมใช้งานสำหรับ FT Dropshipping</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-brand">
+      <span class="footer-logo-ft">FT Dropshipping</span>
+      <span class="footer-x">×</span>
+      <span class="footer-logo-mhoooo">mhoooo</span>
+    </div>
+    <p class="footer-text">
+      ทุกชิ้นงานในหน้านี้สร้างโดย Monie — DeerFlow AI Agent<br>
+      ส่วนหนึ่งของโปรเจกต์ JARVIS โดย mhoooo.com
+    </p>
+    <div class="footer-links">
+      <a href="https://mhoooo.com" target="_blank" class="footer-link">mhoooo.com</a>
+      <a href="#deliverables" class="footer-link">ผลงาน</a>
+      <a href="#skills" class="footer-link">Skills</a>
+    </div>
+    <div class="footer-deerflow">
+      ✦ Built with <a href="https://deerflow.tech" target="_blank">Deerflow</a>
+    </div>
+  </footer>
+
+</div><!-- /content-wrapper -->
+
+<!-- ===== MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-subtitle" id="modalSubtitle"></div>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+// ===== DATA =====
+const modalData = {
+  plan: {
+    title: 'แผนธุรกิจฉบับสมบูรณ์',
+    subtitle: 'consulting-analysis • 10 Sections • 35+ Sources',
+    content: `
+      <h3>📋 สิ่งที่ได้รับ</h3>
+      <ul>
+        <li>แผนธุรกิจ 10 บท ครบวงจร — ตั้งแต่ Executive Summary ถึง Financial Projections</li>
+        <li>กราฟวิเคราะห์ 6 ชุด (ตลาด, คู่แข่ง, revenue projection, break-even, margin analysis, growth curve)</li>
+        <li>อ้างอิงจาก 35+ แหล่งข้อมูลจริง — Statista, ecommerceDB, รายงานอุตสาหกรรม</li>
+        <li>คาดการณ์รายได้ปีแรก <strong>฿2.83M</strong></li>
+      </ul>
+      <h3>📊 บทสำคัญ</h3>
+      <ul>
+        <li><code>Ch.1</code> Executive Summary — ภาพรวมทั้งหมดในหน้าเดียว</li>
+        <li><code>Ch.3</code> Market Analysis — ขนาดตลาด e-commerce ไทย ฿780B+ ปี 2025</li>
+        <li><code>Ch.5</code> Competitive Analysis — เปรียบเทียบ 8 คู่แข่งบน Lazada/Shopee</li>
+        <li><code>Ch.8</code> Financial Projections — 3-year model with sensitivity analysis</li>
+        <li><code>Ch.10</code> Implementation Roadmap — 12-month action plan</li>
+      </ul>
+      <h3>🎯 Key Insight</h3>
+      <p>ตลาด Dropshipping ในไทยเติบโต 25%+ YoY — ช่องว่างใหญ่ที่สุดคือ <strong>กลุ่มสินค้า seasonal/trending</strong> ที่ผู้ขายรายเล็กยังเข้าไม่ถึง</p>
+    `
+  },
+  dashboard: {
+    title: 'แดชบอร์ดการเงินแบบ Interactive',
+    subtitle: 'data-analysis • 7 Charts • 5 CSVs',
+    content: `
+      <h3>📈 กราฟ 7 ตัว</h3>
+      <ul>
+        <li>Monthly Revenue Projection (12 เดือน)</li>
+        <li>Product Margin Analysis (Top 10 สินค้า)</li>
+        <li>Break-even Analysis — คืนทุนเดือนที่ 2</li>
+        <li>Cost Structure Breakdown</li>
+        <li>Platform Revenue Split (Lazada/Shopee/TikTok)</li>
+        <li>3-Year Revenue Projection (Conservative/Base/Optimistic)</li>
+        <li>Cash Flow Waterfall</li>
+      </ul>
+      <h3>📁 ไฟล์ CSV 5 ชุด</h3>
+      <ul>
+        <li><code>revenue_monthly.csv</code> — รายได้รายเดือน 12 เดือน</li>
+        <li><code>product_margins.csv</code> — กำไรต่อสินค้า 10 รายการ</li>
+        <li><code>cost_breakdown.csv</code> — โครงสร้างต้นทุน</li>
+        <li><code>platform_split.csv</code> — สัดส่วนรายได้ต่อแพลตฟอร์ม</li>
+        <li><code>three_year_projection.csv</code> — คาดการณ์ 3 ปี</li>
+      </ul>
+      <h3>💡 Key Numbers</h3>
+      <p>รายได้ปีแรก <strong>฿2.27M</strong> | กำไรขั้นต้นเฉลี่ย <strong>45%</strong> | Break-even <strong>เดือนที่ 2</strong> | #1 Product: Portable Neck Fan (62% margin)</p>
+    `
+  },
+  podcast: {
+    title: 'พอดแคสต์: Dropshipping โอกาสทอง',
+    subtitle: 'podcast-generation • 2 Hosts • 56 Dialogues',
+    content: `
+      <h3>🎙️ รายละเอียด</h3>
+      <ul>
+        <li>ชื่อตอน: <strong>"Dropshipping ในไทย ทำไมถึงเป็นโอกาสทอง"</strong></li>
+        <li>รูปแบบ: 2 พิธีกรสนทนา (ภาษาไทย-อังกฤษมิกซ์)</li>
+        <li>ไฟล์: MP3 (~5MB) + Full Transcript</li>
+        <li>56 บทสนทนา ครบ 7 หัวข้อสำคัญ</li>
+      </ul>
+      <h3>📝 7 หัวข้อที่ครอบคลุม</h3>
+      <ul>
+        <li>ทำไม Dropshipping ถึงเหมาะกับไทย</li>
+        <li>CJ Dropshipping คืออะไร + วิธีเริ่มต้น</li>
+        <li>เลือกสินค้าอย่างไรให้ขายได้</li>
+        <li>Lazada vs Shopee vs TikTok Shop — เลือกอะไรดี</li>
+        <li>การตั้งราคาและ Margin ที่เหมาะสม</li>
+        <li>เทคนิคการตลาดแบบ $0 Budget</li>
+        <li>ความเสี่ยงและวิธีรับมือ</li>
+      </ul>
+      <h3>🎯 สร้างด้วย</h3>
+      <p>ใช้ edge-TTS สำหรับเสียง AI, ตัดต่อพร้อมใช้ — เหมาะสำหรับ Content Marketing และ Brand Authority</p>
+    `
+  },
+  video: {
+    title: 'วิดีโอโปรโมท',
+    subtitle: 'video-generation • Dark Neon Aesthetic',
+    content: `
+      <h3>🎬 Concept</h3>
+      <ul>
+        <li>สไตล์: <strong>Dark Neon</strong> — พื้นหลังดำ, แสงนีออนม่วง-ฟ้า</li>
+        <li>เนื้อหา: Product showcase + Thai headlines + Brand reveal</li>
+        <li>สร้างด้วย AI Video Generation (Kling via fal.ai)</li>
+      </ul>
+      <h3>🎯 ใช้งาน</h3>
+      <p>เหมาะสำหรับ Facebook Ads, TikTok Ads, Landing Page hero section, และ Social Media posts</p>
+    `
+  },
+  landing: {
+    title: 'Landing Page แบบ Responsive',
+    subtitle: 'frontend-design • 1,675 Lines • 7 Sections',
+    content: `
+      <h3>🌐 7 Sections</h3>
+      <ul>
+        <li><strong>Hero</strong> — Full-screen with mouse parallax effect</li>
+        <li><strong>Features</strong> — สินค้ายอดนิยม 6 ชิ้น</li>
+        <li><strong>How It Works</strong> — ขั้นตอนการสั่งซื้อ 4 steps</li>
+        <li><strong>Testimonials</strong> — รีวิวจากลูกค้า</li>
+        <li><strong>Categories</strong> — หมวดหมู่สินค้า</li>
+        <li><strong>FAQ</strong> — คำถามที่พบบ่อย</li>
+        <li><strong>CTA + Footer</strong> — ปุ่มสั่งซื้อ + ข้อมูลร้าน</li>
+      </ul>
+      <h3>✨ Features</h3>
+      <ul>
+        <li>Mouse Parallax Effect บน Hero Section</li>
+        <li>Scroll Reveal Animations ทุก section</li>
+        <li>Fully Responsive — Mobile/Tablet/Desktop</li>
+        <li>Single HTML file, ไม่ต้อง build — เปิดได้เลย</li>
+      </ul>
+    `
+  },
+  marketing: {
+    title: 'แพ็คคอนเทนต์การตลาด',
+    subtitle: 'social-content + image-generation • 19 Assets',
+    content: `
+      <h3>📦 19 ชิ้นงาน</h3>
+      <ul>
+        <li><strong>5 × Facebook Ads</strong> — Copy + Creative concept, A/B test ready</li>
+        <li><strong>5 × IG/TikTok Captions</strong> — Hashtag-optimized, engaging hooks</li>
+        <li><strong>3 × Listing Templates</strong> — Lazada/Shopee/TikTok Shop format</li>
+        <li><strong>1 × Brand Banner</strong> — Multi-platform size</li>
+        <li><strong>5 × Story Templates</strong> — Instagram/Facebook Stories</li>
+      </ul>
+      <h3>🎯 Strategy</h3>
+      <p>คอนเทนต์ออกแบบตาม <strong>AIDA Framework</strong> — Attention → Interest → Desire → Action ทุกชิ้นงานมี CTA ชัดเจน</p>
+    `
+  },
+  warroom: {
+    title: 'WAR ROOM — ศูนย์บัญชาการสินค้า',
+    subtitle: 'surprise-me • 1,907 Lines • Command Center',
+    content: `
+      <h3>🎯 Features</h3>
+      <ul>
+        <li><strong>Margin Calculator</strong> — คำนวณกำไรแบบ real-time, รองรับหลายสกุลเงิน</li>
+        <li><strong>Seasonal Heatmap</strong> — แสดงช่วงขายดีตลอดทั้งปีเป็นภาพ</li>
+        <li><strong>Competitor Gap Analysis</strong> — ช่องว่างที่คู่แข่งยังไม่ครอบคลุม</li>
+        <li><strong>Product Intelligence</strong> — ข้อมูลสินค้า, ราคา, margin, supplier ในหน้าเดียว</li>
+      </ul>
+      <h3>🔥 ทำไมถึงเรียก WAR ROOM</h3>
+      <p>1,907 บรรทัดของ interactive HTML — ออกแบบให้เป็นศูนย์บัญชาการตัดสินใจเรื่องสินค้า ไม่ต้องเปิดหลายแท็บ ข้อมูลทุกอย่างอยู่ในจอเดียว</p>
+    `
+  },
+  opensource: {
+    title: 'วิจัย Open Source Stack',
+    subtitle: 'github-deep-research • 60+ Repos • $0 SaaS',
+    content: `
+      <h3>🔬 ผลการวิจัย</h3>
+      <p>สำรวจ 60+ GitHub repositories เพื่อหา <strong>$0 SaaS stack</strong> ที่ทดแทนเครื่องมือเสียเงินได้ทั้งหมด</p>
+      <h3>🏆 4 Core Tools</h3>
+      <ul>
+        <li><code>n8n</code> — Workflow automation (แทน Zapier, ประหยัด $20-600/mo)</li>
+        <li><code>NocoDB</code> — Database + spreadsheet UI (แทน Airtable, ประหยัด $20-45/mo)</li>
+        <li><code>changedetection.io</code> — Price/stock monitoring (แทน Visualping, ประหยัด $15-40/mo)</li>
+        <li><code>Postiz</code> — Social media scheduling (แทน Buffer, ประหยัด $15-100/mo)</li>
+      </ul>
+      <h3>💰 Total Savings</h3>
+      <p><strong>$70-785/mo</strong> ที่ประหยัดได้จากการใช้ Open Source — คิดเป็น ฿840-9,420/เดือน</p>
+    `
+  },
+  skills: {
+    title: 'สำรวจ Skills ที่เกี่ยวข้อง',
+    subtitle: 'find-skills • 78 Found • 7 Installed • 7 Gaps',
+    content: `
+      <h3>🔍 ผลลัพธ์</h3>
+      <ul>
+        <li>ค้นพบ <strong>78 skills</strong> ที่เกี่ยวข้องกับ Dropshipping</li>
+        <li>ติดตั้ง 7 ตัวสำคัญทันที</li>
+        <li>ระบุ 7 gap opportunities สำหรับสร้าง custom skills</li>
+      </ul>
+      <h3>⚡ 7 Skills ที่ติดตั้ง</h3>
+      <ul>
+        <li><code>on-page-seo-auditor</code> — ตรวจ SEO หน้าสินค้า</li>
+        <li><code>social-content</code> — สร้างคอนเทนต์ Social Media</li>
+        <li><code>seo-content-writer</code> — เขียนบทความ SEO</li>
+        <li><code>calendar-automation</code> — จัดตาราง content calendar</li>
+        <li>+ 3 skills อื่นๆ</li>
+      </ul>
+      <h3>🎯 7 Gap Opportunities</h3>
+      <p>ระบุสิ่งที่ยังไม่มี skill รองรับ — เช่น CJ Dropshipping API integration, Lazada/Shopee listing optimizer, price monitoring automation</p>
+    `
+  },
+  assistant: {
+    title: 'Dropshipping Assistant — Custom Skill',
+    subtitle: 'skill-creator • 3,095 Lines • 31 Commands',
+    content: `
+      <h3>🤖 Overview</h3>
+      <p>Custom AI skill สร้างเฉพาะสำหรับ FT Dropshipping — 3,095 บรรทัดของโค้ด, 31 คำสั่ง CLI, 8 โมดูล</p>
+      <h3>📦 8 Modules</h3>
+      <ul>
+        <li><code>product</code> — จัดการสินค้า, เพิ่ม/ลบ/แก้ไข, คำนวณ margin</li>
+        <li><code>competitor</code> — ติดตามคู่แข่ง, เปรียบเทียบราคา</li>
+        <li><code>pricing</code> — ปรับราคาอัตโนมัติตาม margin target</li>
+        <li><code>inventory</code> — เช็คสต็อก CJ Dropshipping</li>
+        <li><code>analytics</code> — วิเคราะห์ยอดขาย, trends</li>
+        <li><code>marketing</code> — สร้าง content, campaign management</li>
+        <li><code>supplier</code> — จัดการ supplier, เปรียบเทียบราคา</li>
+        <li><code>report</code> — สร้างรายงานอัตโนมัติ</li>
+      </ul>
+      <h3>💾 SQLite Database</h3>
+      <p>ฐานข้อมูลในตัว — เก็บข้อมูลสินค้า, คู่แข่ง, ราคา, ยอดขาย ทั้งหมดใน local storage</p>
+    `
+  },
+  jarvis: {
+    title: 'Dealer — ตัวตน JARVIS ของ FT',
+    subtitle: 'bootstrap • SOUL.md • Custom AI Identity',
+    content: `
+      <h3>🧠 Dealer คือใคร</h3>
+      <p>AI Agent เฉพาะทางสำหรับ FT Dropshipping — มีบุคลิก, ความรู้เฉพาะทาง, และวิธีคิดที่ออกแบบมาเพื่อธุรกิจ Dropshipping โดยเฉพาะ</p>
+      <h3>📄 SOUL.md ประกอบด้วย</h3>
+      <ul>
+        <li><strong>Identity</strong> — ชื่อ "Dealer", บุคลิกเน้นเชิงรุก, ตัดสินใจเร็ว</li>
+        <li><strong>Domain Knowledge</strong> — Dropshipping, e-commerce Thailand, CJ Dropshipping, Lazada/Shopee/TikTok</li>
+        <li><strong>Communication Style</strong> — ภาษาไทยเป็นหลัก, mix อังกฤษเฉพาะศัพท์เทคนิค</li>
+        <li><strong>Decision Framework</strong> — ลำดับความสำคัญ, spending rules, risk management</li>
+        <li><strong>Tools & Skills</strong> — รู้จัก custom skill ทั้ง 31 commands</li>
+      </ul>
+      <h3>🚀 Day-1 Ready</h3>
+      <p>เปิดเครื่องมาวันแรกก็พร้อมทำงาน — ไม่ต้องสอนใหม่, ไม่ต้อง setup, แค่ใส่ SOUL.md ก็รู้ทุกอย่างเกี่ยวกับธุรกิจ FT</p>
+    `
+  }
+};
+
+// ===== MODAL FUNCTIONS =====
+function openModal(key) {
+  const data = modalData[key];
+  if (!data) return;
+  document.getElementById('modalTitle').textContent = data.title;
+  document.getElementById('modalSubtitle').textContent = data.subtitle;
+  document.getElementById('modalContent').innerHTML = data.content;
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === e.currentTarget) closeModalDirect();
+}
+
+function closeModalDirect() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModalDirect();
+});
+
+// ===== FILTER =====
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.d-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+
+    cards.forEach(card => {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.style.display = '';
+        requestAnimationFrame(() => card.classList.add('visible'));
+      } else {
+        card.classList.remove('visible');
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// ===== SCROLL REVEAL =====
+const observerOptions = { threshold: 0.08, rootMargin: '0px 0px -40px 0px' };
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const delay = entry.target.dataset.delay || 0;
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, delay * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+cards.forEach(card => observer.observe(card));
+
+// ===== NAV SCROLL EFFECT =====
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ===== COUNTER ANIMATION =====
+function animateCounters() {
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseInt(el.dataset.count);
+    const duration = 1500;
+    const start = performance.now();
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased);
+      if (progress < 1) requestAnimationFrame(update);
+    }
+
+    requestAnimationFrame(update);
+  });
+}
+
+// Run counters when hero is visible
+const heroObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    animateCounters();
+    heroObserver.disconnect();
+  }
+}, { threshold: 0.3 });
+
+heroObserver.observe(document.querySelector('.stats-bar'));
+
+// ===== MINI CHART =====
+function buildMiniChart(containerId, data, colors) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const max = Math.max(...data);
+  data.forEach((val, i) => {
+    const bar = document.createElement('div');
+    bar.className = 'mini-chart-bar';
+    bar.style.height = `${(val / max) * 100}%`;
+    bar.style.background = colors[i % colors.length];
+    bar.style.animationDelay = `${i * 0.05}s`;
+    container.appendChild(bar);
+  });
+}
+
+buildMiniChart('miniChart1',
+  [45, 62, 78, 95, 120, 145, 165, 190, 210, 235, 255, 280],
+  ['rgba(124,58,237,0.6)', 'rgba(99,70,220,0.6)', 'rgba(74,82,203,0.6)',
+   'rgba(50,94,187,0.6)', 'rgba(40,120,190,0.6)', 'rgba(30,140,195,0.6)',
+   'rgba(20,155,200,0.6)', 'rgba(15,165,205,0.6)', 'rgba(10,175,210,0.6)',
+   'rgba(8,180,212,0.6)', 'rgba(6,182,214,0.6)', 'rgba(6,182,212,0.7)']
+);
+
+// ===== WAVEFORM =====
+function buildWaveform(containerId, count) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  for (let i = 0; i < count; i++) {
+    const bar = document.createElement('div');
+    bar.className = 'waveform-bar';
+    const h = 8 + Math.random() * 24;
+    bar.style.height = `${h}px`;
+    bar.style.animationDelay = `${i * 0.06}s`;
+    bar.style.animationDuration = `${0.8 + Math.random() * 0.8}s`;
+    container.appendChild(bar);
+  }
+}
+
+buildWaveform('waveform1', 24);
+
+// ===== SMOOTH SCROLL FOR NAV LINKS =====
+document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
+
+// ===== ACTIVE NAV ON SCROLL =====
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + 200;
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    const id = section.getAttribute('id');
+    const link = document.querySelector(`.nav-link[href="#${id}"]`);
+    if (link) {
+      if (scrollY >= top && scrollY < top + height) {
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    }
+  });
+});
+
+</script>
+</body>
+</html>
