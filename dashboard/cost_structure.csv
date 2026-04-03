@@ -1,0 +1,11 @@
+cost_category,cost_item,monthly_avg_thb,pct_of_revenue,pct_of_total_cost,type,notes
+Product Costs,CJ Product Cost,62225,33.0,40.8,Variable,Average 33% of selling price
+Fulfillment,Shipping (per order),39500,20.9,25.9,Variable,฿100-150 per order avg ฿125
+Fulfillment,Packaging,13913,7.4,9.1,Variable,฿20-50 per order avg ฿35
+Platform Fees,Lazada Commission,4500,2.4,3.0,Variable,3-5% of GMV
+Platform Fees,Shopee Commission,4050,2.1,2.7,Variable,3-5% of GMV
+Marketing,Facebook Ads,15167,8.0,9.9,Semi-fixed,฿12K-18K/month
+Marketing,TikTok Ads,10833,5.7,7.1,Semi-fixed,฿8K-12K/month
+Operations,Tools & Subscriptions,2500,1.3,1.6,Fixed,CJ app Canva analytics etc
+Operations,Miscellaneous,4667,2.5,3.1,Fixed,Returns refunds misc
+Total,,157355,83.3,100.0,,

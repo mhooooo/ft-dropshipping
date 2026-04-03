@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FT Dropshipping — Marketing Content Pack</title>
+<style>
+  :root {
+    --purple: #7C3AED;
+    --purple-dark: #5B21B6;
+    --purple-light: #A78BFA;
+    --cyan: #06B6D4;
+    --cyan-dark: #0891B2;
+    --cyan-light: #67E8F9;
+    --bg: #0F0B1A;
+    --bg-card: #1A1333;
+    --bg-card-hover: #231A45;
+    --text: #F1F0F5;
+    --text-muted: #A09BB5;
+    --border: #2D2652;
+    --gradient: linear-gradient(135deg, var(--purple), var(--cyan));
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Noto Sans Thai', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    background: radial-gradient(ellipse at 30% 20%, rgba(124,58,237,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(6,182,212,0.2) 0%, transparent 60%),
+                var(--bg);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237C3AED' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 800px; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(124,58,237,0.15);
+    border: 1px solid rgba(124,58,237,0.3);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--purple-light);
+    margin-bottom: 24px;
+    backdrop-filter: blur(8px);
+  }
+  .hero-badge .dot {
+    width: 8px; height: 8px;
+    background: var(--cyan);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+    letter-spacing: -0.03em;
+  }
+  .hero p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat .num {
+    font-size: 2rem;
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-stat .label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== NAV ===== */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,11,26,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-inner {
+    display: flex;
+    gap: 4px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-width: max-content;
+  }
+  .nav a {
+    padding: 16px 20px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .nav a:hover, .nav a.active {
+    color: var(--text);
+    border-bottom-color: var(--purple);
+  }
+
+  /* ===== SECTIONS ===== */
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-icon {
+    width: 48px; height: 48px;
+    background: var(--gradient);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  .section-header .count {
+    font-size: 0.8rem;
+    color: var(--cyan);
+    background: rgba(6,182,212,0.1);
+    border: 1px solid rgba(6,182,212,0.2);
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  /* ===== CARD GRID ===== */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+  .grid-5 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .card:hover {
+    border-color: var(--purple);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(124,58,237,0.15);
+  }
+  .card-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+  }
+  .card-img.banner {
+    aspect-ratio: 16 / 9;
+  }
+  .card-img.story {
+    aspect-ratio: 9 / 16;
+    max-height: 500px;
+  }
+  .card-body {
+    padding: 20px;
+  }
+  .card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+  .tag-product { background: rgba(124,58,237,0.15); color: var(--purple-light); }
+  .tag-benefit { background: rgba(6,182,212,0.15); color: var(--cyan-light); }
+  .tag-urgency { background: rgba(239,68,68,0.15); color: #FCA5A5; }
+  .tag-testimonial { background: rgba(245,158,11,0.15); color: #FCD34D; }
+  .tag-seasonal { background: rgba(16,185,129,0.15); color: #6EE7B7; }
+  .tag-beauty { background: rgba(236,72,153,0.15); color: #F9A8D4; }
+  .tag-smarthome { background: rgba(99,102,241,0.15); color: #A5B4FC; }
+  .tag-pet { background: rgba(245,158,11,0.15); color: #FCD34D; }
+
+  .card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .card p, .card .caption {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .card .headline {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    padding: 12px 16px;
+    background: rgba(124,58,237,0.08);
+    border-left: 3px solid var(--purple);
+    border-radius: 0 8px 8px 0;
+  }
+  .card .body-copy {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    padding: 12px 0;
+    white-space: pre-line;
+  }
+  .card .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--gradient);
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 12px;
+    text-decoration: none;
+  }
+
+  /* ===== HASHTAGS ===== */
+  .hashtags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .hashtag {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(124,58,237,0.1);
+    color: var(--purple-light);
+    border: 1px solid rgba(124,58,237,0.2);
+  }
+
+  /* ===== LISTING TEMPLATES ===== */
+  .listing-template {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 24px;
+    transition: all 0.3s;
+  }
+  .listing-template:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 8px 30px rgba(6,182,212,0.1);
+  }
+  .listing-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .listing-num {
+    width: 36px; height: 36px;
+    background: var(--gradient);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+  .listing-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .listing-content {
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    padding: 20px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: 1px solid rgba(124,58,237,0.1);
+  }
+  .listing-content .highlight {
+    color: var(--cyan-light);
+    font-weight: 600;
+  }
+  .listing-content .emoji-line {
+    font-size: 0.95rem;
+  }
+
+  /* ===== BANNER SECTION ===== */
+  .banner-showcase {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  .banner-showcase:hover {
+    border-color: var(--purple);
+    box-shadow: 0 12px 40px rgba(124,58,237,0.15);
+  }
+  .banner-showcase img {
+    width: 100%;
+    display: block;
+  }
+  .banner-info {
+    padding: 24px;
+    background: var(--bg-card);
+  }
+
+  /* ===== COPY BUTTON ===== */
+  .copy-wrap { position: relative; }
+  .copy-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(124,58,237,0.3);
+    border: 1px solid rgba(124,58,237,0.4);
+    color: var(--text);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 2;
+  }
+  .copy-btn:hover { background: var(--purple); }
+  .copy-btn.copied { background: var(--cyan-dark); border-color: var(--cyan); }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  .footer strong {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .grid-5 { grid-template-columns: repeat(2, 1fr); }
+    .hero-stats { gap: 24px; }
+    .section { padding: 40px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Marketing Content Pack v1.0</div>
+    <h1>FT Dropshipping</h1>
+    <p>ชุดคอนเทนต์การตลาดครบวงจร — Facebook Ads, IG/TikTok, Lazada/Shopee, Story Templates พร้อมใช้งานทันที</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">19</div><div class="label">Total Assets</div></div>
+      <div class="hero-stat"><div class="num">5</div><div class="label">FB Ad Creatives</div></div>
+      <div class="hero-stat"><div class="num">5</div><div class="label">IG/TikTok Captions</div></div>
+      <div class="hero-stat"><div class="num">3</div><div class="label">Listing Templates</div></div>
+      <div class="hero-stat"><div class="num">5</div><div class="label">Story Templates</div></div>
+      <div class="hero-stat"><div class="num">1</div><div class="label">Storefront Banner</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#fb-ads" class="active">📢 Facebook Ads</a>
+    <a href="#ig-tiktok">📱 IG/TikTok</a>
+    <a href="#listings">🛒 Lazada/Shopee</a>
+    <a href="#banner">🖼️ Storefront Banner</a>
+    <a href="#stories">📲 Story Templates</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 1: FACEBOOK AD CREATIVES                               -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="fb-ads">
+  <div class="section-header">
+    <div class="section-icon">📢</div>
+    <div>
+      <h2>Facebook Ad Creatives</h2>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:4px;">5 แนวทาง Ad ที่ครอบคลุมทุก Funnel — ภาพ + Copy พร้อมยิงแอด</p>
+    </div>
+    <span class="count">5 Creatives</span>
+  </div>
+
+  <div class="grid-2">
+
+    <!-- AD 1: Product Showcase -->
+    <div class="card">
+      <img class="card-img" src="ft-fb-ad-1-product-showcase.jpg" alt="Product Showcase Ad">
+      <div class="card-body">
+        <span class="card-tag tag-product">🛍️ Product Showcase</span>
+        <div class="headline">🔥 ของดีราคาโดน เริ่มต้นแค่ ฿299! — Beauty, Smart Home, Pet ครบจบในร้านเดียว</div>
+        <div class="copy-wrap">
+          <button class="copy-btn" onclick="copyText(this)">📋 Copy</button>
+          <div class="body-copy">✨ FT Dropshipping — ร้านเดียวครบ ชีวิตง่ายขึ้นทันที!
+
+💜 Beauty Gadgets เริ่มต้น ฿299
+— เครื่องนวดหน้า LED, แปรงทำความสะอาดผิว, กระจกแต่งหน้าอัจฉริยะ
+
+🏠 Smart Home เริ่มต้น ฿499
+— ปลั๊กอัจฉริยะ, หลอดไฟ WiFi, เซ็นเซอร์อัตโนมัติ
+
+🐾 Pet Lovers เริ่มต้น ฿899
+— เครื่องให้อาหารอัตโนมัติ, น้ำพุแมว, ของเล่นอัจฉริยะ
+
+📦 ส่งฟรีทั่วไทย | 💰 เก็บเงินปลายทาง | ✅ รับประกันคุณภาพ
+
+🛒 สั่งเลย 👉 กดลิงก์ด้านล่าง!</div>
+        </div>
+        <a class="cta-btn" href="#">🛒 ช้อปเลย →</a>
+      </div>
+    </div>
+
+    <!-- AD 2: Benefit Focused -->
+    <div class="card">
+      <img class="card-img" src="ft-fb-ad-2-benefit-focused.jpg" alt="Benefit Focused Ad">
+      <div class="card-body">
+        <span class="card-tag tag-benefit">💡 Benefit Focused</span>
+        <div class="headline">เปลี่ยนบ้านธรรมดา ให้เป็นบ้านอัจฉริยะ เริ่มแค่ ฿499! 🏠✨</div>
+        <div class="copy-wrap">
+          <button class="copy-btn" onclick="copyText(this)">📋 Copy</button>
+          <div class="body-copy">จินตนาการดูนะ...
+
+🛋️ กลับถึงบ้าน ไฟเปิดเอง
+📱 สั่งปิดแอร์จากออฟฟิศได้
+⏰ ตั้งเวลาเครื่องใช้ไฟฟ้าทุกอย่าง
+
+ชีวิตจะง่ายขนาดไหน ถ้าบ้านทำทุกอย่างให้คุณเอง?
+
+Smart Home จาก FT Dropshipping:
+✅ ติดตั้งง่าย ไม่ต้องเดินสาย
+✅ คุม App ได้จากทุกที่
+✅ ประหยัดค่าไฟจริง ลดได้ 20-30%
+
+เริ่มต้นแค่ ฿499 — ไม่ต้องรวย ก็ Smart ได้ 💜
+
+📦 ส่งฟรี | COD ได้ | รับประกัน 30 วัน
+สั่งเลย 👇</div>
+        </div>
+        <a class="cta-btn" href="#">💡 ดูสินค้า Smart Home →</a>
+      </div>
+    </div>
+
+    <!-- AD 3: Urgency -->
+    <div class="card">
+      <img class="card-img" src="ft-fb-ad-3-urgency-sale.jpg" alt="Urgency Flash Sale Ad">
+      <div class="card-body">
+        <span class="card-tag tag-urgency">⚡ Urgency / Flash Sale</span>
+        <div class="headline">⚡ FLASH SALE 24 ชม. เท่านั้น! ลดสูงสุด 50% ⚡</div>
+        <div class="copy-wrap">
+          <button class="copy-btn" onclick="copyText(this)">📋 Copy</button>
+          <div class="body-copy">🚨🚨🚨 สต็อกมีจำกัด! หมดแล้วหมดเลย! 🚨🚨🚨
+
+⏱️ เหลือเวลาอีกแค่ 24 ชั่วโมง!
+
+🔥 Deal สุดปัง:
+💜 เครื่องนวดหน้า LED — จาก ฿599 เหลือ ฿299 (-50%)
+🏠 ปลั๊ก Smart WiFi — จาก ฿799 เหลือ ฿499 (-38%)
+🐾 เครื่องให้อาหาร Pet — จาก ฿1,499 เหลือ ฿899 (-40%)
+
+⚡ สิทธิพิเศษ Flash Sale:
+✅ ส่งฟรีทุกออเดอร์
+✅ ของแถมพิเศษ 100 คนแรก
+✅ เก็บเงินปลายทางได้
+
+⏰ อย่ารอ! ดีลนี้ไม่มีรอบสอง
+กดสั่ง ตอนนี้ 👇👇👇</div>
+        </div>
+        <a class="cta-btn" href="#" style="background:linear-gradient(135deg,#EF4444,#F97316);">⚡ สั่งซื้อด่วน! →</a>
+      </div>
+    </div>
+
+    <!-- AD 4: Testimonial -->
+    <div class="card">
+      <img class="card-img" src="ft-fb-ad-4-testimonial.jpg" alt="Testimonial Style Ad">
+      <div class="card-body">
+        <span class="card-tag tag-testimonial">⭐ Testimonial Style</span>
+        <div class="headline">⭐⭐⭐⭐⭐ "ซื้อมาใช้จริง ดีเกินคาด!"</div>
+        <div class="copy-wrap">
+          <button class="copy-btn" onclick="copyText(this)">📋 Copy</button>
+          <div class="body-copy">📸 รีวิวจากลูกค้าจริง 100%
+
+🗣️ คุณมิ้นท์ (กรุงเทพฯ):
+"สั่งเครื่องนวดหน้ามา ฿299 คิดว่าราคานี้คงธรรมดา... แต่พอใช้จริง ผิวหน้ากระชับขึ้นชัดเจนเลย! ของดีราคาถูกมาก 💜"
+
+🗣️ คุณเจมส์ (เชียงใหม่):
+"ปลั๊ก Smart Home ฿499 ใช้คุมไฟบ้านจากมือถือ สะดวกมาก ประหยัดค่าไฟด้วย 🏠"
+
+🗣️ คุณแป้ง (ขอนแก่น):
+"เครื่องให้อาหารน้องแมว ฿899 ตั้งเวลาได้ ไม่ต้องห่วงเวลาไปทำงาน ดีมากค่ะ 🐱"
+
+📦 คนรีวิวเยอะ = ของดีจริง!
+🛒 อยากลองใช้บ้าง? สั่งเลย 👇</div>
+        </div>
+        <a class="cta-btn" href="#" style="background:linear-gradient(135deg,#F59E0B,#EF4444);">⭐ ดูรีวิวเพิ่มเติม →</a>
+      </div>
+    </div>
+
+    <!-- AD 5: Seasonal Songkran -->
+    <div class="card">
+      <img class="card-img" src="ft-fb-ad-5-seasonal-songkran.jpg" alt="Seasonal Songkran Ad">
+      <div class="card-body">
+        <span class="card-tag tag-seasonal">🎉 Seasonal — สงกรานต์</span>
+        <div class="headline">🎉💦 Songkran Sale! ฉลองปีใหม่ไทย ลดทั้งร้าน! 💦🎉</div>
+        <div class="copy-wrap">
+          <button class="copy-btn" onclick="copyText(this)">📋 Copy</button>
+          <div class="body-copy">🌊 สงกรานต์นี้ FT Dropshipping จัดหนักจัดเต็ม!
+
+🎁 โปรฯ สงกรานต์ 10-16 เมษา:
+💜 Beauty Set สงกรานต์ ฿299 — พร้อมเที่ยว หน้าใสไม่กลัวแดด!
+🏠 Smart Home Starter ฿499 — กลับจากเล่นน้ำ บ้านเย็นรอ!
+🐾 Pet Care สงกรานต์ ฿899 — ไปเที่ยวได้ ไม่ต้องห่วงน้อง!
+
+🎊 พิเศษสงกรานต์:
+✅ ส่งฟรีทุกออเดอร์
+✅ สั่ง 2 ชิ้นขึ้นไป ลดเพิ่ม 10%
+✅ แจกโค้ดลดเพิ่ม "SONGKRAN24"
+
+💦 เล่นน้ำสนุก ช้อปก็สนุก!
+🛒 สั่งด่วน! ก่อนหมดโปรฯ 👇</div>
+        </div>
+        <a class="cta-btn" href="#" style="background:linear-gradient(135deg,#10B981,#06B6D4);">💦 ช้อปสงกรานต์ →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 2: IG / TIKTOK CAPTIONS                                -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="ig-tiktok" style="border-top:1px solid var(--border);">
+  <div class="section-header">
+    <div class="section-icon">📱</div>
+    <div>
+      <h2>Instagram / TikTok Captions</h2>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:4px;">5 แคปชั่นภาษาไทย พร้อม Hashtags — คัดลอกแล้วโพสต์ได้เลย</p>
+    </div>
+    <span class="count">5 Captions</span>
+  </div>
+
+  <div class="grid-2">
+
+    <!-- Caption 1: Beauty -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-beauty">💄 Beauty Gadgets</span>
+        <h3>Caption 1 — สาวๆ ต้องมี!</h3>
+        <div class="copy-wrap">
+          <button class="copy-btn" onclick="copyText(this)">📋 Copy</button>
+          <div class="body-copy">สาวๆ อยากหน้าใส ไม่ต้องไปสปา! ✨
+
+ลองใช้ Beauty Gadgets จาก FT Dropshipping ดูมั้ย?
+เครื่องนวดหน้า LED + แปรงคลีนซิ่ง + กระจก Smart
+เริ่มต้นแค่ ฿299 ถูกกว่าไปทำทรีทเมนต์เป็นไหนๆ 💜
+
+ใช้ทุกวัน หน้าเด้ง เนียน กระชับ!
+สั่งเลยนะคะ ลิงก์อยู่ใน Bio 💕
+
+📦 ส่งฟรีทั่วไทย | COD ได้ค่ะ</div>
+        </div>
+        <div class="hashtags">
+          <span class="hashtag">#FTDropshipping</span>
+          <span class="hashtag">#BeautyGadgets</span>
+          <span class="hashtag">#ของดีราคาถูก</span>
+          <span class="hashtag">#สกินแคร์</span>
+          <span class="hashtag">#หน้าใส</span>
+          <span class="hashtag">#รีวิวของดี</span>
+          <span class="hashtag">#เครื่องนวดหน้า</span>
+          <span class="hashtag">#ส่งฟรี</span>
+          <span class="hashtag">#ถูกและดี</span>
+          <span class="hashtag">#TikTokShop</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Caption 2: Smart Home -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-smarthome">🏠 Smart Home</span>
+        <h3>Caption 2 — บ้านอัจฉริยะ ราคาไม่จฉริยะ</h3>
+        <div class="copy-wrap">
+          <button class="copy-btn" onclick="copyText(this)">📋 Copy</button>
+          <div class="body-copy">เปลี่ยนบ้านให้ Smart แค่ ฿499! 🏠📱
+
+ไม่ต้องเป็นเศรษฐี ก็มี Smart Home ได้!
+— ปลั๊กอัจฉริยะ สั่งเปิด-ปิดจากมือถือ
+— หลอดไฟ WiFi เปลี่ยนสีได้ล้านสี
+— เซ็นเซอร์ตรวจจับ ปลอดภัยทุกวัน
+
+ประหยัดไฟได้ 20-30% แถมสะดวกสุดๆ ✅
+
+บอกเลย ลองแล้วจะติดใจ 💜
+สั่งได้เลยค่ะ ลิงก์ใน Bio!
+
+📦 ส่งฟรี | เก็บปลายทาง | รับประกัน 30 วัน</div>
+        </div>
+        <div class="hashtags">
+          <span class="hashtag">#SmartHome</span>
+          <span class="hashtag">#FTDropshipping</span>
+          <span class="hashtag">#บ้านอัจฉริยะ</span>
+          <span class="hashtag">#ปลั๊กอัจฉริยะ</span>
+          <span class="hashtag">#ของมันต้องมี</span>
+          <span class="hashtag">#ประหยัดไฟ</span>
+          <span class="hashtag">#ไอเดียแต่งบ้าน</span>
+          <span class="hashtag">#TechThailand</span>
+          <span class="hashtag">#IoT</span>
+          <span class="hashtag">#ชีวิตง่ายขึ้น</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Caption 3: Pet -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-pet">🐾 Pet Lovers</span>
+        <h3>Caption 3 — ทาสแมว/หมา ต้องดู!</h3>
+        <div class="copy-wrap">
+          <button class="copy-btn" onclick="copyText(this)">📋 Copy</button>
+          <div class="body-copy">ทาสแมว ทาสหมา มารวมตัวกัน! 🐱🐶
+
+ปัญหาน้องกิน ไม่ตรงเวลา หมดห่วง!
+เครื่องให้อาหารอัตโนมัติ + น้ำพุแมว + ของเล่น Smart
+ตั้งเวลาได้ ไปทำงานก็ไม่ต้องกลัวน้องหิว 🥺
+
+เริ่มแค่ ฿899 — คุ้มค่าทุกบาท เพื่อน้องรัก 💜
+
+Comment "สนใจ" ไว้เลย แอดมินทักหาค่ะ!
+หรือกดลิงก์ใน Bio สั่งได้เลย 🛒
+
+📦 ส่งฟรี | ของแท้ 100% | รับประกัน</div>
+        </div>
+        <div class="hashtags">
+          <span class="hashtag">#FTDropshipping</span>
+          <span class="hashtag">#ทาสแมว</span>
+          <span class="hashtag">#ทาสหมา</span>
+          <span class="hashtag">#PetGadgets</span>
+          <span class="hashtag">#เครื่องให้อาหารแมว</span>
+          <span class="hashtag">#น้ำพุแมว</span>
+          <span class="hashtag">#ของใช้สัตว์เลี้ยง</span>
+          <span class="hashtag">#แมวเหมียว</span>
+          <span class="hashtag">#PetLovers</span>
+          <span class="hashtag">#ส่งฟรี</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Caption 4: Unboxing/Review -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-testimonial">📦 Unboxing / Review</span>
+        <h3>Caption 4 — เปิดกล่องรีวิว</h3>
+        <div class="copy-wrap">
+          <button class="copy-btn" onclick="copyText(this)">📋 Copy</button>
+          <div class="body-copy">เปิดกล่องมาดู! 📦✨ สั่งจาก FT Dropshipping ได้อะไรบ้าง?
+
+มาแกะกล่อง 3 ชิ้น ยอดฮิตประจำเดือน!
+
+1️⃣ เครื่องนวดหน้า LED ฿299
+→ แพ็คมาดี ของแท้ ใช้ได้จริง!
+
+2️⃣ ปลั๊ก Smart WiFi ฿499
+→ เซ็ตอัพง่ายมาก 5 นาทีเสร็จ!
+
+3️⃣ น้ำพุแมว Auto ฿899
+→ น้องชอบมาก กินน้ำเยอะขึ้นเลย!
+
+สรุป: ของดี ราคาไม่แพง แพ็คดี ส่งไว ✅
+คะแนนจากใจ: ⭐⭐⭐⭐⭐
+
+🛒 อยากลองบ้าง? ลิงก์ใน Bio ค่ะ!</div>
+        </div>
+        <div class="hashtags">
+          <span class="hashtag">#Unboxing</span>
+          <span class="hashtag">#FTDropshipping</span>
+          <span class="hashtag">#แกะกล่อง</span>
+          <span class="hashtag">#รีวิวจริง</span>
+          <span class="hashtag">#ช้อปออนไลน์</span>
+          <span class="hashtag">#ของดีบอกต่อ</span>
+          <span class="hashtag">#TikTokรีวิว</span>
+          <span class="hashtag">#ของใช้ดี</span>
+          <span class="hashtag">#สั่งของออนไลน์</span>
+          <span class="hashtag">#แนะนำของดี</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Caption 5: Sale / Promo -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag tag-urgency">🔥 Sale / Promo</span>
+        <h3>Caption 5 — โปรแรง แจกโค้ด!</h3>
+        <div class="copy-wrap">
+          <button class="copy-btn" onclick="copyText(this)">📋 Copy</button>
+          <div class="body-copy">🔥 MEGA SALE เดือนนี้เดือนเดียว! 🔥
+
+FT Dropshipping จัดหนัก! 💥
+ลดทั้งร้าน สูงสุด 50% + โค้ดลดเพิ่ม!
+
+🎁 โค้ดพิเศษ: FTMEGA
+→ ลดเพิ่มอีก 10% ทุกออเดอร์!
+
+Best Sellers:
+💜 เครื่องนวดหน้า ฿299 (ปกติ ฿599)
+🏠 Smart Plug ฿499 (ปกติ ฿799)
+🐾 Pet Feeder ฿899 (ปกติ ฿1,499)
+
+⏰ โปรหมดสิ้นเดือนนี้เท่านั้น!
+ใครยังไม่สั่ง รีบเลยค่ะ!
+
+💜 กดลิงก์ใน Bio เลย!
+📦 ส่งฟรี | COD | รับประกัน</div>
+        </div>
+        <div class="hashtags">
+          <span class="hashtag">#FTDropshipping</span>
+          <span class="hashtag">#MegaSale</span>
+          <span class="hashtag">#ลดราคา</span>
+          <span class="hashtag">#โค้ดส่วนลด</span>
+          <span class="hashtag">#FlashSale</span>
+          <span class="hashtag">#โปรโมชั่น</span>
+          <span class="hashtag">#ช้อปออนไลน์</span>
+          <span class="hashtag">#ของถูก</span>
+          <span class="hashtag">#ส่งฟรี</span>
+          <span class="hashtag">#TikTokShop</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3: LAZADA / SHOPEE LISTING TEMPLATES                   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="listings" style="border-top:1px solid var(--border);">
+  <div class="section-header">
+    <div class="section-icon">🛒</div>
+    <div>
+      <h2>Lazada / Shopee Listing Templates</h2>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:4px;">3 เทมเพลตรายละเอียดสินค้า — Beauty, Smart Home, Pet พร้อมใส่ลงร้านได้ทันที</p>
+    </div>
+    <span class="count">3 Templates</span>
+  </div>
+
+  <!-- Template 1: Beauty -->
+  <div class="listing-template">
+    <div class="listing-header">
+      <div class="listing-num">1</div>
+      <div>
+        <div class="listing-title">💄 Beauty Gadgets — เครื่องนวดหน้า LED อัจฉริยะ</div>
+        <span class="card-tag tag-beauty" style="margin:4px 0 0;">Beauty Category</span>
+      </div>
+    </div>
+    <div class="copy-wrap">
+      <button class="copy-btn" onclick="copyText(this)">📋 Copy</button>
+      <div class="listing-content">📌 ชื่อสินค้า:
+เครื่องนวดหน้า LED อัจฉริยะ ยกกระชับ ลดริ้วรอย ผิวใส ใช้ง่าย ชาร์จ USB | FT Dropshipping
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+💰 ราคา: ฿299 (ปกติ ฿599)
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 รายละเอียดสินค้า:
+
+✨ เครื่องนวดหน้า LED อัจฉริยะ — สปาส่วนตัวที่บ้าน!
+
+🔹 คุณสมบัติเด่น:
+• แสง LED 3 โหมด: แดง (ลดริ้วรอย) / ฟ้า (ลดสิว) / เขียว (ปรับสีผิว)
+• ระบบสั่นนวด Micro-Current กระตุ้นคอลลาเจน
+• ชาร์จ USB-C ครั้งเดียวใช้ได้นาน 2 สัปดาห์
+• วัสดุ Food-Grade Silicone ปลอดภัยสำหรับผิวหน้า
+• น้ำหนักเบา พกพาสะดวก
+
+🔹 ประโยชน์:
+✅ ผิวหน้ากระชับ เรียบเนียนขึ้นใน 2 สัปดาห์
+✅ ลดริ้วรอย รอยแดง รูขุมขนกว้าง
+✅ กระตุ้นการดูดซึมครีมบำรุงได้ดีขึ้น 3 เท่า
+✅ ประหยัดค่าสปาเดือนละหลายพัน!
+
+🔹 ข้อมูลสินค้า:
+• ขนาด: 15 x 4.5 cm
+• น้ำหนัก: 85 กรัม
+• แบตเตอรี่: Li-ion 500mAh (ชาร์จ USB-C)
+• วัสดุ: ABS + Silicone
+• สี: ขาว / ชมพู / ม่วง
+
+🔹 ในกล่องประกอบด้วย:
+📦 ตัวเครื่อง x1
+📦 สาย USB-C x1
+📦 คู่มือภาษาไทย x1
+📦 กล่องพรีเมียม x1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚚 การจัดส่ง:
+• ส่งฟรีทั่วประเทศไทย!
+• จัดส่งภายใน 1-3 วันทำการ
+• ส่งจากคลังสินค้าในไทย
+• เก็บเงินปลายทาง (COD) ได้
+
+🔄 นโยบายเปลี่ยน/คืน:
+• เปลี่ยนสินค้าได้ภายใน 7 วัน
+• รับประกันสินค้า 30 วัน
+• คืนเงินเต็มจำนวนหากสินค้ามีปัญหา
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🏷️ Tags: เครื่องนวดหน้า, LED face massager, beauty gadget, สกินแคร์, ยกกระชับ, ลดริ้วรอย, นวดหน้า, ของใช้ผู้หญิง, ราคาถูก, ส่งฟรี</div>
+    </div>
+  </div>
+
+  <!-- Template 2: Smart Home -->
+  <div class="listing-template">
+    <div class="listing-header">
+      <div class="listing-num">2</div>
+      <div>
+        <div class="listing-title">🏠 Smart Home — ปลั๊กอัจฉริยะ WiFi</div>
+        <span class="card-tag tag-smarthome" style="margin:4px 0 0;">Smart Home Category</span>
+      </div>
+    </div>
+    <div class="copy-wrap">
+      <button class="copy-btn" onclick="copyText(this)">📋 Copy</button>
+      <div class="listing-content">📌 ชื่อสินค้า:
+ปลั๊กอัจฉริยะ WiFi Smart Plug สั่งเปิดปิดผ่าน App รองรับ Alexa/Google Home | FT Dropshipping
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+💰 ราคา: ฿499 (ปกติ ฿799)
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 รายละเอียดสินค้า:
+
+🏠 ปลั๊กอัจฉริยะ WiFi — เปลี่ยนเครื่องใช้ไฟฟ้าทุกอย่างให้ Smart ได้ทันที!
+
+🔹 คุณสมบัติเด่น:
+• เชื่อมต่อ WiFi 2.4GHz — คุมผ่าน App จากทุกที่ในโลก
+• รองรับ Alexa, Google Home, Siri Shortcuts — สั่งด้วยเสียงได้
+• ตั้งเวลาเปิด/ปิดอัตโนมัติ + ตั้ง Schedule รายวัน
+• แสดงสถิติการใช้ไฟฟ้า ช่วยประหยัดค่าไฟ
+• ป้องกันไฟกระชาก รองรับ 2,200W / 10A
+• ติดตั้งง่ายสุดๆ เสียบ → ต่อ WiFi → ใช้ได้เลย!
+
+🔹 ใช้ทำอะไรได้บ้าง?
+✅ คุมพัดลม/แอร์เปิดรอก่อนกลับบ้าน
+✅ ตั้งเวลาปิดทีวีอัตโนมัติตอนนอน
+✅ เปิดไฟบ้านจากมือถือเมื่อไม่อยู่บ้าน
+✅ ตั้งเครื่องชงกาแฟให้ทำงานตอนเช้า
+✅ ดูสถิติไฟเพื่อประหยัดค่าไฟ (ลดได้ 20-30%!)
+
+🔹 ข้อมูลสินค้า:
+• ขนาด: 5.5 x 5.5 x 7.5 cm
+• น้ำหนัก: 65 กรัม
+• WiFi: 2.4GHz (IEEE 802.11 b/g/n)
+• พิกัดไฟ: AC 110-240V, 10A, 2200W Max
+• App: Smart Life / Tuya (ฟรี)
+• สี: ขาว
+
+🔹 ในกล่องประกอบด้วย:
+📦 ปลั๊กอัจฉริยะ x1
+📦 คู่มือภาษาไทย-อังกฤษ x1
+📦 QR Code สำหรับดาวน์โหลด App x1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚚 การจัดส่ง:
+• ส่งฟรีทั่วประเทศไทย!
+• จัดส่งภายใน 1-3 วันทำการ
+• เก็บเงินปลายทาง (COD) ได้
+
+🔄 นโยบายเปลี่ยน/คืน:
+• รับประกัน 30 วัน เปลี่ยนตัวใหม่ทันที
+• เปลี่ยนคืนได้ภายใน 7 วัน
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🏷️ Tags: ปลั๊กอัจฉริยะ, smart plug, WiFi plug, Smart Home, Alexa, Google Home, ประหยัดไฟ, IoT, ปลั๊ก WiFi, ส่งฟรี</div>
+    </div>
+  </div>
+
+  <!-- Template 3: Pet -->
+  <div class="listing-template">
+    <div class="listing-header">
+      <div class="listing-num">3</div>
+      <div>
+        <div class="listing-title">🐾 Pet — เครื่องให้อาหารสัตว์เลี้ยงอัตโนมัติ</div>
+        <span class="card-tag tag-pet" style="margin:4px 0 0;">Pet Category</span>
+      </div>
+    </div>
+    <div class="copy-wrap">
+      <button class="copy-btn" onclick="copyText(this)">📋 Copy</button>
+      <div class="listing-content">📌 ชื่อสินค้า:
+เครื่องให้อาหารสัตว์เลี้ยงอัตโนมัติ ตั้งเวลา 6 มื้อ WiFi แมว/สุนัข จุ 4 ลิตร | FT Dropshipping
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+💰 ราคา: ฿899 (ปกติ ฿1,499)
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 รายละเอียดสินค้า:
+
+🐾 เครื่องให้อาหารอัตโนมัติ — ไปทำงาน ไปเที่ยว ไม่ต้องห่วงน้อง!
+
+🔹 คุณสมบัติเด่น:
+• ตั้งเวลาให้อาหารได้ 1-6 มื้อ/วัน ผ่าน App
+• จุอาหาร 4 ลิตร (ประมาณ 2 กก.) กินได้นาน 1-2 สัปดาห์
+• เชื่อมต่อ WiFi สั่งผ่าน App ได้ทุกที่
+• บันทึกเสียงเรียกน้องกินข้าวได้ 10 วินาที
+• ระบบล็อคกันน้องเปิดฝาเอง
+• มีแบตเตอรี่สำรอง ไฟดับก็ยังให้อาหารได้!
+• ถอดล้างง่าย ถาดอาหาร Food-Grade
+
+🔹 เหมาะสำหรับ:
+✅ ทาสแมว/หมา ที่ต้องไปทำงานทั้งวัน
+✅ ช่วงเทศกาล/ไปเที่ยว ไม่มีคนเลี้ยงน้อง
+✅ น้องที่ต้องกินตามเวลา/ควบคุมอาหาร
+✅ บ้านมีสัตว์เลี้ยงหลายตัว
+
+🔹 ข้อมูลสินค้า:
+• ขนาด: 21 x 21 x 32 cm
+• น้ำหนัก: 1.2 กก.
+• ความจุ: 4 ลิตร (2 กก.)
+• ไฟ: USB-C + แบตสำรอง (AA x3, ไม่รวม)
+• WiFi: 2.4GHz
+• App: Smart Life / Tuya (ฟรี)
+• เหมาะกับ: เม็ดอาหาร 2-15 มม.
+
+🔹 ในกล่องประกอบด้วย:
+📦 ตัวเครื่อง x1
+📦 ถาดอาหาร (ถอดล้างได้) x1
+📦 สาย USB-C x1
+📦 Adapter x1
+📦 สติ๊กเกอร์กันลื่น x1
+📦 คู่มือภาษาไทย x1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚚 การจัดส่ง:
+• ส่งฟรีทั่วประเทศไทย!
+• จัดส่งภายใน 1-3 วันทำการ
+• แพ็คกล่อง 2 ชั้น กันกระแทก
+• เก็บเงินปลายทาง (COD) ได้
+
+🔄 นโยบายเปลี่ยน/คืน:
+• รับประกัน 30 วัน
+• เปลี่ยนตัวใหม่ทันทีหากสินค้ามีปัญหา
+• คืนสินค้าได้ภายใน 7 วัน
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🏷️ Tags: เครื่องให้อาหารแมว, เครื่องให้อาหารสุนัข, auto pet feeder, ให้อาหารอัตโนมัติ, ทาสแมว, ทาสหมา, pet gadget, สัตว์เลี้ยง, ส่งฟรี, WiFi</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 4: STOREFRONT BANNER                                   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="banner" style="border-top:1px solid var(--border);">
+  <div class="section-header">
+    <div class="section-icon">🖼️</div>
+    <div>
+      <h2>Storefront Banner</h2>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:4px;">แบนเนอร์หน้าร้าน Lazada/Shopee — ขนาด 16:9 พร้อมใช้งาน</p>
+    </div>
+    <span class="count">1 Banner</span>
+  </div>
+
+  <div class="banner-showcase">
+    <img src="ft-storefront-banner.jpg" alt="FT Dropshipping Storefront Banner">
+    <div class="banner-info">
+      <h3 style="margin-bottom:8px;">FT Dropshipping — Official Storefront Banner</h3>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:12px;">
+        แบนเนอร์ Gradient สี Brand (#7C3AED → #06B6D4) พร้อมสินค้าไฮไลท์ — ใช้เป็นภาพหน้าร้าน Lazada, Shopee, TikTok Shop หรือ Facebook Page Cover
+      </p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <span class="card-tag tag-product">Lazada Cover</span>
+        <span class="card-tag tag-benefit">Shopee Cover</span>
+        <span class="card-tag tag-seasonal">TikTok Shop</span>
+        <span class="card-tag tag-smarthome">FB Page Cover</span>
+      </div>
+      <p style="color:var(--text-muted); font-size:0.82rem; margin-top:16px;">
+        💡 <strong>Tip:</strong> เพิ่มข้อความทับภาพด้วย Canva/Photoshop — วางชื่อร้าน + Tagline ฝั่งซ้าย (มี Negative Space ให้แล้ว)
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 5: SOCIAL MEDIA STORY TEMPLATES                        -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="stories" style="border-top:1px solid var(--border);">
+  <div class="section-header">
+    <div class="section-icon">📲</div>
+    <div>
+      <h2>Social Media Story Templates</h2>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:4px;">5 เทมเพลต Story สำหรับ IG/FB/TikTok — ขนาด 9:16 พร้อม Text Overlay Guide</p>
+    </div>
+    <span class="count">5 Stories</span>
+  </div>
+
+  <div class="grid-5">
+
+    <div class="card">
+      <img class="card-img story" src="ft-story-1-new-arrival.jpg" alt="Story: New Arrival">
+      <div class="card-body">
+        <span class="card-tag tag-product">🆕 New Arrival</span>
+        <h3>สินค้าใหม่มาแล้ว!</h3>
+        <p style="font-size:0.82rem;">วางข้อความ:<br>
+          <strong>บน:</strong> "🆕 NEW ARRIVAL"<br>
+          <strong>กลาง:</strong> ชื่อสินค้า + ราคา<br>
+          <strong>ล่าง:</strong> "Swipe Up เพื่อสั่งซื้อ →"
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img story" src="ft-story-2-poll.jpg" alt="Story: Poll">
+      <div class="card-body">
+        <span class="card-tag tag-benefit">📊 Poll / Engagement</span>
+        <h3>ชอบอันไหนมากกว่า?</h3>
+        <p style="font-size:0.82rem;">วางข้อความ:<br>
+          <strong>บน:</strong> "ชอบอันไหนมากกว่า? 🤔"<br>
+          <strong>กลาง:</strong> ใช้ Poll Sticker<br>
+          <strong>ล่าง:</strong> "โหวตเลย!"
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img story" src="ft-story-3-countdown.jpg" alt="Story: Countdown">
+      <div class="card-body">
+        <span class="card-tag tag-urgency">⏰ Countdown Sale</span>
+        <h3>นับถอยหลัง Flash Sale!</h3>
+        <p style="font-size:0.82rem;">วางข้อความ:<br>
+          <strong>บน:</strong> "⚡ FLASH SALE ⚡"<br>
+          <strong>กลาง:</strong> Countdown Sticker<br>
+          <strong>ล่าง:</strong> "อย่าพลาด! กดลิงก์เลย"
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img story" src="ft-story-4-unboxing.jpg" alt="Story: Unboxing">
+      <div class="card-body">
+        <span class="card-tag tag-testimonial">📦 Unboxing</span>
+        <h3>เปิดกล่อง! มาดูข้างในกัน</h3>
+        <p style="font-size:0.82rem;">วางข้อความ:<br>
+          <strong>บน:</strong> "📦 UNBOXING TIME!"<br>
+          <strong>กลาง:</strong> ชื่อสินค้า<br>
+          <strong>ล่าง:</strong> "สนใจมั้ย? DM มาเลย! 💬"
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img story" src="ft-story-5-review.jpg" alt="Story: Review">
+      <div class="card-body">
+        <span class="card-tag tag-seasonal">⭐ Customer Review</span>
+        <h3>ลูกค้ารีวิวจริง!</h3>
+        <p style="font-size:0.82rem;">วางข้อความ:<br>
+          <strong>บน:</strong> "⭐⭐⭐⭐⭐"<br>
+          <strong>กลาง:</strong> คำรีวิวลูกค้า<br>
+          <strong>ล่าง:</strong> "อยากลองบ้าง? กดลิงก์!"
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  <p>Built with 💜 by <strong>Monie</strong> for <strong>FT Dropshipping</strong> — April 2026</p>
+  <p style="margin-top:8px; font-size:0.78rem; color:var(--text-muted);">Brand Colors: #7C3AED / #06B6D4 | Target: Thai 18-35 | Products: Beauty · Smart Home · Pet</p>
+</div>
+
+<script>
+function copyText(btn) {
+  const wrap = btn.closest('.copy-wrap');
+  const content = wrap.querySelector('.body-copy, .listing-content');
+  if (!content) return;
+  
+  const text = content.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✅ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(() => {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '✅ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+// Smooth scroll nav
+document.querySelectorAll('.nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelectorAll('.nav a').forEach(x => x.classList.remove('active'));
+      a.classList.add('active');
+    }
+  });
+});
+
+// Active nav on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      document.querySelectorAll('.nav a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.section[id]').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

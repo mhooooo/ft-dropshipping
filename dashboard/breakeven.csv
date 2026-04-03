@@ -1,0 +1,14 @@
+metric,value,unit,notes
+Fixed Monthly Costs,22500,THB/month,Tools + subscriptions + misc baseline
+Semi-Fixed Monthly Costs,28000,THB/month,Ad spend (FB + TikTok baseline)
+Total Fixed Costs,50500,THB/month,Must cover before profit
+Average Selling Price,465,THB/order,Weighted average across product mix
+Variable Cost Per Order,273,THB/order,Product + shipping + packaging + platform fee
+Contribution Margin Per Order,192,THB/order,Revenue minus variable costs
+Contribution Margin Percentage,41.3,%,Per order contribution
+Break-Even Orders Per Month,263,orders,Fixed costs / contribution margin
+Break-Even Revenue Per Month,122295,THB/month,Break-even orders x avg price
+Break-Even Orders Per Day,8.8,orders/day,263 / 30 days
+Break-Even Month (Base),2,month,When cumulative profit turns positive
+Break-Even Month (Conservative),3,month,Conservative scenario
+Break-Even Month (Optimistic),1,month,Profitable from month 1

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FT Dropshipping — Dropshipping Assistant Skill</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#0A0A0F;color:#F1F0F5;font-family:'IBM Plex Sans Thai',sans-serif;line-height:1.7;padding:2rem}
+.container{max-width:900px;margin:0 auto}
+a{color:#67E8F9;text-decoration:none}
+a:hover{text-decoration:underline}
+.back{display:inline-block;margin-bottom:2rem;font-size:0.9rem;opacity:0.7}
+h1{font-family:'Outfit',sans-serif;font-size:2.5rem;background:linear-gradient(135deg,#7C3AED,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.5rem}
+h2{font-family:'Outfit',sans-serif;color:#A78BFA;font-size:1.5rem;margin:2rem 0 1rem;border-bottom:1px solid rgba(124,58,237,0.2);padding-bottom:0.5rem}
+h3{color:#67E8F9;margin:1.5rem 0 0.5rem}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+th{background:rgba(124,58,237,0.2);text-align:left;padding:0.75rem 1rem;font-family:'Outfit',sans-serif}
+td{padding:0.75rem 1rem;border-bottom:1px solid rgba(255,255,255,0.05)}
+tr:hover td{background:rgba(124,58,237,0.05)}
+code{font-family:'JetBrains Mono',monospace;background:rgba(124,58,237,0.15);padding:0.15em 0.4em;border-radius:4px;font-size:0.85em}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0}
+.stat{background:rgba(17,17,24,0.6);border:1px solid rgba(124,58,237,0.15);border-radius:14px;padding:1.25rem;text-align:center}
+.stat-num{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:700;background:linear-gradient(135deg,#7C3AED,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.85rem;color:#9594A3;margin-top:0.25rem}
+.file-tree{background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.15);border-radius:12px;padding:1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.85rem;line-height:1.8;white-space:pre}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="/" class="back">← Back to Hub</a>
+<h1>Dropshipping Assistant</h1>
+<p style="color:#9594A3;margin-bottom:2rem">Custom DeerFlow skill built for FT Dropshipping — a complete CLI toolkit for managing the business</p>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">3,095</div><div class="stat-label">Lines of Code</div></div>
+  <div class="stat"><div class="stat-num">31</div><div class="stat-label">CLI Commands</div></div>
+  <div class="stat"><div class="stat-num">8</div><div class="stat-label">Modules</div></div>
+  <div class="stat"><div class="stat-num">14</div><div class="stat-label">SQLite Tables</div></div>
+</div>
+
+<h2>8 Modules</h2>
+<table>
+<tr><th>#</th><th>Module</th><th>Commands</th><th>What It Does</th></tr>
+<tr><td>1</td><td><strong>Product Research</strong></td><td><code>product-search</code> <code>trending</code> <code>margin-calc</code></td><td>Search CJ catalog, track sales velocity, cross-platform margin calculator</td></tr>
+<tr><td>2</td><td><strong>Order Management</strong></td><td><code>order-add</code> <code>order-list</code> <code>order-status</code></td><td>Full lifecycle: pending → shipped → delivered. Auto-calculates COGS + fees</td></tr>
+<tr><td>3</td><td><strong>Pricing Engine</strong></td><td><code>price-calc</code> <code>price-set</code> <code>price-list</code></td><td>Auto-optimal price with Thai ×9 rounding (฿389, ฿599). 3-platform comparison</td></tr>
+<tr><td>4</td><td><strong>Competitor Tracker</strong></td><td><code>competitor-add</code> <code>competitor-check</code></td><td>Monitor competitor prices, historical tracking, undercut alerts</td></tr>
+<tr><td>5</td><td><strong>Ad Spend ROI</strong></td><td><code>ad-add</code> <code>ad-roi</code> <code>ad-report</code></td><td>Track campaigns across Lazada/Shopee/TikTok/Facebook. True profit ROI</td></tr>
+<tr><td>6</td><td><strong>Inventory Alerts</strong></td><td><code>stock-set</code> <code>stock-check</code></td><td>CJ stock monitoring, reorder thresholds, days-remaining projections</td></tr>
+<tr><td>7</td><td><strong>Thai Templates</strong></td><td><code>template-list</code> <code>template-gen</code></td><td>8 pre-written Thai messages with ครับ/ค่ะ toggle, variable substitution</td></tr>
+<tr><td>8</td><td><strong>Daily Dashboard</strong></td><td><code>dashboard</code></td><td>Revenue, profit, platform split, top products, ad ROAS, stock alerts</td></tr>
+</table>
+
+<h2>Test Results</h2>
+<table>
+<tr><th>Test</th><th>Input</th><th>Result</th></tr>
+<tr><td>Margin calc</td><td>Neck fan $2.30 CJ → ฿399</td><td>45.3% Lazada, 47.5% TikTok ✅</td></tr>
+<tr><td>Pricing engine</td><td>40% target margin</td><td>฿359 Lazada, ฿379 Shopee, ฿349 TikTok ✅</td></tr>
+<tr><td>Thai template</td><td>Order confirmation</td><td>Natural Thai with ครับ endings ✅</td></tr>
+<tr><td>Ad ROI</td><td>฿1,500 spend → ฿4,788 revenue</td><td>3.19x ROAS, ฿1,133 profit ✅</td></tr>
+</table>
+
+<h2>File Structure</h2>
+<div class="file-tree">dropshipping-assistant/
+├── SKILL.md              (257 lines — skill instructions)
+├── scripts/
+│   ├── engine.py         (1,815 lines — 31 CLI commands)
+│   └── init_db.py        (549 lines — 14 tables + seed data)
+└── references/
+    ├── cj_api.md         (175 lines — API endpoints + shipping)
+    ├── platform_fees.md  (164 lines — Lazada/Shopee/TikTok fees)
+    └── thai_templates.md (135 lines — templates + quick replies)</div>
+
+<h2>Key Design Decisions</h2>
+<ul style="padding-left:1.5rem;margin:1rem 0">
+<li><strong>SQLite over JSON</strong> — 14 indexed tables for relational queries</li>
+<li><strong>Platform fees baked in</strong> — Lazada/Shopee/TikTok commissions auto-applied</li>
+<li><strong>Thai ×9 pricing</strong> — <code>round_thai_price()</code> for ฿389/฿599 format</li>
+<li><strong>CJ → THB auto-conversion</strong> — configurable USD rate (default 36.5)</li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FT Dropshipping — Financial Analysis Dashboard</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --bg-primary: #0a0e1a;
+    --bg-card: #111827;
+    --bg-card-hover: #1a2332;
+    --border: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent-cyan: #06b6d4;
+    --accent-purple: #a855f7;
+    --accent-green: #10b981;
+    --accent-red: #ef4444;
+    --accent-amber: #f59e0b;
+    --accent-blue: #3b82f6;
+    --gradient-hero: linear-gradient(135deg, #06b6d4 0%, #a855f7 50%, #ec4899 100%);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #0a0e1a 0%, #1a1040 40%, #0d2137 100%);
+    padding: 60px 40px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(6,182,212,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(168,85,247,0.08) 0%, transparent 50%);
+    animation: heroGlow 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes heroGlow {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-2%, -2%) rotate(3deg); }
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(6,182,212,0.1);
+    border: 1px solid rgba(6,182,212,0.3);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 13px;
+    color: var(--accent-cyan);
+    font-weight: 500;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* KPI Grid */
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin: 0 40px 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    top: -20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .kpi-card {
+    background: var(--bg-card);
+    padding: 24px 20px;
+    text-align: center;
+    transition: background 0.3s;
+  }
+
+  .kpi-card:hover { background: var(--bg-card-hover); }
+
+  .kpi-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .kpi-value {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  .kpi-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  .cyan { color: var(--accent-cyan); }
+  .purple { color: var(--accent-purple); }
+  .green { color: var(--accent-green); }
+  .red { color: var(--accent-red); }
+  .amber { color: var(--accent-amber); }
+  .blue { color: var(--accent-blue); }
+
+  /* Main Content */
+  .container { max-width: 1400px; margin: 0 auto; padding: 0 40px 60px; }
+
+  /* Section Headers */
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .section-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .section-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-left: 50px;
+    margin-top: -16px;
+    margin-bottom: 24px;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .card:hover {
+    border-color: rgba(6,182,212,0.3);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  }
+
+  .card-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .card-body { padding: 24px; }
+
+  .card-body img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* Grid layouts */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .full-width { grid-column: 1 / -1; }
+
+  /* Tables */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .data-table thead th {
+    background: rgba(6,182,212,0.08);
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--accent-cyan);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .data-table tbody td {
+    padding: 11px 14px;
+    border-bottom: 1px solid rgba(30,41,59,0.5);
+    color: var(--text-secondary);
+  }
+
+  .data-table tbody tr:hover td {
+    background: rgba(6,182,212,0.03);
+    color: var(--text-primary);
+  }
+
+  .data-table .num {
+    text-align: right;
+    font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    font-size: 12px;
+  }
+
+  .data-table .highlight {
+    color: var(--accent-cyan);
+    font-weight: 600;
+  }
+
+  .data-table .positive { color: var(--accent-green); font-weight: 600; }
+  .data-table .negative { color: var(--accent-red); font-weight: 600; }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .tag-green { background: rgba(16,185,129,0.15); color: #34d399; }
+  .tag-amber { background: rgba(245,158,11,0.15); color: #fbbf24; }
+  .tag-red { background: rgba(239,68,68,0.15); color: #f87171; }
+  .tag-cyan { background: rgba(6,182,212,0.15); color: #22d3ee; }
+  .tag-purple { background: rgba(168,85,247,0.15); color: #c084fc; }
+
+  /* Break-even box */
+  .breakeven-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .be-card {
+    background: rgba(6,182,212,0.05);
+    border: 1px solid rgba(6,182,212,0.15);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .be-card .be-val {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent-cyan);
+    margin-bottom: 4px;
+  }
+
+  .be-card .be-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  /* Insight boxes */
+  .insight-box {
+    background: linear-gradient(135deg, rgba(6,182,212,0.08) 0%, rgba(168,85,247,0.08) 100%);
+    border: 1px solid rgba(6,182,212,0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 16px;
+  }
+
+  .insight-box h4 {
+    font-size: 13px;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .insight-box p, .insight-box li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .insight-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .insight-box ul li::before {
+    content: '→';
+    color: var(--accent-cyan);
+    margin-right: 8px;
+    font-weight: 700;
+  }
+
+  /* Scenario comparison */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .scenario-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scenario-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+
+  .scenario-card.conservative::before { background: var(--accent-red); }
+  .scenario-card.base::before { background: var(--accent-cyan); }
+  .scenario-card.optimistic::before { background: var(--accent-green); }
+
+  .scenario-card .sc-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .scenario-card.conservative .sc-title { color: var(--accent-red); }
+  .scenario-card.base .sc-title { color: var(--accent-cyan); }
+  .scenario-card.optimistic .sc-title { color: var(--accent-green); }
+
+  .sc-metric {
+    margin-bottom: 14px;
+  }
+
+  .sc-metric .sc-val {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+
+  .sc-metric .sc-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  .footer a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+  }
+
+  /* Progress bar */
+  .margin-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+
+  .margin-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.8s ease;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .kpi-strip { grid-template-columns: repeat(3, 1fr); margin: 0 20px 30px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .scenario-grid { grid-template-columns: 1fr; }
+    .breakeven-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 20px 40px; }
+    .hero { padding: 40px 20px 30px; }
+    .hero h1 { font-size: 28px; }
+  }
+
+  @media (max-width: 640px) {
+    .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Nav tabs */
+  .nav-tabs {
+    display: flex;
+    gap: 4px;
+    background: rgba(17,24,39,0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 4px;
+    margin: 0 40px 32px;
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    overflow-x: auto;
+  }
+
+  .nav-tab {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    border: none;
+    background: none;
+    font-family: inherit;
+  }
+
+  .nav-tab:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+  .nav-tab.active { color: white; background: rgba(6,182,212,0.2); border: 1px solid rgba(6,182,212,0.3); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">📊 Financial Analysis — Q2 2026</div>
+    <h1>FT Dropshipping</h1>
+    <p>Thai market dropshipping via CJ Dropshipping → Lazada + Shopee Thailand. ฿300–1,000 price range, 45–65% target margins, 20–30 products.</p>
+  </div>
+</div>
+
+<!-- KPI STRIP -->
+<div class="kpi-strip">
+  <div class="kpi-card">
+    <div class="kpi-label">Year 1 Revenue (Base)</div>
+    <div class="kpi-value cyan">฿2.27M</div>
+    <div class="kpi-sub">~฿189K/month avg</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Year 1 Net Profit</div>
+    <div class="kpi-value green">฿690K</div>
+    <div class="kpi-sub">30.4% net margin</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Break-Even</div>
+    <div class="kpi-value amber">Month 2</div>
+    <div class="kpi-sub">~9 orders/day</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Avg Margin/Order</div>
+    <div class="kpi-value purple">฿192</div>
+    <div class="kpi-sub">41.3% contribution</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Year 3 Revenue (Base)</div>
+    <div class="kpi-value blue">฿9.05M</div>
+    <div class="kpi-sub">4× growth from Y1</div>
+  </div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-tabs">
+  <button class="nav-tab active" onclick="scrollToSection('products')">① Products</button>
+  <button class="nav-tab" onclick="scrollToSection('revenue')">② Revenue</button>
+  <button class="nav-tab" onclick="scrollToSection('cashflow')">③ Cash Flow</button>
+  <button class="nav-tab" onclick="scrollToSection('breakeven')">④ Break-Even</button>
+  <button class="nav-tab" onclick="scrollToSection('costs')">⑤ Costs</button>
+  <button class="nav-tab" onclick="scrollToSection('risks')">⑥ Risks & Notes</button>
+</div>
+
+<div class="container">
+
+<!-- SECTION 1: PRODUCT MARGIN ANALYSIS -->
+<div class="section" id="products">
+  <div class="section-header">
+    <div class="section-num" style="background: var(--accent-cyan);">1</div>
+    <h2>Product Margin Analysis — Top 10</h2>
+  </div>
+  <p class="section-desc">Thai market sweet spot ฿300–1,000. All costs include CJ product + shipping ฿100–150 + packaging ฿20–50 + platform fees 3–5%.</p>
+
+  <div class="card" style="margin-bottom: 24px;">
+    <div class="card-header">
+      <h3>Product Profitability Matrix</h3>
+      <span class="tag tag-cyan">10 Products</span>
+    </div>
+    <div class="card-body" style="overflow-x: auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Product</th>
+            <th>Category</th>
+            <th>CJ Cost</th>
+            <th>Sell Price</th>
+            <th>Ship + Pkg</th>
+            <th>Platform Fee</th>
+            <th>Net Margin</th>
+            <th>Margin %</th>
+            <th>Est. Units/mo</th>
+            <th>Monthly Rev</th>
+            <th>Trend</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><strong style="color: var(--text-primary)">Portable Blender/Juicer 400ml</strong></td>
+            <td><span class="tag tag-amber">Kitchen</span></td>
+            <td class="num">฿130</td>
+            <td class="num highlight">฿699</td>
+            <td class="num">฿190</td>
+            <td class="num">฿28</td>
+            <td class="num positive">฿351</td>
+            <td class="num"><div>50.2%</div><div class="margin-bar"><div class="margin-bar-fill" style="width: 50.2%; background: var(--accent-green)"></div></div></td>
+            <td class="num">90</td>
+            <td class="num highlight">฿62,910</td>
+            <td class="num"><span class="tag tag-green">🔥 97</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><strong style="color: var(--text-primary)">Mini Portable Fan (Neck)</strong></td>
+            <td><span class="tag tag-purple">Lifestyle</span></td>
+            <td class="num">฿85</td>
+            <td class="num highlight">฿499</td>
+            <td class="num">฿150</td>
+            <td class="num">฿20</td>
+            <td class="num positive">฿244</td>
+            <td class="num"><div>48.9%</div><div class="margin-bar"><div class="margin-bar-fill" style="width: 48.9%; background: var(--accent-green)"></div></div></td>
+            <td class="num">110</td>
+            <td class="num highlight">฿54,890</td>
+            <td class="num"><span class="tag tag-green">🔥 96</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><strong style="color: var(--text-primary)">LED Teeth Whitening Kit</strong></td>
+            <td><span class="tag tag-cyan">Beauty</span></td>
+            <td class="num">฿150</td>
+            <td class="num highlight">฿799</td>
+            <td class="num">฿185</td>
+            <td class="num">฿36</td>
+            <td class="num positive">฿428</td>
+            <td class="num"><div>53.6%</div><div class="margin-bar"><div class="margin-bar-fill" style="width: 53.6%; background: var(--accent-green)"></div></div></td>
+            <td class="num">45</td>
+            <td class="num">฿35,955</td>
+            <td class="num"><span class="tag tag-green">90</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><strong style="color: var(--text-primary)">Electric Gua Sha Massager</strong></td>
+            <td><span class="tag tag-cyan">Beauty</span></td>
+            <td class="num">฿120</td>
+            <td class="num highlight">฿599</td>
+            <td class="num">฿165</td>
+            <td class="num">฿27</td>
+            <td class="num positive">฿287</td>
+            <td class="num"><div>47.9%</div><div class="margin-bar"><div class="margin-bar-fill" style="width: 47.9%; background: var(--accent-green)"></div></div></td>
+            <td class="num">60</td>
+            <td class="num">฿35,940</td>
+            <td class="num"><span class="tag tag-green">🔥 95</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><strong style="color: var(--text-primary)">Pet Hair Remover Roller</strong></td>
+            <td><span class="tag tag-green">Pet</span></td>
+            <td class="num">฿55</td>
+            <td class="num highlight">฿349</td>
+            <td class="num">฿125</td>
+            <td class="num">฿12</td>
+            <td class="num positive">฿157</td>
+            <td class="num"><div>44.9%</div><div class="margin-bar"><div class="margin-bar-fill" style="width: 44.9%; background: var(--accent-green)"></div></div></td>
+            <td class="num">120</td>
+            <td class="num">฿41,880</td>
+            <td class="num"><span class="tag tag-green">88</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><strong style="color: var(--text-primary)">Magnetic Phone Car Mount</strong></td>
+            <td><span class="tag tag-blue">Electronics</span></td>
+            <td class="num">฿35</td>
+            <td class="num highlight">฿299</td>
+            <td class="num">฿120</td>
+            <td class="num">฿10</td>
+            <td class="num positive">฿134</td>
+            <td class="num"><div>44.7%</div><div class="margin-bar"><div class="margin-bar-fill" style="width: 44.7%; background: var(--accent-cyan)"></div></div></td>
+            <td class="num">100</td>
+            <td class="num">฿29,900</td>
+            <td class="num"><span class="tag tag-amber">82</span></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><strong style="color: var(--text-primary)">Acne Pimple Patch (72pcs)</strong></td>
+            <td><span class="tag tag-cyan">Beauty</span></td>
+            <td class="num">฿30</td>
+            <td class="num highlight">฿249</td>
+            <td class="num">฿120</td>
+            <td class="num">฿9</td>
+            <td class="num positive">฿90</td>
+            <td class="num"><div>36.3%</div><div class="margin-bar"><div class="margin-bar-fill" style="width: 36.3%; background: var(--accent-amber)"></div></div></td>
+            <td class="num">180</td>
+            <td class="num highlight">฿44,820</td>
+            <td class="num"><span class="tag tag-amber">85</span></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td><strong style="color: var(--text-primary)">USB LED Night Light</strong></td>
+            <td><span class="tag tag-amber">Home</span></td>
+            <td class="num">฿40</td>
+            <td class="num highlight">฿259</td>
+            <td class="num">฿120</td>
+            <td class="num">฿8</td>
+            <td class="num positive">฿91</td>
+            <td class="num"><div>35.2%</div><div class="margin-bar"><div class="margin-bar-fill" style="width: 35.2%; background: var(--accent-amber)"></div></div></td>
+            <td class="num">150</td>
+            <td class="num">฿38,850</td>
+            <td class="num"><span class="tag tag-amber">78</span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td><strong style="color: var(--text-primary)">Teeth Whitening Strips (14pcs)</strong></td>
+            <td><span class="tag tag-cyan">Beauty</span></td>
+            <td class="num">฿95</td>
+            <td class="num highlight">฿399</td>
+            <td class="num">฿150</td>
+            <td class="num">฿16</td>
+            <td class="num positive">฿138</td>
+            <td class="num"><div>34.6%</div><div class="margin-bar"><div class="margin-bar-fill" style="width: 34.6%; background: var(--accent-amber)"></div></div></td>
+            <td class="num">80</td>
+            <td class="num">฿31,920</td>
+            <td class="num"><span class="tag tag-green">92</span></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><strong style="color: var(--text-primary)">Silicone Dish Sponge (5pk)</strong></td>
+            <td><span class="tag tag-amber">Kitchen</span></td>
+            <td class="num">฿25</td>
+            <td class="num highlight">฿199</td>
+            <td class="num">฿120</td>
+            <td class="num">฿6</td>
+            <td class="num">฿48</td>
+            <td class="num"><div>24.1%</div><div class="margin-bar"><div class="margin-bar-fill" style="width: 24.1%; background: var(--accent-red)"></div></div></td>
+            <td class="num">200</td>
+            <td class="num">฿39,800</td>
+            <td class="num"><span class="tag tag-amber">70</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header"><h3>Margin % by Product</h3></div>
+      <div class="card-body">
+        <img src="https://mdn.alipayobjects.com/one_clip/afts/img/gTSQRKhfzwoAAAAASOAAAAgAoEACAQFr/original" alt="Margin Analysis">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h3>Monthly Revenue by Product</h3></div>
+      <div class="card-body">
+        <img src="https://mdn.alipayobjects.com/one_clip/afts/img/iJGrQrRXtLIAAAAASmAAAAgAoEACAQFr/original" alt="Revenue by Product">
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <h4>💡 Product Strategy Insights</h4>
+    <ul>
+      <li><strong>A-tier (50%+ margin):</strong> Portable Juicer (50.2%), LED Whitening Kit (53.6%) — highest per-unit profit, prioritize ad spend here</li>
+      <li><strong>B-tier (44–49%):</strong> Neck Fan, Gua Sha, Pet Remover, Phone Mount — solid margins + volume = profit engines</li>
+      <li><strong>Volume plays:</strong> Pimple Patch & Sponge — lower margins but 180–200 units/mo, good for store traffic & reviews</li>
+      <li><strong>⚠️ Drop candidate:</strong> Silicone Sponge at 24.1% margin — barely covers ad cost per unit. Consider as loss-leader only</li>
+      <li><strong>Seasonal boost:</strong> Neck Fan peaks Apr–Sep (Songkran → hot season) — stock up and double ad spend</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 2: REVENUE PROJECTIONS -->
+<div class="section" id="revenue">
+  <div class="section-header">
+    <div class="section-num" style="background: var(--accent-purple);">2</div>
+    <h2>Revenue Projections — Year 1 to Year 3</h2>
+  </div>
+  <p class="section-desc">Three scenarios based on order volume growth, ad efficiency, and product expansion. Base assumes 30 products, 5→16 orders/day in Y1.</p>
+
+  <div class="scenario-grid">
+    <div class="scenario-card conservative">
+      <div class="sc-title">🔴 Conservative</div>
+      <div class="sc-metric"><div class="sc-val">฿1.14M</div><div class="sc-label">Year 1 Revenue</div></div>
+      <div class="sc-metric"><div class="sc-val">฿222K</div><div class="sc-label">Year 1 Profit</div></div>
+      <div class="sc-metric"><div class="sc-val">฿4.06M</div><div class="sc-label">Year 3 Revenue</div></div>
+      <div class="sc-metric"><div class="sc-val" style="font-size:16px; color: var(--text-secondary)">20-25 products, 3→9 orders/day</div><div class="sc-label">Assumptions</div></div>
+    </div>
+    <div class="scenario-card base">
+      <div class="sc-title">🟢 Base Case</div>
+      <div class="sc-metric"><div class="sc-val">฿2.27M</div><div class="sc-label">Year 1 Revenue</div></div>
+      <div class="sc-metric"><div class="sc-val">฿690K</div><div class="sc-label">Year 1 Profit</div></div>
+      <div class="sc-metric"><div class="sc-val">฿9.05M</div><div class="sc-label">Year 3 Revenue</div></div>
+      <div class="sc-metric"><div class="sc-val" style="font-size:16px; color: var(--text-secondary)">30 products, 5→16 orders/day</div><div class="sc-label">Assumptions</div></div>
+    </div>
+    <div class="scenario-card optimistic">
+      <div class="sc-title">🚀 Optimistic</div>
+      <div class="sc-metric"><div class="sc-val">฿4.41M</div><div class="sc-label">Year 1 Revenue</div></div>
+      <div class="sc-metric"><div class="sc-val">฿1.70M</div><div class="sc-label">Year 1 Profit</div></div>
+      <div class="sc-metric"><div class="sc-val">฿20.0M</div><div class="sc-label">Year 3 Revenue</div></div>
+      <div class="sc-metric"><div class="sc-val" style="font-size:16px; color: var(--text-secondary)">35 products, 8→30 orders/day</div><div class="sc-label">Assumptions</div></div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header"><h3>3-Year Revenue Trajectory</h3></div>
+      <div class="card-body">
+        <img src="https://mdn.alipayobjects.com/one_clip/afts/img/hfKLRr70zLQAAAAASlAAAAgAoEACAQFr/original" alt="Revenue Projections">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h3>Annual Net Profit by Scenario</h3></div>
+      <div class="card-body">
+        <img src="https://mdn.alipayobjects.com/one_clip/afts/img/g3ngQJ5r8jYAAAAAR-AAAAgAoEACAQFr/original" alt="Net Profit">
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 24px;">
+    <div class="card-header"><h3>Year 1 Monthly Breakdown — Base Scenario</h3></div>
+    <div class="card-body" style="overflow-x: auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Products</th>
+            <th>Orders/Day</th>
+            <th>AOV</th>
+            <th>Revenue</th>
+            <th>COGS</th>
+            <th>Gross Profit</th>
+            <th>Ad Spend</th>
+            <th>Net Profit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Apr-26</td><td class="num">25</td><td class="num">5</td><td class="num">฿450</td><td class="num">฿67,500</td><td class="num">฿33,750</td><td class="num">฿33,750</td><td class="num">฿20,000</td><td class="num positive">฿5,750</td></tr>
+          <tr><td>May-26</td><td class="num">27</td><td class="num">7</td><td class="num">฿455</td><td class="num">฿95,550</td><td class="num">฿47,775</td><td class="num">฿47,775</td><td class="num">฿20,000</td><td class="num positive">฿18,775</td></tr>
+          <tr><td>Jun-26</td><td class="num">28</td><td class="num">9</td><td class="num">฿460</td><td class="num">฿124,200</td><td class="num">฿62,100</td><td class="num">฿62,100</td><td class="num">฿22,000</td><td class="num positive">฿30,600</td></tr>
+          <tr><td>Jul-26</td><td class="num">30</td><td class="num">11</td><td class="num">฿465</td><td class="num">฿153,450</td><td class="num">฿76,725</td><td class="num">฿76,725</td><td class="num">฿25,000</td><td class="num positive">฿41,225</td></tr>
+          <tr><td>Aug-26</td><td class="num">30</td><td class="num">13</td><td class="num">฿470</td><td class="num">฿183,300</td><td class="num">฿91,650</td><td class="num">฿91,650</td><td class="num">฿25,000</td><td class="num positive">฿55,650</td></tr>
+          <tr><td>Sep-26</td><td class="num">30</td><td class="num">14</td><td class="num">฿475</td><td class="num">฿199,500</td><td class="num">฿99,750</td><td class="num">฿99,750</td><td class="num">฿28,000</td><td class="num positive">฿60,250</td></tr>
+          <tr><td>Oct-26</td><td class="num">30</td><td class="num">15</td><td class="num">฿475</td><td class="num">฿213,750</td><td class="num">฿106,875</td><td class="num">฿106,875</td><td class="num">฿28,000</td><td class="num positive">฿66,875</td></tr>
+          <tr><td>Nov-26</td><td class="num">30</td><td class="num">17</td><td class="num">฿480</td><td class="num">฿244,800</td><td class="num">฿122,400</td><td class="num">฿122,400</td><td class="num">฿30,000</td><td class="num positive">฿79,900</td></tr>
+          <tr style="background: rgba(6,182,212,0.05)"><td><strong>Dec-26</strong> ⭐</td><td class="num">30</td><td class="num">22</td><td class="num">฿490</td><td class="num highlight">฿323,400</td><td class="num">฿161,700</td><td class="num">฿161,700</td><td class="num">฿30,000</td><td class="num positive"><strong>฿117,700</strong></td></tr>
+          <tr><td>Jan-27</td><td class="num">30</td><td class="num">16</td><td class="num">฿480</td><td class="num">฿230,400</td><td class="num">฿115,200</td><td class="num">฿115,200</td><td class="num">฿28,000</td><td class="num positive">฿74,700</td></tr>
+          <tr><td>Feb-27</td><td class="num">30</td><td class="num">14</td><td class="num">฿475</td><td class="num">฿199,500</td><td class="num">฿99,750</td><td class="num">฿99,750</td><td class="num">฿25,000</td><td class="num positive">฿63,250</td></tr>
+          <tr><td>Mar-27</td><td class="num">30</td><td class="num">16</td><td class="num">฿480</td><td class="num">฿230,400</td><td class="num">฿115,200</td><td class="num">฿115,200</td><td class="num">฿28,000</td><td class="num positive">฿75,200</td></tr>
+        </tbody>
+        <tfoot>
+          <tr style="background: rgba(168,85,247,0.08);">
+            <td><strong>TOTAL Y1</strong></td>
+            <td></td><td></td><td></td>
+            <td class="num"><strong style="color: var(--accent-cyan)">฿2,265,750</strong></td>
+            <td class="num"><strong>฿1,132,875</strong></td>
+            <td class="num"><strong>฿1,132,875</strong></td>
+            <td class="num"><strong>฿309,000</strong></td>
+            <td class="num"><strong class="positive">฿689,875</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: MONTHLY CASH FLOW -->
+<div class="section" id="cashflow">
+  <div class="section-header">
+    <div class="section-num" style="background: var(--accent-green);">3</div>
+    <h2>Monthly Cash Flow Projection — Year 1</h2>
+  </div>
+  <p class="section-desc">Detailed cash inflows/outflows with all cost components. Base scenario, Lazada + Shopee dual-platform.</p>
+
+  <div class="grid-2" style="margin-bottom: 24px;">
+    <div class="card">
+      <div class="card-header"><h3>Revenue vs Expenses</h3></div>
+      <div class="card-body">
+        <img src="https://mdn.alipayobjects.com/one_clip/afts/img/h65_Q6BXXEYAAAAASwAAAAgAoEACAQFr/original" alt="Cash Flow">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h3>Cumulative Cash Position</h3></div>
+      <div class="card-body">
+        <img src="https://mdn.alipayobjects.com/one_clip/afts/img/LhKgQIhKCNIAAAAASXAAAAgAoEACAQFr/original" alt="Cumulative">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><h3>Detailed Cash Flow Statement</h3></div>
+    <div class="card-body" style="overflow-x: auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Orders</th>
+            <th>Revenue</th>
+            <th>CJ Product</th>
+            <th>Shipping</th>
+            <th>Packaging</th>
+            <th>Platform Fees</th>
+            <th>FB Ads</th>
+            <th>TikTok Ads</th>
+            <th>Tools</th>
+            <th>Misc</th>
+            <th>Net Flow</th>
+            <th>Cumulative</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Apr</td><td class="num">150</td><td class="num">67,500</td><td class="num">22,275</td><td class="num">15,000</td><td class="num">5,250</td><td class="num">2,700</td><td class="num">12,000</td><td class="num">8,000</td><td class="num">2,500</td><td class="num">1,500</td><td class="num negative">-1,725</td><td class="num negative">-1,725</td></tr>
+          <tr><td>May</td><td class="num">210</td><td class="num">95,550</td><td class="num">31,532</td><td class="num">21,000</td><td class="num">7,350</td><td class="num">3,822</td><td class="num">12,000</td><td class="num">8,000</td><td class="num">2,500</td><td class="num">2,500</td><td class="num positive">6,846</td><td class="num positive">5,121</td></tr>
+          <tr><td>Jun</td><td class="num">270</td><td class="num">124,200</td><td class="num">40,986</td><td class="num">27,000</td><td class="num">9,450</td><td class="num">4,968</td><td class="num">13,000</td><td class="num">9,000</td><td class="num">2,500</td><td class="num">3,000</td><td class="num positive">14,296</td><td class="num positive">19,417</td></tr>
+          <tr><td>Jul</td><td class="num">330</td><td class="num">153,450</td><td class="num">50,639</td><td class="num">33,000</td><td class="num">11,550</td><td class="num">6,138</td><td class="num">15,000</td><td class="num">10,000</td><td class="num">2,500</td><td class="num">4,000</td><td class="num positive">20,623</td><td class="num positive">40,040</td></tr>
+          <tr><td>Aug</td><td class="num">390</td><td class="num">183,300</td><td class="num">60,489</td><td class="num">39,000</td><td class="num">13,650</td><td class="num">7,332</td><td class="num">15,000</td><td class="num">10,000</td><td class="num">2,500</td><td class="num">4,500</td><td class="num positive">30,829</td><td class="num positive">70,869</td></tr>
+          <tr><td>Sep</td><td class="num">420</td><td class="num">199,500</td><td class="num">65,835</td><td class="num">42,000</td><td class="num">14,700</td><td class="num">7,980</td><td class="num">16,000</td><td class="num">12,000</td><td class="num">2,500</td><td class="num">5,000</td><td class="num positive">33,485</td><td class="num positive">104,354</td></tr>
+          <tr><td>Oct</td><td class="num">450</td><td class="num">213,750</td><td class="num">70,538</td><td class="num">45,000</td><td class="num">15,750</td><td class="num">8,550</td><td class="num">16,000</td><td class="num">12,000</td><td class="num">2,500</td><td class="num">5,500</td><td class="num positive">37,912</td><td class="num positive">142,266</td></tr>
+          <tr><td>Nov</td><td class="num">510</td><td class="num">244,800</td><td class="num">80,784</td><td class="num">51,000</td><td class="num">17,850</td><td class="num">9,792</td><td class="num">18,000</td><td class="num">12,000</td><td class="num">2,500</td><td class="num">6,000</td><td class="num positive">46,874</td><td class="num positive">189,140</td></tr>
+          <tr style="background: rgba(6,182,212,0.05)"><td><strong>Dec ⭐</strong></td><td class="num">660</td><td class="num highlight">323,400</td><td class="num">106,722</td><td class="num">66,000</td><td class="num">23,100</td><td class="num">12,936</td><td class="num">18,000</td><td class="num">12,000</td><td class="num">2,500</td><td class="num">7,500</td><td class="num positive"><strong>74,642</strong></td><td class="num positive"><strong>263,782</strong></td></tr>
+          <tr><td>Jan</td><td class="num">480</td><td class="num">230,400</td><td class="num">76,032</td><td class="num">48,000</td><td class="num">16,800</td><td class="num">9,216</td><td class="num">16,000</td><td class="num">12,000</td><td class="num">2,500</td><td class="num">6,000</td><td class="num positive">43,852</td><td class="num positive">307,634</td></tr>
+          <tr><td>Feb</td><td class="num">420</td><td class="num">199,500</td><td class="num">65,835</td><td class="num">42,000</td><td class="num">14,700</td><td class="num">7,980</td><td class="num">15,000</td><td class="num">10,000</td><td class="num">2,500</td><td class="num">5,000</td><td class="num positive">36,485</td><td class="num positive">344,119</td></tr>
+          <tr><td>Mar</td><td class="num">480</td><td class="num">230,400</td><td class="num">76,032</td><td class="num">48,000</td><td class="num">16,800</td><td class="num">9,216</td><td class="num">16,000</td><td class="num">12,000</td><td class="num">2,500</td><td class="num">5,500</td><td class="num positive">44,352</td><td class="num positive">388,471</td></tr>
+        </tbody>
+        <tfoot>
+          <tr style="background: rgba(16,185,129,0.08);">
+            <td><strong>Y1 TOTAL</strong></td>
+            <td class="num"><strong>4,770</strong></td>
+            <td class="num"><strong style="color: var(--accent-cyan)">2,265,750</strong></td>
+            <td class="num"><strong>746,699</strong></td>
+            <td class="num"><strong>477,000</strong></td>
+            <td class="num"><strong>167,400</strong></td>
+            <td class="num"><strong>90,630</strong></td>
+            <td class="num"><strong>182,000</strong></td>
+            <td class="num"><strong>127,000</strong></td>
+            <td class="num"><strong>30,000</strong></td>
+            <td class="num"><strong>56,000</strong></td>
+            <td class="num positive" colspan="2"><strong>฿388,471 cumulative</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: BREAK-EVEN ANALYSIS -->
+<div class="section" id="breakeven">
+  <div class="section-header">
+    <div class="section-num" style="background: var(--accent-amber);">4</div>
+    <h2>Break-Even Analysis</h2>
+  </div>
+  <p class="section-desc">How many orders per day to cover all fixed costs. Variable costs scale with each order; fixed costs are constant.</p>
+
+  <div class="breakeven-grid" style="margin-bottom: 24px;">
+    <div class="be-card">
+      <div class="be-val">263</div>
+      <div class="be-label">Break-Even Orders/Month</div>
+    </div>
+    <div class="be-card">
+      <div class="be-val">8.8</div>
+      <div class="be-label">Break-Even Orders/Day</div>
+    </div>
+    <div class="be-card">
+      <div class="be-val">฿122K</div>
+      <div class="be-label">Break-Even Revenue/Month</div>
+    </div>
+    <div class="be-card">
+      <div class="be-val">฿192</div>
+      <div class="be-label">Contribution Margin/Order</div>
+    </div>
+    <div class="be-card">
+      <div class="be-val">41.3%</div>
+      <div class="be-label">Contribution Margin %</div>
+    </div>
+    <div class="be-card">
+      <div class="be-val">Month 2</div>
+      <div class="be-label">First Profitable Month (Base)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><h3>Break-Even Calculation</h3></div>
+    <div class="card-body">
+      <table class="data-table">
+        <thead>
+          <tr><th>Component</th><th>Value</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Average Selling Price</td><td class="num">฿465</td><td>Weighted average across product mix</td></tr>
+          <tr><td style="padding-left: 24px; color: var(--accent-red)">— CJ Product Cost</td><td class="num">฿153</td><td>~33% of selling price</td></tr>
+          <tr><td style="padding-left: 24px; color: var(--accent-red)">— Shipping</td><td class="num">฿100</td><td>฿100–150 range, avg ฿100 for CJ standard</td></tr>
+          <tr><td style="padding-left: 24px; color: var(--accent-red)">— Packaging</td><td class="num">฿35</td><td>฿20–50 range</td></tr>
+          <tr><td style="padding-left: 24px; color: var(--accent-red)">— Platform Fee (4%)</td><td class="num">฿19</td><td>Lazada/Shopee 3–5%</td></tr>
+          <tr style="background: rgba(6,182,212,0.05)"><td><strong>= Variable Cost per Order</strong></td><td class="num"><strong>฿273</strong></td><td>Total per-order cost</td></tr>
+          <tr style="background: rgba(16,185,129,0.08)"><td><strong>= Contribution Margin</strong></td><td class="num positive"><strong>฿192</strong></td><td>What each order contributes to fixed costs</td></tr>
+          <tr><td colspan="3" style="border-top: 2px solid var(--border); padding-top: 16px; font-weight: 600; color: var(--accent-amber)">Monthly Fixed Costs</td></tr>
+          <tr><td style="padding-left: 24px">Facebook Ads</td><td class="num">฿15,000</td><td>Baseline spend</td></tr>
+          <tr><td style="padding-left: 24px">TikTok Ads</td><td class="num">฿10,000</td><td>Baseline spend</td></tr>
+          <tr><td style="padding-left: 24px">Tools & Subscriptions</td><td class="num">฿2,500</td><td>CJ app, Canva, analytics</td></tr>
+          <tr><td style="padding-left: 24px">Miscellaneous</td><td class="num">฿3,000</td><td>Returns, refunds, misc</td></tr>
+          <tr style="background: rgba(245,158,11,0.08)"><td><strong>= Total Fixed Costs</strong></td><td class="num"><strong>฿50,500</strong></td><td></td></tr>
+          <tr style="background: rgba(168,85,247,0.1)"><td><strong>Break-Even = Fixed / Contribution</strong></td><td class="num"><strong style="color: var(--accent-purple)">263 orders/month = 8.8/day</strong></td><td>At ฿465 AOV → ฿122,295 revenue</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <h4>⚡ Break-Even Implications</h4>
+    <ul>
+      <li><strong>Base scenario hits 9 orders/day by Month 2</strong> — meaning you should be cash-positive within 60 days of launch</li>
+      <li><strong>Conservative scenario</strong> reaches break-even by Month 3 (slightly slower ad optimization)</li>
+      <li><strong>Key lever:</strong> Reducing shipping by ฿20/order (negotiate CJ volume rates) drops break-even to 7.5 orders/day</li>
+      <li><strong>Ad efficiency target:</strong> Keep CAC (customer acquisition cost) under ฿150/order — that's ฿20K ads ÷ 150 orders = ฿133 CAC ✓</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 5: COST STRUCTURE -->
+<div class="section" id="costs">
+  <div class="section-header">
+    <div class="section-num" style="background: var(--accent-red);">5</div>
+    <h2>Cost Structure Breakdown</h2>
+  </div>
+  <p class="section-desc">Where every baht goes. Variable costs (product + fulfillment) are ~76% of total; marketing ~17%; operations ~5%.</p>
+
+  <div class="grid-2" style="margin-bottom: 24px;">
+    <div class="card">
+      <div class="card-header"><h3>Cost Distribution</h3></div>
+      <div class="card-body">
+        <img src="https://mdn.alipayobjects.com/one_clip/afts/img/fDxGQrZbldEAAAAATCAAAAgAoEACAQFr/original" alt="Cost Pie Chart">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h3>Cost Category Details</h3></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead>
+            <tr><th>Category</th><th>Item</th><th>Monthly Avg</th><th>% of Revenue</th><th>% of Costs</th><th>Type</th></tr>
+          </thead>
+          <tbody>
+            <tr><td rowspan="1"><span class="tag tag-red">Product</span></td><td>CJ Product Cost</td><td class="num">฿62,225</td><td class="num">33.0%</td><td class="num highlight">40.8%</td><td><span class="tag tag-amber">Variable</span></td></tr>
+            <tr><td rowspan="2"><span class="tag tag-amber">Fulfillment</span></td><td>Shipping</td><td class="num">฿39,500</td><td class="num">20.9%</td><td class="num">25.9%</td><td><span class="tag tag-amber">Variable</span></td></tr>
+            <tr><td>Packaging</td><td class="num">฿13,913</td><td class="num">7.4%</td><td class="num">9.1%</td><td><span class="tag tag-amber">Variable</span></td></tr>
+            <tr><td rowspan="2"><span class="tag tag-purple">Platform</span></td><td>Lazada Commission</td><td class="num">฿4,500</td><td class="num">2.4%</td><td class="num">3.0%</td><td><span class="tag tag-amber">Variable</span></td></tr>
+            <tr><td>Shopee Commission</td><td class="num">฿4,050</td><td class="num">2.1%</td><td class="num">2.7%</td><td><span class="tag tag-amber">Variable</span></td></tr>
+            <tr><td rowspan="2"><span class="tag tag-cyan">Marketing</span></td><td>Facebook Ads</td><td class="num">฿15,167</td><td class="num">8.0%</td><td class="num">9.9%</td><td><span class="tag tag-green">Semi-fixed</span></td></tr>
+            <tr><td>TikTok Ads</td><td class="num">฿10,833</td><td class="num">5.7%</td><td class="num">7.1%</td><td><span class="tag tag-green">Semi-fixed</span></td></tr>
+            <tr><td rowspan="2"><span class="tag tag-green">Operations</span></td><td>Tools & Subs</td><td class="num">฿2,500</td><td class="num">1.3%</td><td class="num">1.6%</td><td><span class="tag tag-cyan">Fixed</span></td></tr>
+            <tr><td>Miscellaneous</td><td class="num">฿4,667</td><td class="num">2.5%</td><td class="num">3.1%</td><td><span class="tag tag-cyan">Fixed</span></td></tr>
+          </tbody>
+          <tfoot>
+            <tr style="background: rgba(239,68,68,0.08);">
+              <td colspan="2"><strong>TOTAL COSTS</strong></td>
+              <td class="num"><strong>฿157,355</strong></td>
+              <td class="num"><strong>83.3%</strong></td>
+              <td class="num"><strong>100%</strong></td>
+              <td></td>
+            </tr>
+            <tr style="background: rgba(16,185,129,0.1);">
+              <td colspan="2"><strong>NET MARGIN</strong></td>
+              <td class="num positive"><strong>฿31,595</strong></td>
+              <td class="num positive"><strong>16.7%</strong></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <h4>🎯 Cost Optimization Opportunities</h4>
+    <ul>
+      <li><strong>Shipping (25.9% of costs)</strong> — Biggest lever. Negotiate CJ volume shipping at 50+ orders/day. Target ฿80-90/order to save ~฿5K/month</li>
+      <li><strong>Packaging (9.1%)</strong> — Buy branded poly mailers in bulk (฿15-20/unit at 1000+). Current ฿35 avg is high</li>
+      <li><strong>Platform fees (5.7%)</strong> — Join Lazada's preferred seller program for reduced commission (2.5% vs 4%)</li>
+      <li><strong>Ad spend (17%)</strong> — Focus on TikTok organic content to reduce paid dependency. Target 30% organic traffic by Month 6</li>
+      <li><strong>Potential savings:</strong> Optimizing top 3 cost levers could improve net margin from 16.7% → 22-24%</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 6: RISKS & KEY ASSUMPTIONS -->
+<div class="section" id="risks">
+  <div class="section-header">
+    <div class="section-num" style="background: var(--accent-blue);">6</div>
+    <h2>Risks, Assumptions & Strategic Notes</h2>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header"><h3>⚠️ Key Risks</h3></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead><tr><th>Risk</th><th>Impact</th><th>Mitigation</th></tr></thead>
+          <tbody>
+            <tr><td>CJ shipping delays (7-15 days China→Thailand)</td><td><span class="tag tag-red">High</span></td><td>Use CJ Thailand warehouse for top sellers; set clear delivery expectations</td></tr>
+            <tr><td>Thai FDA restrictions on beauty products</td><td><span class="tag tag-red">High</span></td><td>Verify whitening strips/kits comply with FDA notification; avoid medical claims</td></tr>
+            <tr><td>Currency fluctuation THB/CNY</td><td><span class="tag tag-amber">Medium</span></td><td>Price with 10% buffer; review quarterly</td></tr>
+            <tr><td>Platform fee increases (Lazada/Shopee)</td><td><span class="tag tag-amber">Medium</span></td><td>Diversify to own Shopify store by Year 2</td></tr>
+            <tr><td>Rising Facebook/TikTok CPM</td><td><span class="tag tag-amber">Medium</span></td><td>Invest in organic content, influencer micro-deals</td></tr>
+            <tr><td>Product quality / returns</td><td><span class="tag tag-amber">Medium</span></td><td>Order samples first; budget 3-5% for returns</td></tr>
+            <tr><td>Competition from Chinese sellers direct</td><td><span class="tag tag-red">High</span></td><td>Win on Thai language, fast CS response, TikTok content</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h3>📋 Key Assumptions</h3></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead><tr><th>Assumption</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Starting capital needed</td><td class="num">฿30,000–50,000</td></tr>
+            <tr><td>CJ product cost range</td><td class="num">25–150 THB (฿1–5 USD equiv)</td></tr>
+            <tr><td>Shipping per order</td><td class="num">฿100–150</td></tr>
+            <tr><td>Packaging per order</td><td class="num">฿20–50</td></tr>
+            <tr><td>Platform commission</td><td class="num">3–5%</td></tr>
+            <tr><td>Monthly ad budget</td><td class="num">฿15K–30K</td></tr>
+            <tr><td>Sweet spot price range</td><td class="num">฿300–1,000</td></tr>
+            <tr><td>Target margin range</td><td class="num">45–65%</td></tr>
+            <tr><td>Initial products listed</td><td class="num">20–30</td></tr>
+            <tr><td>Average conversion rate</td><td class="num">2–4%</td></tr>
+            <tr><td>Return rate assumption</td><td class="num">3–5%</td></tr>
+            <tr><td>Dec holiday revenue boost</td><td class="num">+35–40% vs average</td></tr>
+            <tr><td>Y2/Y3 growth driver</td><td class="num">Repeat customers + organic</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box" style="margin-top: 24px;">
+    <h4>🚀 Launch Checklist — First 30 Days</h4>
+    <ul>
+      <li><strong>Week 1:</strong> Set up Lazada + Shopee seller accounts. Order samples of top 5 products from CJ. Design store branding</li>
+      <li><strong>Week 2:</strong> List 15-20 products with Thai-language descriptions + lifestyle photos. Set up CJ auto-fulfillment</li>
+      <li><strong>Week 3:</strong> Launch Facebook ads (฿500/day) targeting interest groups. Start TikTok content (3 videos/week)</li>
+      <li><strong>Week 4:</strong> Analyze first 100 orders — which products sell, which don't. Cut losers, double ad spend on winners</li>
+      <li><strong>Month 2:</strong> Scale to 30 products. Increase ad budget to ฿20K. Start building email/LINE list for repeat purchases</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>FT Dropshipping Financial Analysis — Generated April 3, 2026</p>
+  <p style="margin-top: 8px;">Data modeled using DuckDB + chart-visualization. All projections are estimates based on Thai e-commerce market benchmarks.</p>
+  <p style="margin-top: 4px; color: var(--accent-cyan);">Built by Monie for <a href="https://mhoooo.com">mhoooo.com</a></p>
+</div>
+
+<script>
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  // Highlight active nav tab on scroll
+  const sections = ['products', 'revenue', 'cashflow', 'breakeven', 'costs', 'risks'];
+  const tabs = document.querySelectorAll('.nav-tab');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= 120) current = id;
+    });
+    tabs.forEach((tab, i) => {
+      tab.classList.toggle('active', sections[i] === current);
+    });
+  });
+</script>
+
+</body>
+</html>

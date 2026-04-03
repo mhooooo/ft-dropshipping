@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FT Dropshipping — สินค้าเทรนด์ ส่งตรงถึงบ้านคุณ</title>
+<meta name="description" content="FT Dropshipping — สินค้าเทรนด์จากทั่วโลก ส่งตรงถึงบ้านคุณ ผ่าน Lazada และ Shopee กำไร 45-65% สินค้ากว่า 3 ล้านรายการ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   RESET & VARIABLES
+   ═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --purple: #7C3AED;
+  --purple-light: #A78BFA;
+  --purple-dark: #5B21B6;
+  --cyan: #06B6D4;
+  --cyan-light: #67E8F9;
+  --cyan-dark: #0891B2;
+  --bg-primary: #0A0A0F;
+  --bg-secondary: #111119;
+  --bg-card: #16161F;
+  --bg-card-hover: #1C1C28;
+  --text-primary: #F1F1F6;
+  --text-secondary: #9CA3B0;
+  --text-muted: #5C6370;
+  --gradient-main: linear-gradient(135deg, var(--purple), var(--cyan));
+  --gradient-main-r: linear-gradient(135deg, var(--cyan), var(--purple));
+  --gradient-glow: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(6,182,212,0.15));
+  --gradient-glow-strong: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(6,182,212,0.3));
+  --font-th: 'Noto Sans Thai', sans-serif;
+  --font-en: 'Outfit', sans-serif;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-glow: 0 0 60px rgba(124,58,237,0.15), 0 0 120px rgba(6,182,212,0.08);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-th);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══════════════════════════════════════════
+   GLOBAL ELEMENTS
+   ═══════════════════════════════════════════ */
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.gradient-text {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: var(--font-en);
+  border: 1px solid rgba(124,58,237,0.3);
+  background: rgba(124,58,237,0.08);
+  color: var(--purple-light);
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+section {
+  padding: 100px 0;
+  position: relative;
+}
+
+/* ═══════════════════════════════════════════
+   BACKGROUND EFFECTS
+   ═══════════════════════════════════════════ */
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb-purple {
+  width: 500px; height: 500px;
+  background: rgba(124,58,237,0.12);
+  animation: orbFloat 12s ease-in-out infinite;
+}
+
+.orb-cyan {
+  width: 400px; height: 400px;
+  background: rgba(6,182,212,0.1);
+  animation: orbFloat 15s ease-in-out infinite reverse;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.1); }
+  66% { transform: translate(-20px, 30px) scale(0.95); }
+}
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 24px;
+  transition: var(--transition);
+}
+
+.nav.scrolled {
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(124,58,237,0.1);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-en);
+  font-weight: 800;
+  font-size: 1.35rem;
+}
+
+.nav-logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-xs);
+  background: var(--gradient-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: white;
+  box-shadow: 0 4px 15px rgba(124,58,237,0.35);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-links a:hover { color: var(--text-primary); }
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-main);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  padding: 10px 24px;
+  border-radius: 100px;
+  background: var(--gradient-main);
+  color: white !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(124,58,237,0.3);
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(124,58,237,0.45);
+}
+
+.nav-cta::after { display: none !important; }
+
+.nav-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-mobile-toggle svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ═══════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 120px 24px 80px;
+}
+
+.hero .orb-purple { top: -100px; left: -200px; }
+.hero .orb-cyan { bottom: -50px; right: -150px; }
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+}
+
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px 8px 10px;
+  border-radius: 100px;
+  background: rgba(124,58,237,0.1);
+  border: 1px solid rgba(124,58,237,0.25);
+  font-size: 0.85rem;
+  color: var(--purple-light);
+  margin-bottom: 32px;
+  animation: fadeInUp 0.7s ease-out;
+}
+
+.hero-chip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 7vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  animation: fadeInUp 0.7s ease-out 0.1s both;
+}
+
+.hero-title-en {
+  display: block;
+  font-family: var(--font-en);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  letter-spacing: 0.03em;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 24px auto 40px;
+  line-height: 1.9;
+  animation: fadeInUp 0.7s ease-out 0.2s both;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.7s ease-out 0.3s both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  border-radius: 100px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-th);
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: var(--gradient-main);
+  color: white;
+  box-shadow: 0 8px 30px rgba(124,58,237,0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 45px rgba(124,58,237,0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid rgba(255,255,255,0.15);
+}
+
+.btn-outline:hover {
+  border-color: var(--cyan);
+  color: var(--cyan-light);
+  background: rgba(6,182,212,0.06);
+  transform: translateY(-3px);
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: var(--font-en);
+  animation: fadeInUp 0.7s ease-out 0.5s both;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--purple), transparent);
+  animation: scrollPulse 2s infinite;
+}
+
+@keyframes scrollPulse {
+  0% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); }
+  100% { opacity: 0.3; transform: scaleY(0.6); }
+}
+
+/* ═══════════════════════════════════════════
+   HOW IT WORKS
+   ═══════════════════════════════════════════ */
+.how-it-works {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.how-it-works .orb-purple { top: -200px; right: -250px; opacity: 0.5; }
+
+.how-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.how-header .section-subtitle { margin: 0 auto; }
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.step-card {
+  text-align: center;
+  padding: 48px 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-connector {
+  display: none;
+}
+
+.steps-grid::before,
+.steps-grid::after {
+  content: '';
+  position: absolute;
+  top: 72px;
+  width: calc(33.33% - 60px);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--purple), var(--cyan), transparent);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.steps-grid::before { left: calc(16.66% + 30px); }
+.steps-grid::after { left: calc(50% + 30px); }
+
+.step-number {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-family: var(--font-en);
+  font-size: 1.5rem;
+  font-weight: 800;
+  position: relative;
+}
+
+.step-number::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 2px;
+  background: var(--gradient-main);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.step-number span {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.step-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 20px;
+  color: var(--cyan);
+  opacity: 0.7;
+}
+
+.step-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.step-title-en {
+  font-family: var(--font-en);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.step-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════
+   PRODUCT CATEGORIES
+   ═══════════════════════════════════════════ */
+.categories {
+  position: relative;
+}
+
+.categories .orb-cyan { top: -150px; left: -200px; opacity: 0.4; }
+
+.categories-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.categories-header .section-subtitle { margin: 0 auto; }
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.category-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+  group: true;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: var(--transition);
+}
+
+.category-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(124,58,237,0.3);
+  box-shadow: var(--shadow-glow);
+}
+
+.category-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-card);
+  transition: var(--transition);
+}
+
+.category-card:hover .category-bg {
+  background: var(--bg-card-hover);
+}
+
+.category-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.category-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.category-icon svg {
+  width: 36px;
+  height: 36px;
+  transition: var(--transition);
+}
+
+.category-card:nth-child(1) .category-icon { background: rgba(236,72,153,0.12); color: #EC4899; }
+.category-card:nth-child(2) .category-icon { background: rgba(124,58,237,0.12); color: #A78BFA; }
+.category-card:nth-child(3) .category-icon { background: rgba(6,182,212,0.12); color: #06B6D4; }
+.category-card:nth-child(4) .category-icon { background: rgba(251,146,60,0.12); color: #FB923C; }
+.category-card:nth-child(5) .category-icon { background: rgba(34,197,94,0.12); color: #22C55E; }
+
+.category-card:hover .category-icon svg { transform: scale(1.15); }
+
+.category-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.category-name-en {
+  font-family: var(--font-en);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.category-count {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding: 4px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.06);
+  font-family: var(--font-en);
+}
+
+.category-glow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 80px;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.category-card:hover .category-glow { opacity: 0.25; }
+
+.category-card:nth-child(1) .category-glow { background: #EC4899; }
+.category-card:nth-child(2) .category-glow { background: #7C3AED; }
+.category-card:nth-child(3) .category-glow { background: #06B6D4; }
+.category-card:nth-child(4) .category-glow { background: #FB923C; }
+.category-card:nth-child(5) .category-glow { background: #22C55E; }
+
+/* ═══════════════════════════════════════════
+   WHY FT
+   ═══════════════════════════════════════════ */
+.why-ft {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-ft .orb-purple { bottom: -200px; left: -200px; opacity: 0.4; }
+.why-ft .orb-cyan { top: -200px; right: -200px; opacity: 0.3; }
+
+.why-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.why-header .section-subtitle { margin: 0 auto; }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.why-card {
+  padding: 40px;
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-card:hover {
+  border-color: rgba(124,58,237,0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.why-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-main);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.why-card:hover::before { opacity: 1; }
+
+.why-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  background: var(--gradient-glow);
+}
+
+.why-icon svg {
+  width: 26px;
+  height: 26px;
+  color: var(--cyan-light);
+}
+
+.why-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.why-title-en {
+  font-family: var(--font-en);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.why-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════
+   STATS BAR
+   ═══════════════════════════════════════════ */
+.stats {
+  padding: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.stats-bar {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--radius);
+  padding: 56px 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-glow);
+  opacity: 0.3;
+}
+
+.stat-item {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(124,58,237,0.3), transparent);
+}
+
+.stat-value {
+  font-family: var(--font-en);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.stat-label-en {
+  font-family: var(--font-en);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ═══════════════════════════════════════════
+   CTA SECTION
+   ═══════════════════════════════════════════ */
+.cta-section {
+  padding: 120px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section .orb-purple { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; opacity: 0.15; }
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.cta-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-marketplace {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 36px;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+  font-family: var(--font-th);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-lazada {
+  background: linear-gradient(135deg, #0F146D, #1A1FB8);
+  color: white;
+  border: 1px solid rgba(26,31,184,0.5);
+}
+
+.btn-shopee {
+  background: linear-gradient(135deg, #C73B1D, #EE4D2D);
+  color: white;
+  border: 1px solid rgba(238,77,45,0.5);
+}
+
+.btn-tiktok {
+  background: linear-gradient(135deg, #111, #333);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-marketplace:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.btn-marketplace svg {
+  width: 22px;
+  height: 22px;
+}
+
+.btn-marketplace-text {
+  text-align: left;
+  line-height: 1.2;
+}
+
+.btn-marketplace-sub {
+  font-size: 0.7rem;
+  font-weight: 400;
+  opacity: 0.7;
+  font-family: var(--font-en);
+}
+
+.btn-marketplace-name {
+  font-size: 1.05rem;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding: 64px 0 32px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-brand-name {
+  font-family: var(--font-en);
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-brand-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 340px;
+}
+
+.footer-col-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  font-family: var(--font-en);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--cyan-light);
+  transform: translateX(4px);
+  display: inline-block;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.04);
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.footer-socials a:hover {
+  background: var(--gradient-main);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.footer-socials svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ═══════════════════════════════════════════
+   DEERFLOW BADGE
+   ═══════════════════════════════════════════ */
+.deerflow-badge {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 999;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: rgba(22,22,31,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: var(--transition);
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.deerflow-badge:hover {
+  color: var(--cyan-light);
+  border-color: rgba(6,182,212,0.2);
+  background: rgba(22,22,31,0.9);
+}
+
+.deerflow-badge::before {
+  content: '✦';
+  font-size: 0.6rem;
+  opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .category-card:nth-child(4),
+  .category-card:nth-child(5) {
+    max-width: none;
+  }
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  section { padding: 72px 0; }
+
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: flex; }
+
+  .nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,15,0.95);
+    backdrop-filter: blur(20px);
+    padding: 24px;
+    gap: 20px;
+    border-bottom: 1px solid rgba(124,58,237,0.1);
+  }
+
+  .hero { min-height: auto; padding: 140px 24px 80px; }
+
+  .hero-title { font-size: 2.5rem; }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .steps-grid::before,
+  .steps-grid::after { display: none; }
+
+  .step-card { padding: 32px 24px; }
+
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category-card { aspect-ratio: 1; }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-bar {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 24px;
+  }
+
+  .stat-item:not(:last-child)::after {
+    right: auto;
+    bottom: -16px;
+    top: auto;
+    width: 60%;
+    height: 1px;
+    left: 20%;
+    background: linear-gradient(to right, transparent, rgba(124,58,237,0.3), transparent);
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-marketplace { width: 100%; justify-content: center; }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 2rem; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .btn { padding: 14px 28px; font-size: 0.9rem; }
+}
+
+/* ═══════════════════════════════════════════
+   DECORATIVE GRID LINES
+   ═══════════════════════════════════════════ */
+.grid-lines {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.02;
+}
+
+.grid-lines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+</style>
+</head>
+<body>
+
+<!-- Background Effects -->
+<div class="bg-noise"></div>
+<div class="grid-lines"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">FT</div>
+      <span style="font-family:var(--font-en)">FT <span class="gradient-text">Drop</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#how">วิธีสั่งซื้อ</a></li>
+      <li><a href="#categories">หมวดสินค้า</a></li>
+      <li><a href="#why">ทำไมต้อง FT</a></li>
+      <li><a href="#shop" class="nav-cta">เลือกซื้อเลย</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="orb orb-purple"></div>
+  <div class="orb orb-cyan"></div>
+  <div class="hero-content">
+    <div class="hero-chip">
+      <span class="hero-chip-dot"></span>
+      เปิดให้บริการแล้ว — Lazada · Shopee · TikTok Shop
+    </div>
+    <h1 class="hero-title">
+      สินค้าเทรนด์<br><span class="gradient-text">ส่งตรงถึงบ้านคุณ</span>
+      <span class="hero-title-en">Trending Products, Delivered to Your Door</span>
+    </h1>
+    <p class="hero-desc">
+      FT Dropshipping คัดสรรสินค้ายอดนิยมจากทั่วโลก ส่งตรงจากโรงงานถึงหน้าบ้านคุณ ในราคาที่เป็นมิตร พร้อมบริการภาษาไทยเต็มรูปแบบ
+    </p>
+    <div class="hero-actions">
+      <a href="#shop" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        เลือกซื้อสินค้า
+      </a>
+      <a href="#how" class="btn btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        ดูวิธีสั่งซื้อ
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     HOW IT WORKS
+     ═══════════════════════════════════════════ -->
+<section class="how-it-works" id="how">
+  <div class="orb orb-purple"></div>
+  <div class="container">
+    <div class="how-header">
+      <div class="section-badge">✦ How It Works</div>
+      <h2 class="section-title reveal">สั่งง่าย <span class="gradient-text">ได้เร็ว</span></h2>
+      <p class="section-subtitle reveal reveal-delay-1">แค่ 3 ขั้นตอนง่ายๆ สินค้าก็ถึงหน้าบ้านคุณแล้ว</p>
+    </div>
+    <div class="steps-grid">
+      <!-- Step 1 -->
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-number"><span>1</span></div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3 class="step-title">เลือกดูสินค้า</h3>
+        <div class="step-title-en">Browse Products</div>
+        <p class="step-desc">เลือกสินค้าที่ชอบจากร้าน FT บน Lazada, Shopee หรือ TikTok Shop</p>
+      </div>
+      <!-- Step 2 -->
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-number"><span>2</span></div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <h3 class="step-title">สั่งซื้อ & ชำระเงิน</h3>
+        <div class="step-title-en">Order & Pay</div>
+        <p class="step-desc">สั่งซื้อตามปกติผ่านแพลตฟอร์ม ชำระเงินอย่างปลอดภัย</p>
+      </div>
+      <!-- Step 3 -->
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-number"><span>3</span></div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3 class="step-title">รอรับของที่บ้าน</h3>
+        <div class="step-title-en">Delivered in 4–8 Days</div>
+        <p class="step-desc">สินค้าจัดส่งตรงจากโรงงานถึงหน้าบ้านคุณ ภายใน 4-8 วัน</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PRODUCT CATEGORIES
+     ═══════════════════════════════════════════ -->
+<section class="categories" id="categories">
+  <div class="orb orb-cyan"></div>
+  <div class="container">
+    <div class="categories-header">
+      <div class="section-badge">✦ Categories</div>
+      <h2 class="section-title reveal">สินค้า<span class="gradient-text">ครบทุกหมวด</span></h2>
+      <p class="section-subtitle reveal reveal-delay-1">คัดสรรมาเฉพาะสินค้ายอดนิยม ที่คนไทยชื่นชอบ</p>
+    </div>
+    <div class="categories-grid">
+      <!-- Beauty -->
+      <div class="category-card reveal reveal-delay-1">
+        <div class="category-bg"></div>
+        <div class="category-content">
+          <div class="category-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="category-name">ความงาม</div>
+          <div class="category-name-en">Beauty & Skincare</div>
+          <span class="category-count">500+ items</span>
+        </div>
+        <div class="category-glow"></div>
+      </div>
+      <!-- Gadgets -->
+      <div class="category-card reveal reveal-delay-2">
+        <div class="category-bg"></div>
+        <div class="category-content">
+          <div class="category-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <div class="category-name">แกดเจ็ต</div>
+          <div class="category-name-en">Tech & Gadgets</div>
+          <span class="category-count">800+ items</span>
+        </div>
+        <div class="category-glow"></div>
+      </div>
+      <!-- Home -->
+      <div class="category-card reveal reveal-delay-3">
+        <div class="category-bg"></div>
+        <div class="category-content">
+          <div class="category-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="category-name">ของใช้ในบ้าน</div>
+          <div class="category-name-en">Home & Living</div>
+          <span class="category-count">600+ items</span>
+        </div>
+        <div class="category-glow"></div>
+      </div>
+      <!-- Pet -->
+      <div class="category-card reveal reveal-delay-4">
+        <div class="category-bg"></div>
+        <div class="category-content">
+          <div class="category-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21c-1.5 0-6-3.5-6-8.5a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4c0 5-4.5 8.5-6 8.5z"/>
+              <circle cx="8" cy="5" r="2"/>
+              <circle cx="16" cy="5" r="2"/>
+              <circle cx="5" cy="10" r="1.5"/>
+              <circle cx="19" cy="10" r="1.5"/>
+            </svg>
+          </div>
+          <div class="category-name">สัตว์เลี้ยง</div>
+          <div class="category-name-en">Pet Supplies</div>
+          <span class="category-count">350+ items</span>
+        </div>
+        <div class="category-glow"></div>
+      </div>
+      <!-- Fitness -->
+      <div class="category-card reveal reveal-delay-5">
+        <div class="category-bg"></div>
+        <div class="category-content">
+          <div class="category-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.5 6.5L17.5 17.5"/>
+              <path d="M7 2l-2 2 3.5 3.5"/>
+              <path d="M17 22l2-2-3.5-3.5"/>
+              <path d="M22 17l-2 2-3.5-3.5"/>
+              <path d="M2 7l2-2 3.5 3.5"/>
+            </svg>
+          </div>
+          <div class="category-name">ฟิตเนส</div>
+          <div class="category-name-en">Fitness & Sports</div>
+          <span class="category-count">400+ items</span>
+        </div>
+        <div class="category-glow"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     WHY FT
+     ═══════════════════════════════════════════ -->
+<section class="why-ft" id="why">
+  <div class="orb orb-purple"></div>
+  <div class="orb orb-cyan"></div>
+  <div class="container">
+    <div class="why-header">
+      <div class="section-badge">✦ Why FT</div>
+      <h2 class="section-title reveal">ทำไมต้อง <span class="gradient-text">FT Dropshipping</span></h2>
+      <p class="section-subtitle reveal reveal-delay-1">ไม่ใช่แค่ขายของออนไลน์ แต่คือประสบการณ์การช้อปที่คนไทยสมควรได้รับ</p>
+    </div>
+    <div class="why-grid">
+      <!-- Thai Support -->
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3 class="why-title">บริการภาษาไทย 100%</h3>
+        <div class="why-title-en">Full Thai Support</div>
+        <p class="why-desc">ทีมซัพพอร์ตคนไทย พร้อมช่วยเหลือทุกปัญหา ไม่ต้องกังวลเรื่องภาษา สื่อสารเข้าใจง่ายตลอดกระบวนการ</p>
+      </div>
+      <!-- Fast Shipping -->
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3 class="why-title">จัดส่งเร็ว 4-8 วัน</h3>
+        <div class="why-title-en">Fast International Shipping</div>
+        <p class="why-desc">ส่งตรงจากโรงงาน ไม่ผ่านตัวแทน เร็วกว่าช้อปเองจากต่างประเทศ พร้อมเลขแทรคกิ้งให้ติดตามทุกขั้นตอน</p>
+      </div>
+      <!-- Curated Quality -->
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 class="why-title">คัดสรรคุณภาพ</h3>
+        <div class="why-title-en">Curated Quality Products</div>
+        <p class="why-desc">ทุกสินค้าผ่านการคัดเลือกอย่างพิถีพิถัน เน้นคุณภาพ ไม่ใช่ปริมาณ เลือกเฉพาะที่ดีที่สุดจากซัพพลายเออร์ระดับโลก</p>
+      </div>
+      <!-- Easy Returns -->
+      <div class="why-card reveal reveal-delay-4">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+        </div>
+        <h3 class="why-title">คืนง่าย ไร้กังวล</h3>
+        <div class="why-title-en">Hassle-Free Returns</div>
+        <p class="why-desc">ไม่พอใจ คืนได้เลย ตามนโยบายของแต่ละแพลตฟอร์ม เรารับประกันความพึงพอใจของลูกค้าเป็นอันดับหนึ่ง</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     STATS BAR
+     ═══════════════════════════════════════════ -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-bar reveal">
+      <div class="stat-item">
+        <div class="stat-value gradient-text" data-target="3000000" data-suffix="+">3M+</div>
+        <div class="stat-label">สินค้าให้เลือก</div>
+        <div class="stat-label-en">Products Available</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value gradient-text">4–8 วัน</div>
+        <div class="stat-label">จัดส่งถึงบ้าน</div>
+        <div class="stat-label-en">Delivery Time</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value gradient-text">45–65%</div>
+        <div class="stat-label">อัตรากำไร</div>
+        <div class="stat-label-en">Profit Margins</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CTA SECTION
+     ═══════════════════════════════════════════ -->
+<section class="cta-section" id="shop">
+  <div class="orb orb-purple"></div>
+  <div class="container">
+    <div class="cta-content">
+      <div class="section-badge reveal">✦ Shop Now</div>
+      <h2 class="cta-title reveal reveal-delay-1">
+        พร้อมช้อปแล้ว?<br><span class="gradient-text">เลือกแพลตฟอร์มที่ถนัด</span>
+      </h2>
+      <p class="cta-desc reveal reveal-delay-2">
+        FT Dropshipping พร้อมให้บริการบน Lazada, Shopee และ TikTok Shop<br>เลือกช้อปได้ตามที่คุณสะดวก
+      </p>
+      <div class="cta-buttons reveal reveal-delay-3">
+        <!-- Lazada -->
+        <a href="#" class="btn-marketplace btn-lazada" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H8l4-8v5h3l-4 8v-5z"/></svg>
+          <div class="btn-marketplace-text">
+            <span class="btn-marketplace-sub">Shop on</span>
+            <div class="btn-marketplace-name">Lazada</div>
+          </div>
+        </a>
+        <!-- Shopee -->
+        <a href="#" class="btn-marketplace btn-shopee" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+          <div class="btn-marketplace-text">
+            <span class="btn-marketplace-sub">Shop on</span>
+            <div class="btn-marketplace-name">Shopee</div>
+          </div>
+        </a>
+        <!-- TikTok Shop -->
+        <a href="#" class="btn-marketplace btn-tiktok" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.57 6.33 6.33 0 0 0 9.37 22a6.33 6.33 0 0 0 6.37-6.22V9.4a8.16 8.16 0 0 0 3.85.96V7.64a4.85 4.85 0 0 1-.59-.05z"/></svg>
+          <div class="btn-marketplace-text">
+            <span class="btn-marketplace-sub">Shop on</span>
+            <div class="btn-marketplace-name">TikTok Shop</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">
+          <div class="nav-logo-icon" style="width:28px;height:28px;font-size:0.8rem;">FT</div>
+          FT Dropshipping
+        </div>
+        <p class="footer-brand-desc">
+          คัดสรรสินค้าเทรนด์จากทั่วโลก ส่งตรงถึงบ้านคุณ พร้อมบริการภาษาไทยเต็มรูปแบบ
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title">Shop</div>
+        <ul class="footer-links">
+          <li><a href="#">Lazada Store</a></li>
+          <li><a href="#">Shopee Store</a></li>
+          <li><a href="#">TikTok Shop</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Categories</div>
+        <ul class="footer-links">
+          <li><a href="#">ความงาม</a></li>
+          <li><a href="#">แกดเจ็ต</a></li>
+          <li><a href="#">ของใช้ในบ้าน</a></li>
+          <li><a href="#">สัตว์เลี้ยง</a></li>
+          <li><a href="#">ฟิตเนส</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links">
+          <li><a href="#">ติดต่อเรา</a></li>
+          <li><a href="#">นโยบายการคืน</a></li>
+          <li><a href="#">คำถามที่พบบ่อย</a></li>
+          <li><a href="#">ข้อกำหนดการใช้งาน</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 FT Dropshipping — สงวนลิขสิทธิ์ทุกประการ</span>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" aria-label="LINE">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.82 2 10.5c0 3.44 2.66 6.41 6.53 7.55.25.07.6.2.69.46.08.23.05.6.03.83l-.11.66c-.03.21-.17.83.73.45.89-.38 4.82-2.84 6.58-4.86C18.28 13.57 22 12.2 22 10.5 22 5.82 17.52 2 12 2z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Deerflow Badge -->
+<a href="https://deerflow.tech" target="_blank" class="deerflow-badge">Created by Deerflow</a>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════ -->
+<script>
+// Navbar scroll effect
+const nav = document.getElementById('nav');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  if (scrollY > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+  lastScroll = scrollY;
+}, { passive: true });
+
+// Mobile menu toggle
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
+
+mobileToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('mobile-open');
+});
+
+// Close mobile menu on link click
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('mobile-open');
+  });
+});
+
+// Scroll reveal animation
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -50px 0px'
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Parallax orbs on mouse move
+document.addEventListener('mousemove', (e) => {
+  const orbs = document.querySelectorAll('.orb');
+  const x = (e.clientX / window.innerWidth - 0.5) * 2;
+  const y = (e.clientY / window.innerHeight - 0.5) * 2;
+
+  orbs.forEach((orb, i) => {
+    const speed = (i + 1) * 8;
+    orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+  });
+});
+</script>
+</body>
+</html>

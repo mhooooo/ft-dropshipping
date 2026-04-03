@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FT Dropshipping — Product Intelligence War Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════ */
+/*  FT DROPSHIPPING — PRODUCT INTELLIGENCE WAR ROOM      */
+/*  Dark cyberpunk aesthetic • Purple/Cyan brand colors   */
+/* ═══════════════════════════════════════════════════════ */
+
+:root {
+  --purple: #7C3AED;
+  --purple-glow: rgba(124, 58, 237, 0.4);
+  --purple-dim: rgba(124, 58, 237, 0.15);
+  --cyan: #06B6D4;
+  --cyan-glow: rgba(6, 182, 212, 0.4);
+  --cyan-dim: rgba(6, 182, 212, 0.12);
+  --bg-primary: #0A0A0F;
+  --bg-card: #111118;
+  --bg-card-hover: #16161F;
+  --bg-elevated: #1A1A24;
+  --border: rgba(124, 58, 237, 0.2);
+  --border-cyan: rgba(6, 182, 212, 0.2);
+  --text-primary: #F0F0F5;
+  --text-secondary: #9494A8;
+  --text-muted: #5C5C72;
+  --green: #22C55E;
+  --green-dim: rgba(34, 197, 94, 0.15);
+  --yellow: #F59E0B;
+  --yellow-dim: rgba(245, 158, 11, 0.15);
+  --red: #EF4444;
+  --red-dim: rgba(239, 68, 68, 0.15);
+  --orange: #F97316;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ═══ AMBIENT BACKGROUND ═══ */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background:
+    radial-gradient(ellipse at 20% 20%, var(--purple-dim) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, var(--cyan-dim) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(10,10,15,0.8) 0%, transparent 100%);
+  z-index: 0;
+  animation: ambientDrift 20s ease-in-out infinite alternate;
+}
+
+@keyframes ambientDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-3%, 2%) scale(1.05); }
+}
+
+/* ═══ GRID OVERLAY ═══ */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ═══ SCROLLBAR ═══ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 3px; }
+
+/* ═══ LAYOUT ═══ */
+.app { position: relative; z-index: 1; }
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ═══ HEADER ═══ */
+.header {
+  padding: 32px 0 24px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.header-left { display: flex; align-items: center; gap: 16px; }
+
+.logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--purple), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+.logo-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.header-status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--green);
+  background: var(--green-dim);
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(34,197,94,0.3);
+}
+
+.live-dot {
+  width: 8px; height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+}
+
+.timestamp {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ═══ NAV TABS ═══ */
+.nav {
+  padding: 16px 0;
+  position: sticky;
+  top: 88px;
+  z-index: 99;
+  background: rgba(10,10,15,0.8);
+  backdrop-filter: blur(16px);
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.nav-tabs::-webkit-scrollbar { display: none; }
+
+.nav-tab {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  font-family: 'Outfit', sans-serif;
+}
+
+.nav-tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-card);
+  border-color: var(--border);
+}
+
+.nav-tab.active {
+  color: var(--cyan);
+  background: var(--cyan-dim);
+  border-color: rgba(6,182,212,0.3);
+}
+
+/* ═══ SECTIONS ═══ */
+.section {
+  display: none;
+  padding: 32px 0;
+  animation: fadeIn 0.3s ease;
+}
+
+.section.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* ═══ CARDS ═══ */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(124,58,237,0.35);
+  box-shadow: 0 8px 32px rgba(124,58,237,0.08);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.card-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ═══ STAT GRID (top dashboard) ═══ */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple), var(--cyan));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.stat-card:hover::before { opacity: 1; }
+
+.stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+  background: linear-gradient(135deg, var(--text-primary), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+}
+
+.stat-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 6px;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.stat-change.up { color: var(--green); background: var(--green-dim); }
+.stat-change.down { color: var(--red); background: var(--red-dim); }
+.stat-change.neutral { color: var(--yellow); background: var(--yellow-dim); }
+
+/* ═══ PRODUCT RADAR (Section 1) ═══ */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+  box-shadow: 0 12px 40px rgba(6,182,212,0.12);
+}
+
+.product-card.expanded .product-details { display: block; }
+
+.product-rank {
+  position: absolute;
+  top: -1px; right: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--bg-primary);
+  background: linear-gradient(135deg, var(--purple), var(--cyan));
+  padding: 6px 14px;
+  border-radius: 0 0 10px 10px;
+}
+
+.product-category {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.cat-beauty { color: #F472B6; background: rgba(244,114,182,0.12); border: 1px solid rgba(244,114,182,0.25); }
+.cat-gadget { color: var(--cyan); background: var(--cyan-dim); border: 1px solid rgba(6,182,212,0.25); }
+.cat-home { color: var(--yellow); background: var(--yellow-dim); border: 1px solid rgba(245,158,11,0.25); }
+.cat-pet { color: var(--green); background: var(--green-dim); border: 1px solid rgba(34,197,94,0.25); }
+.cat-fitness { color: var(--orange); background: rgba(249,115,22,0.12); border: 1px solid rgba(249,115,22,0.25); }
+
+.product-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.product-thai {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.product-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.metric {
+  text-align: center;
+  padding: 12px 8px;
+  background: var(--bg-elevated);
+  border-radius: 10px;
+}
+
+.metric-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.metric-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.product-score-bar {
+  height: 6px;
+  background: var(--bg-elevated);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.product-score-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease;
+}
+
+.score-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.product-details {
+  display: none;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 13px;
+}
+
+.detail-label { color: var(--text-muted); }
+.detail-value { 
+  color: var(--text-primary); 
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.product-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.tag {
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--purple-dim);
+  color: var(--purple);
+  border: 1px solid rgba(124,58,237,0.2);
+  font-weight: 600;
+}
+
+/* ═══ MARGIN CALCULATOR (Section 2) ═══ */
+.calc-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .calc-layout { grid-template-columns: 1fr; }
+}
+
+.calc-form .input-group {
+  margin-bottom: 16px;
+}
+
+.calc-form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.calc-form input, .calc-form select {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.calc-form input:focus, .calc-form select:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px var(--cyan-dim);
+}
+
+.calc-result {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.result-hero {
+  text-align: center;
+  padding: 32px 0;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, var(--purple-dim), var(--cyan-dim));
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.result-hero-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.result-hero-value {
+  font-size: 56px;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1;
+}
+
+.result-breakdown { margin-top: 20px; }
+
+.breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(124,58,237,0.08);
+  font-size: 14px;
+}
+
+.breakdown-row:last-child { border-bottom: none; }
+.breakdown-label { color: var(--text-secondary); }
+.breakdown-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}
+
+.verdict-card {
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.verdict-go {
+  background: var(--green-dim);
+  border: 1px solid rgba(34,197,94,0.3);
+  color: var(--green);
+}
+
+.verdict-maybe {
+  background: var(--yellow-dim);
+  border: 1px solid rgba(245,158,11,0.3);
+  color: var(--yellow);
+}
+
+.verdict-nogo {
+  background: var(--red-dim);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: var(--red);
+}
+
+/* ═══ SEASONAL MAP (Section 3) ═══ */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 1100px) {
+  .calendar-grid { grid-template-columns: repeat(6, 1fr); }
+}
+@media (max-width: 600px) {
+  .calendar-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.month-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.month-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--cyan);
+}
+
+.month-card.current {
+  border-color: var(--cyan);
+  background: var(--cyan-dim);
+  box-shadow: 0 4px 20px rgba(6,182,212,0.15);
+}
+
+.month-name {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.month-card.current .month-name { color: var(--cyan); }
+
+.month-heat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.heat-fire { color: var(--red); }
+.heat-hot { color: var(--orange); }
+.heat-warm { color: var(--yellow); }
+.heat-cool { color: var(--cyan); }
+.heat-cold { color: var(--text-muted); }
+
+.month-events {
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.season-detail {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.season-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.season-cat-card {
+  padding: 16px;
+  background: var(--bg-elevated);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.season-cat-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.season-cat-tip {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.timing-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.timing-now { background: var(--green-dim); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+.timing-soon { background: var(--yellow-dim); color: var(--yellow); border: 1px solid rgba(245,158,11,0.3); }
+.timing-later { background: var(--purple-dim); color: var(--purple); border: 1px solid rgba(124,58,237,0.3); }
+
+/* ═══ COMPETITOR GAP (Section 4) ═══ */
+.gap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.gap-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.gap-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.gap-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.gap-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.gap-action {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--cyan);
+  padding: 8px 16px;
+  background: var(--cyan-dim);
+  border: 1px solid rgba(6,182,212,0.25);
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* ═══ PLATFORM FEE TABLE (Section 5) ═══ */
+.fee-table-wrap {
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.fee-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.fee-table th {
+  text-align: left;
+  padding: 16px 20px;
+  background: var(--bg-elevated);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+}
+
+.fee-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(124,58,237,0.06);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+.fee-table tr:last-child td { border-bottom: none; }
+
+.fee-table tr:hover td { background: var(--bg-card-hover); }
+
+.platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.platform-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+
+/* ═══ LAUNCH PLAYBOOK (Section 6) ═══ */
+.playbook-timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.playbook-timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--purple), var(--cyan), var(--green));
+}
+
+.playbook-step {
+  position: relative;
+  margin-bottom: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s;
+}
+
+.playbook-step:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 8px 32px rgba(6,182,212,0.08);
+}
+
+.playbook-dot {
+  position: absolute;
+  left: -33px; top: 28px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--purple);
+  border: 3px solid var(--bg-primary);
+}
+
+.playbook-week {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--cyan);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.playbook-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.playbook-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.playbook-checklist {
+  margin-top: 12px;
+  list-style: none;
+}
+
+.playbook-checklist li {
+  padding: 6px 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.playbook-checklist li::before {
+  content: '○';
+  color: var(--purple);
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ═══ FOOTER ═══ */
+.footer {
+  text-align: center;
+  padding: 48px 0 32px;
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+}
+
+.footer-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.deerflow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-decoration: none;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.deerflow-badge:hover { opacity: 1; color: var(--cyan); }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; align-items: flex-start; }
+  .stat-value { font-size: 24px; }
+  .product-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 22px; }
+  .result-hero-value { font-size: 40px; }
+  .calc-layout { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- ═══ HEADER ═══ -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <div>
+          <div class="logo">FT://WAR_ROOM</div>
+          <div class="logo-sub">Product Intelligence System</div>
+        </div>
+      </div>
+      <div class="header-status">
+        <div class="live-indicator">
+          <span class="live-dot"></span>
+          LIVE DATA
+        </div>
+        <div class="timestamp" id="timestamp"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-tabs">
+        <button class="nav-tab active" data-tab="dashboard">◆ Dashboard</button>
+        <button class="nav-tab" data-tab="radar">⊕ Product Radar</button>
+        <button class="nav-tab" data-tab="calculator">⊘ Margin Calculator</button>
+        <button class="nav-tab" data-tab="seasonal">◎ Seasonal Map</button>
+        <button class="nav-tab" data-tab="gaps">⊗ Competitor Gaps</button>
+        <button class="nav-tab" data-tab="fees">⊞ Platform Fees</button>
+        <button class="nav-tab" data-tab="playbook">⊛ Launch Playbook</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: DASHBOARD                          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section active" id="sec-dashboard">
+      <div class="section-title">Command Center</div>
+      <div class="section-subtitle">Real-time overview of FT Dropshipping's competitive position in the Thai e-commerce battlefield — Lazada, Shopee, TikTok Shop.</div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Thai E-Com Market 2025</div>
+          <div class="stat-value">฿1.1T</div>
+          <span class="stat-change up">↑ 14% YoY</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Target Addressable</div>
+          <div class="stat-value">฿82B</div>
+          <span class="stat-change neutral">→ Beauty+Gadgets+Home+Pet+Fitness</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Avg. Margin Target</div>
+          <div class="stat-value">42%</div>
+          <span class="stat-change up">↑ After platform fees</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Products Scouted</div>
+          <div class="stat-value">20</div>
+          <span class="stat-change up">Top picks across 5 niches</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Shopee TH Traffic Share</div>
+          <div class="stat-value">55.9%</div>
+          <span class="stat-change up">↑ vs. Lazada 44.1%</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Chinese Seller Threat</div>
+          <div class="stat-value">-30%</div>
+          <span class="stat-change down">↓ Price undercut vs. Thai sellers</span>
+        </div>
+      </div>
+
+      <!-- Quick insight cards -->
+      <div class="gap-grid" style="margin-bottom: 32px;">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-label">🔥 Hot Right Now — April 2026</span>
+          </div>
+          <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">
+            <strong style="color:var(--cyan);">Songkran season</strong> drives massive demand for cooling products, portable fans, waterproof phone cases, and skincare recovery. Thai consumers spend more in April than any month except 12.12. <strong style="color:var(--yellow);">Consumer prices rising</strong> — 5 major brands announcing April price hikes due to Middle East logistics costs. Opportunity: stock before price increase, sell at new higher market price.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <span class="card-label">⚡ Critical Intel</span>
+          </div>
+          <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">
+            <strong style="color:var(--red);">Shopee new fee alert:</strong> 5% tech service fee effective Feb 2026 + infrastructure fee from April 1, 2026. Factor into all margin calculations. <strong style="color:var(--green);">But:</strong> New stores get 3 months commission-free (from Jan 2026). If FT hasn't launched on Shopee yet — <strong style="color:var(--cyan);">now is the window</strong>.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <span class="card-label">🎯 Strategy Snapshot</span>
+          </div>
+          <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">
+            Thai market is dominated by <strong style="color:var(--purple);">Shopee (56%)</strong> and <strong style="color:var(--orange);">Lazada (44%)</strong> with <strong style="color:var(--text-primary);">TikTok Shop</strong> as fastest growing (score 43, first year in rankings). Top strategy: SKU depth in proven niches > chasing viral singles. Focus on lighting, storage, mobile accessories, pet products — these have lowest seasonality risk and highest repeat purchase rates.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: PRODUCT RADAR                      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="sec-radar">
+      <div class="section-title">Product Radar</div>
+      <div class="section-subtitle">20 hand-picked products scored on margin, demand, competition, and TikTok virality potential. Click any card to expand. All prices in THB.</div>
+
+      <!-- Filter buttons -->
+      <div style="display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap;">
+        <button class="filter-btn active" data-filter="all" style="padding:8px 16px; border-radius:8px; border:1px solid var(--border); background:var(--purple-dim); color:var(--purple); font-size:12px; font-weight:700; cursor:pointer; font-family:'Outfit',sans-serif;">ALL (20)</button>
+        <button class="filter-btn" data-filter="beauty" style="padding:8px 16px; border-radius:8px; border:1px solid rgba(244,114,182,0.25); background:transparent; color:#F472B6; font-size:12px; font-weight:700; cursor:pointer; font-family:'Outfit',sans-serif;">BEAUTY</button>
+        <button class="filter-btn" data-filter="gadget" style="padding:8px 16px; border-radius:8px; border:1px solid rgba(6,182,212,0.25); background:transparent; color:var(--cyan); font-size:12px; font-weight:700; cursor:pointer; font-family:'Outfit',sans-serif;">GADGETS</button>
+        <button class="filter-btn" data-filter="home" style="padding:8px 16px; border-radius:8px; border:1px solid rgba(245,158,11,0.25); background:transparent; color:var(--yellow); font-size:12px; font-weight:700; cursor:pointer; font-family:'Outfit',sans-serif;">HOME</button>
+        <button class="filter-btn" data-filter="pet" style="padding:8px 16px; border-radius:8px; border:1px solid rgba(34,197,94,0.25); background:transparent; color:var(--green); font-size:12px; font-weight:700; cursor:pointer; font-family:'Outfit',sans-serif;">PET</button>
+        <button class="filter-btn" data-filter="fitness" style="padding:8px 16px; border-radius:8px; border:1px solid rgba(249,115,22,0.25); background:transparent; color:var(--orange); font-size:12px; font-weight:700; cursor:pointer; font-family:'Outfit',sans-serif;">FITNESS</button>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: MARGIN CALCULATOR                  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="sec-calculator">
+      <div class="section-title">Margin Calculator</div>
+      <div class="section-subtitle">Plug in any product. Get instant go/no-go verdict with full cost breakdown including 2026 platform fees.</div>
+
+      <div class="calc-layout">
+        <div class="card calc-form">
+          <div class="card-header"><span class="card-label">Input Parameters</span></div>
+          <div class="input-group">
+            <label>CJ Cost (THB) — ราคาต้นทุน</label>
+            <input type="number" id="calcCost" value="120" min="1">
+          </div>
+          <div class="input-group">
+            <label>Selling Price (THB) — ราคาขาย</label>
+            <input type="number" id="calcPrice" value="399" min="1">
+          </div>
+          <div class="input-group">
+            <label>Platform — แพลตฟอร์ม</label>
+            <select id="calcPlatform">
+              <option value="shopee">Shopee Thailand</option>
+              <option value="lazada">Lazada Thailand</option>
+              <option value="tiktok">TikTok Shop Thailand</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Shipping to Customer (THB)</label>
+            <input type="number" id="calcShip" value="40" min="0">
+          </div>
+          <div class="input-group">
+            <label>Ad Spend per Order (THB)</label>
+            <input type="number" id="calcAds" value="30" min="0">
+          </div>
+          <div class="input-group">
+            <label>CJ Shipping to TH Warehouse (THB)</label>
+            <input type="number" id="calcCJShip" value="45" min="0">
+          </div>
+          <div class="input-group">
+            <label>Packaging (THB)</label>
+            <input type="number" id="calcPack" value="10" min="0">
+          </div>
+        </div>
+
+        <div class="calc-result" id="calcResult">
+          <!-- JS fills this -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: SEASONAL MAP                       -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="sec-seasonal">
+      <div class="section-title">Seasonal Demand Map</div>
+      <div class="section-subtitle">12-month heatmap of Thai e-commerce demand with category-specific opportunities and key shopping events. Click a month for details.</div>
+
+      <div class="calendar-grid" id="calendarGrid"></div>
+      <div class="season-detail" id="seasonDetail"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: COMPETITOR GAPS                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="sec-gaps">
+      <div class="section-title">Competitor Gap Analysis</div>
+      <div class="section-subtitle">Exploitable weaknesses in the Thai dropshipping landscape. Each gap = your competitive edge.</div>
+
+      <div class="gap-grid" id="gapGrid"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: PLATFORM FEES                      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="sec-fees">
+      <div class="section-title">Platform Fee Comparison</div>
+      <div class="section-subtitle">Updated April 2026 fee structures for Shopee, Lazada, and TikTok Shop Thailand. Every baht counts in dropshipping margins.</div>
+
+      <div class="fee-table-wrap">
+        <table class="fee-table">
+          <thead>
+            <tr>
+              <th>Fee Type</th>
+              <th><span class="platform-badge"><span class="platform-dot" style="background:#EE4D2D;"></span>Shopee</span></th>
+              <th><span class="platform-badge"><span class="platform-dot" style="background:#0F146D;"></span>Lazada</span></th>
+              <th><span class="platform-badge"><span class="platform-dot" style="background:#000;"></span>TikTok Shop</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-family:'Outfit',sans-serif; color:var(--text-secondary);">Commission Rate</td>
+              <td>2% – 6%</td>
+              <td>1% – 4%</td>
+              <td>2% – 5%</td>
+            </tr>
+            <tr>
+              <td style="font-family:'Outfit',sans-serif; color:var(--text-secondary);">Tech Service Fee (2026)</td>
+              <td style="color:var(--red);">5% (NEW)</td>
+              <td>Included</td>
+              <td>Included</td>
+            </tr>
+            <tr>
+              <td style="font-family:'Outfit',sans-serif; color:var(--text-secondary);">Infrastructure Fee (Apr 2026)</td>
+              <td style="color:var(--yellow);">AGS sellers only</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+            <tr>
+              <td style="font-family:'Outfit',sans-serif; color:var(--text-secondary);">Payment Processing</td>
+              <td>2%</td>
+              <td>2%</td>
+              <td>1.84%</td>
+            </tr>
+            <tr>
+              <td style="font-family:'Outfit',sans-serif; color:var(--text-secondary);">Estimated Total Fee</td>
+              <td style="color:var(--red); font-weight:700;">9% – 13%</td>
+              <td style="color:var(--yellow); font-weight:700;">3% – 6%</td>
+              <td style="color:var(--green); font-weight:700;">3.84% – 6.84%</td>
+            </tr>
+            <tr>
+              <td style="font-family:'Outfit',sans-serif; color:var(--text-secondary);">New Seller Promo</td>
+              <td style="color:var(--green);">3 months commission-free</td>
+              <td>Varies by campaign</td>
+              <td>Reduced commission 90 days</td>
+            </tr>
+            <tr>
+              <td style="font-family:'Outfit',sans-serif; color:var(--text-secondary);">Seller Support Quality</td>
+              <td>★★★☆ Chat (24-48h)</td>
+              <td>★★☆☆ Email (48-72h)</td>
+              <td>★★★☆ In-app chat</td>
+            </tr>
+            <tr>
+              <td style="font-family:'Outfit',sans-serif; color:var(--text-secondary);">Live Commerce</td>
+              <td>★★★★ Strong</td>
+              <td>★★★☆ Growing</td>
+              <td>★★★★★ Dominant</td>
+            </tr>
+            <tr>
+              <td style="font-family:'Outfit',sans-serif; color:var(--text-secondary);">FT Recommendation</td>
+              <td style="color:var(--cyan); font-family:'Outfit',sans-serif; font-weight:700;">🎯 Primary — Volume play</td>
+              <td style="color:var(--purple); font-family:'Outfit',sans-serif; font-weight:700;">⊕ Secondary — Higher margins</td>
+              <td style="color:var(--green); font-family:'Outfit',sans-serif; font-weight:700;">🚀 Growth — Virality play</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top: 24px;">
+        <div class="card">
+          <div class="card-header"><span class="card-label">⚠️ Fee Strategy Note</span></div>
+          <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">
+            Shopee's total fees are now the highest (9-13%) but it commands 56% of Thai traffic. <strong style="color:var(--cyan);">Tactic:</strong> Launch on Shopee for the 3-month commission-free window to build reviews + rankings. Simultaneously list on Lazada for better margins on the same SKUs. Use TikTok Shop for viral product launches with short video content — lowest barrier to impulse buys. <strong style="color:var(--yellow);">Golden Rule:</strong> Never price a product for one platform. Build your margin model for Shopee's worst-case 13% fees, then enjoy the extra margin on Lazada/TikTok.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: LAUNCH PLAYBOOK                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="sec-playbook">
+      <div class="section-title">30-Day Launch Playbook</div>
+      <div class="section-subtitle">Week-by-week battle plan to go from zero to first 100 orders across all three platforms.</div>
+
+      <div class="playbook-timeline">
+        <div class="playbook-step">
+          <div class="playbook-dot" style="background:var(--purple);"></div>
+          <div class="playbook-week">Week 1 — Foundation</div>
+          <div class="playbook-title">Store Setup & Initial Listings</div>
+          <div class="playbook-desc">Register stores on all 3 platforms. Upload first 10 products from Product Radar's top picks. Focus on the top 4 seasonal winners for April (cooling products, portable fans, skincare recovery, waterproof accessories).</div>
+          <ul class="playbook-checklist">
+            <li>Register Shopee TH store (3-month free commission window)</li>
+            <li>Register Lazada TH store (higher margins, premium positioning)</li>
+            <li>Register TikTok Shop TH (viral content channel)</li>
+            <li>Set up CJ Dropshipping account — connect to all 3 platforms</li>
+            <li>Use CJ Thailand warehouse for faster local delivery</li>
+            <li>Create Thai-language listings with SEO keywords (ชื่อสินค้า + คำค้นหา)</li>
+            <li>Upload 5+ product photos per SKU (lifestyle + white background + detail shots)</li>
+          </ul>
+        </div>
+
+        <div class="playbook-step">
+          <div class="playbook-dot" style="background:var(--cyan);"></div>
+          <div class="playbook-week">Week 2 — Content & Social Proof</div>
+          <div class="playbook-title">Video Content Blitz</div>
+          <div class="playbook-desc">Film 15-second TikTok-style product demos. "Before/after" format works best for beauty. "Unboxing reaction" for gadgets. "Happy pet" for pet products. Goal: 3 videos per product minimum.</div>
+          <ul class="playbook-checklist">
+            <li>Create 10-15 short-form videos (15-30 sec) for TikTok + Shopee Video</li>
+            <li>Hire 2-3 Thai micro-influencers (฿500-2,000/post) via TikTok Creator Marketplace</li>
+            <li>Set up Shopee Affiliate program — let creators earn commission</li>
+            <li>Seed initial reviews: offer first 20 buyers a ฿50 discount for honest review</li>
+            <li>Enable Shopee Live — do first livestream selling (evening 8-10 PM optimal)</li>
+            <li>Create LINE Official Account for post-purchase support</li>
+          </ul>
+        </div>
+
+        <div class="playbook-step">
+          <div class="playbook-dot" style="background:linear-gradient(var(--purple), var(--cyan));"></div>
+          <div class="playbook-week">Week 3 — Paid Acceleration</div>
+          <div class="playbook-title">Ads & Campaign Optimization</div>
+          <div class="playbook-desc">Start Shopee Ads with ฿200/day budget on top 5 SKUs. Monitor CTR and conversion for 3 days, then double down on winners. Kill anything below 2% conversion rate.</div>
+          <ul class="playbook-checklist">
+            <li>Shopee Ads: Search ads (฿200/day) — target category keywords</li>
+            <li>Shopee Ads: Discovery ads (฿100/day) — algorithmic placement</li>
+            <li>TikTok Ads: Spark Ads on best-performing organic videos (฿150/day)</li>
+            <li>Lazada: Join upcoming Mega Campaign (register 2 weeks early)</li>
+            <li>Set up "Free Shipping" badge on Shopee (massive conversion booster)</li>
+            <li>A/B test product titles and main images — Shopee rewards higher CTR</li>
+            <li>Monitor competitor pricing daily — use Margin Calculator to verify viability</li>
+          </ul>
+        </div>
+
+        <div class="playbook-step">
+          <div class="playbook-dot" style="background:var(--green);"></div>
+          <div class="playbook-week">Week 4 — Scale & Systematize</div>
+          <div class="playbook-title">Double Down on Winners</div>
+          <div class="playbook-desc">Analyze first 30 days. Identify top 3 SKUs by profit (not just revenue). Expand those SKU families. Cut losers ruthlessly. Begin building repeat customer base.</div>
+          <ul class="playbook-checklist">
+            <li>Analyze: Which 3 products generated most profit? Expand to color/size variants</li>
+            <li>Kill: Remove any product below 30% margin after fees</li>
+            <li>Bundle: Create combo deals (e.g., ice roller + face mask = ฿599 set)</li>
+            <li>Restock: Pre-stock top winners at CJ Thailand warehouse for 3-day delivery</li>
+            <li>Automate: Set up order fulfillment automation CJ → platforms</li>
+            <li>Plan: Research May products (Mother's Day, summer continuation)</li>
+            <li>Target: 100 total orders across all platforms by Day 30</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">FT Dropshipping Product Intelligence War Room • Built for competitive dominance</p>
+      <a href="https://deerflow.tech" target="_blank" class="deerflow-badge">✦ Created by Deerflow</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  FT DROPSHIPPING WAR ROOM — ENGINE
+// ═══════════════════════════════════════════════════════
+
+// ─── TIMESTAMP ───
+function updateTime() {
+  const now = new Date();
+  document.getElementById('timestamp').textContent =
+    now.toLocaleDateString('th-TH', { year: 'numeric', month: 'short', day: 'numeric' }) +
+    ' • ' + now.toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+}
+updateTime();
+setInterval(updateTime, 1000);
+
+// ─── TAB NAVIGATION ───
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('sec-' + tab.dataset.tab).classList.add('active');
+    window.scrollTo({ top: 200, behavior: 'smooth' });
+  });
+});
+
+// ═══════════════════════════════════════════
+// PRODUCT DATABASE — 20 HAND-PICKED PRODUCTS
+// ═══════════════════════════════════════════
+const products = [
+  {
+    rank: 1, name: "Portable Neck Fan", thai: "พัดลมคล้องคอแบบพกพา", category: "gadget",
+    cjCost: 85, sellPrice: 399, margin: 62,
+    demand: 95, competition: 65, virality: 90, score: 92,
+    season: "Apr–Sep (Hot season peak)", cjSKU: "CJ-NKFAN-2026",
+    tags: ["Songkran", "TikTok Viral", "Low Return", "Fast Ship"],
+    tip: "Time for Songkran launch. Film water-splash-proof demo video. Bundle with portable charger.",
+    weight: "180g", ship: "฿35", delivery: "5-7 days CJ TH warehouse"
+  },
+  {
+    rank: 2, name: "LED Face Mask Therapy", thai: "หน้ากาก LED บำรุงผิว", category: "beauty",
+    cjCost: 180, sellPrice: 899, margin: 58,
+    demand: 88, competition: 45, virality: 92, score: 89,
+    season: "Year-round (Peak: Nov-Feb)", cjSKU: "CJ-LEDMASK-PRO",
+    tags: ["High Ticket", "Before/After Content", "Low Saturation TH"],
+    tip: "Massive TikTok potential. Before/after videos perform 3x better than static posts. Thai beauty influencers love this category.",
+    weight: "320g", ship: "฿45", delivery: "7-10 days"
+  },
+  {
+    rank: 3, name: "Ice Roller Face Massager", thai: "ลูกกลิ้งน้ำแข็งนวดหน้า", category: "beauty",
+    cjCost: 35, sellPrice: 299, margin: 72,
+    demand: 92, competition: 70, virality: 88, score: 88,
+    season: "Year-round (Peak: Apr-Sep hot season)", cjSKU: "CJ-ICEROLL-01",
+    tags: ["Low Cost", "High Margin", "Easy to Demo", "Songkran Perfect"],
+    tip: "Cheapest entry point with best margins. Great for Songkran/summer push. Film 'morning routine' content.",
+    weight: "120g", ship: "฿30", delivery: "5-7 days"
+  },
+  {
+    rank: 4, name: "Cooling Pet Mat", thai: "แผ่นเจลเย็นสำหรับสัตว์เลี้ยง", category: "pet",
+    cjCost: 95, sellPrice: 499, margin: 55,
+    demand: 85, competition: 40, virality: 82, score: 86,
+    season: "Mar–Sep (Summer essential)", cjSKU: "CJ-PETCOOL-GEL",
+    tags: ["Pet Humanization", "Low Competition TH", "Emotional Content"],
+    tip: "Film dogs/cats lying on mat looking happy. Thai pet owners are passionate — emotional content converts. Cross-sell with portable pet water bottle.",
+    weight: "450g", ship: "฿50", delivery: "7-10 days"
+  },
+  {
+    rank: 5, name: "3-in-1 Portable Fan+Light+Power Bank", thai: "พัดลมพกพา 3-in-1", category: "gadget",
+    cjCost: 110, sellPrice: 599, margin: 54,
+    demand: 90, competition: 55, virality: 78, score: 85,
+    season: "Year-round (Peak: Apr-Sep)", cjSKU: "CJ-3IN1FAN-PB",
+    tags: ["Multi-Function", "Camping", "Outdoor", "Songkran"],
+    tip: "Position as 'everyday carry essential' not just summer gadget. Strong for camping/outdoor niche. Thai market year-round tropical use.",
+    weight: "280g", ship: "฿40", delivery: "5-7 days"
+  },
+  {
+    rank: 6, name: "Magnetic Posture Corrector", thai: "เข็มขัดพยุงหลังแม่เหล็ก", category: "fitness",
+    cjCost: 65, sellPrice: 449, margin: 60,
+    demand: 82, competition: 50, virality: 75, score: 83,
+    season: "Year-round (Peak: Jan New Year resolutions)", cjSKU: "CJ-POSTMAG-01",
+    tags: ["WFH Essential", "Before/After", "Desk Worker Target"],
+    tip: "Target office workers and WFH crowd. 'Sitting all day? ปวดหลัง?' messaging. Demonstrate posture change in 10-sec video.",
+    weight: "150g", ship: "฿35", delivery: "5-7 days"
+  },
+  {
+    rank: 7, name: "Mini Desktop Vacuum", thai: "เครื่องดูดฝุ่นตั้งโต๊ะมินิ", category: "gadget",
+    cjCost: 75, sellPrice: 399, margin: 55,
+    demand: 78, competition: 48, virality: 80, score: 82,
+    season: "Year-round (Peak: Back to school Jul-Aug)", cjSKU: "CJ-DSKVACU-MINI",
+    tags: ["Oddly Satisfying", "Student Life", "Desk Aesthetic"],
+    tip: "Film 'oddly satisfying' cleaning videos — dust, crumbs, eraser shavings. Works great for student and desk aesthetic niches.",
+    weight: "200g", ship: "฿35", delivery: "5-7 days"
+  },
+  {
+    rank: 8, name: "Smart Pet Feeder Timer", thai: "เครื่องให้อาหารสัตว์เลี้ยงอัตโนมัติ", category: "pet",
+    cjCost: 250, sellPrice: 990, margin: 50,
+    demand: 80, competition: 35, virality: 70, score: 81,
+    season: "Year-round (Holiday travel peak)", cjSKU: "CJ-PETFEED-SMART",
+    tags: ["High Ticket", "Tech Appeal", "Travel Use Case"],
+    tip: "Position for 'travel without guilt' — Songkran travel season is perfect timing. Premium price justified by smart features.",
+    weight: "800g", ship: "฿60", delivery: "7-10 days"
+  },
+  {
+    rank: 9, name: "Resistance Band Set (5 Levels)", thai: "ยางยืดออกกำลังกาย 5 ระดับ", category: "fitness",
+    cjCost: 45, sellPrice: 349, margin: 65,
+    demand: 85, competition: 72, virality: 68, score: 80,
+    season: "Year-round (Peak: Jan, Jun)", cjSKU: "CJ-RESBAND-5SET",
+    tags: ["Evergreen", "Home Workout", "Budget Fitness", "Bundle Ready"],
+    tip: "High competition but extremely consistent demand. Differentiate with branded packaging and workout guide PDF. Bundle with resistance handles.",
+    weight: "300g", ship: "฿35", delivery: "5-7 days"
+  },
+  {
+    rank: 10, name: "Wireless Charging Desk Lamp", thai: "โคมไฟตั้งโต๊ะชาร์จไร้สาย", category: "home",
+    cjCost: 160, sellPrice: 699, margin: 48,
+    demand: 75, competition: 38, virality: 72, score: 79,
+    season: "Year-round (Peak: 11.11, 12.12)", cjSKU: "CJ-DSKLAMP-QI",
+    tags: ["Desk Aesthetic", "Multi-Function", "Gift Worthy"],
+    tip: "Lighting is #1 consistent seller on Shopee TH across all months. Wireless charging adds premium positioning. Great gift item for mega sales.",
+    weight: "550g", ship: "฿50", delivery: "7-10 days"
+  },
+  {
+    rank: 11, name: "Heatless Curling Set", thai: "ม้วนผมไม่ใช้ความร้อน", category: "beauty",
+    cjCost: 30, sellPrice: 299, margin: 75,
+    demand: 80, competition: 55, virality: 85, score: 78,
+    season: "Year-round", cjSKU: "CJ-HEATCURL-SET",
+    tags: ["Mega Margins", "Easy Demo", "Sleep-in Style"],
+    tip: "Highest margin product on the list. 'Sleep with it, wake up gorgeous' is the TikTok hook. Film time-lapse from bedtime to morning reveal.",
+    weight: "100g", ship: "฿30", delivery: "5-7 days"
+  },
+  {
+    rank: 12, name: "Scalp Massager Brush", thai: "แปรงนวดหนังศีรษะ", category: "beauty",
+    cjCost: 25, sellPrice: 199, margin: 68,
+    demand: 78, competition: 65, virality: 72, score: 77,
+    season: "Year-round", cjSKU: "CJ-SCALPMSG-01",
+    tags: ["Ultra Low Cost", "ASMR Content", "Hair Care"],
+    tip: "Dirt cheap to source. ASMR-style content performs well. Bundle with scalp serum for higher cart value.",
+    weight: "80g", ship: "฿25", delivery: "5-7 days"
+  },
+  {
+    rank: 13, name: "Car Seat Gap Organizer", thai: "กระเป๋าเก็บของช่องว่างเบาะรถ", category: "home",
+    cjCost: 55, sellPrice: 349, margin: 58,
+    demand: 82, competition: 60, virality: 65, score: 76,
+    season: "Year-round (Peak: Songkran road trips)", cjSKU: "CJ-CARSEAT-ORG",
+    tags: ["Car Accessory", "Problem Solver", "Road Trip"],
+    tip: "Thailand = car/motorcycle country. This solves a universal frustration. Demo: dropping phone into gap → organizer saves it.",
+    weight: "200g", ship: "฿35", delivery: "5-7 days"
+  },
+  {
+    rank: 14, name: "Pet Hair Removal Glove", thai: "ถุงมือเก็บขนสัตว์เลี้ยง", category: "pet",
+    cjCost: 20, sellPrice: 199, margin: 72,
+    demand: 80, competition: 68, virality: 78, score: 75,
+    season: "Year-round (Peak: shed season Mar-May)", cjSKU: "CJ-PETGLOVE-RM",
+    tags: ["Ultra Cheap", "Viral Worthy", "Satisfying Video"],
+    tip: "Source at ฿20, sell at ฿199 — 72% margin. Fur removal videos are inherently satisfying. Cross-sell with lint roller.",
+    weight: "80g", ship: "฿25", delivery: "5-7 days"
+  },
+  {
+    rank: 15, name: "Portable Blender Bottle", thai: "แก้วปั่นพกพา", category: "fitness",
+    cjCost: 130, sellPrice: 599, margin: 50,
+    demand: 88, competition: 62, virality: 82, score: 74,
+    season: "Year-round (Peak: summer smoothie season)", cjSKU: "CJ-BLENBOT-PORT",
+    tags: ["Ninja Blast Dupe", "TikTok Famous", "1800% Surge"],
+    tip: "This category saw 1800% order surge after going viral. Position as affordable Ninja Blast alternative. Smoothie recipe content works.",
+    weight: "400g", ship: "฿45", delivery: "7-10 days"
+  },
+  {
+    rank: 16, name: "Bed Sheet Fasteners (Set of 4)", thai: "ตัวรัดผ้าปูที่นอน", category: "home",
+    cjCost: 15, sellPrice: 179, margin: 78,
+    demand: 75, competition: 45, virality: 70, score: 73,
+    season: "Year-round (New year, move-in seasons)", cjSKU: "CJ-BEDFAST-4SET",
+    tags: ["Highest Margin", "Problem Solver", "Quick Demo"],
+    tip: "Best margin in entire catalog at 78%. Simple problem, simple solution. 10-second demo: messy bed → fastened → clean bed. Sells itself.",
+    weight: "50g", ship: "฿25", delivery: "5-7 days"
+  },
+  {
+    rank: 17, name: "Clip-On Ring Light (Phone/Laptop)", thai: "ไฟวงแหวนหนีบ", category: "gadget",
+    cjCost: 50, sellPrice: 349, margin: 60,
+    demand: 72, competition: 58, virality: 68, score: 72,
+    season: "Year-round", cjSKU: "CJ-CLIPRING-LED",
+    tags: ["Content Creator", "WFH Essential", "Selfie"],
+    tip: "Target Shopee Live sellers and content creators — they need this! Meta positioning: use the product to film content about the product.",
+    weight: "120g", ship: "฿30", delivery: "5-7 days"
+  },
+  {
+    rank: 18, name: "Aromatherapy Shower Steamers", thai: "สตีมอโรมาอาบน้ำ", category: "beauty",
+    cjCost: 40, sellPrice: 299, margin: 62,
+    demand: 68, competition: 30, virality: 65, score: 71,
+    season: "Year-round (Gift peak: Valentine's, Mother's Day)", cjSKU: "CJ-SHOWER-AROMA",
+    tags: ["Low Competition", "Gift Item", "Self-Care"],
+    tip: "Extremely low competition in TH market. Position as affordable luxury self-care. Great for bundle deals and gift sets.",
+    weight: "200g", ship: "฿35", delivery: "7-10 days"
+  },
+  {
+    rank: 19, name: "Self-Adhesive Cable Organizer (10pc)", thai: "ที่จัดเก็บสายไฟ ติดผนัง", category: "home",
+    cjCost: 12, sellPrice: 149, margin: 74,
+    demand: 70, competition: 55, virality: 60, score: 70,
+    season: "Year-round", cjSKU: "CJ-CABLEORG-10",
+    tags: ["Mega Cheap", "Minimal Aesthetic", "Repeat Purchase"],
+    tip: "Dirt cheap sourcing. Desk organization content is huge on TikTok. Sell in multi-packs. Repeat purchase potential is high.",
+    weight: "60g", ship: "฿25", delivery: "5-7 days"
+  },
+  {
+    rank: 20, name: "Collapsible Silicone Lunch Box", thai: "กล่องข้าวซิลิโคนพับได้", category: "home",
+    cjCost: 55, sellPrice: 349, margin: 56,
+    demand: 72, competition: 48, virality: 55, score: 68,
+    season: "Year-round (Peak: school season, eco-awareness)", cjSKU: "CJ-LUNCHSIL-COL",
+    tags: ["Eco-Friendly", "Office Worker", "Space Saver"],
+    tip: "Eco-conscious angle for younger Thai consumers. Demo the collapse/expand mechanism. Bundle with reusable utensils.",
+    weight: "220g", ship: "฿35", delivery: "5-7 days"
+  }
+];
+
+// ─── RENDER PRODUCTS ───
+function renderProducts(filter = 'all') {
+  const grid = document.getElementById('productGrid');
+  const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+  grid.innerHTML = filtered.map(p => {
+    const catClass = 'cat-' + p.category;
+    const catLabel = p.category.charAt(0).toUpperCase() + p.category.slice(1);
+    const scoreColor = p.score >= 85 ? 'var(--green)' : p.score >= 75 ? 'var(--cyan)' : 'var(--yellow)';
+    const profit = p.sellPrice - p.cjCost;
+    return `
+    <div class="product-card" data-category="${p.category}" onclick="this.classList.toggle('expanded')">
+      <div class="product-rank">#${p.rank}</div>
+      <div class="product-category ${catClass}">${catLabel}</div>
+      <div class="product-name">${p.name}</div>
+      <div class="product-thai">${p.thai}</div>
+      <div class="product-metrics">
+        <div class="metric">
+          <div class="metric-value" style="color:var(--green);">฿${p.sellPrice}</div>
+          <div class="metric-label">Sell Price</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value" style="color:var(--cyan);">${p.margin}%</div>
+          <div class="metric-label">Margin</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value" style="color:${scoreColor};">${p.score}</div>
+          <div class="metric-label">Score</div>
+        </div>
+      </div>
+      <div class="product-score-bar">
+        <div class="product-score-fill" style="width:${p.score}%; background: linear-gradient(90deg, var(--purple), ${scoreColor});"></div>
+      </div>
+      <div class="score-label">
+        <span>Launch Readiness</span>
+        <span style="color:${scoreColor}; font-weight:700;">${p.score}/100</span>
+      </div>
+      <div class="product-details">
+        <div class="detail-row"><span class="detail-label">CJ Cost</span><span class="detail-value">฿${p.cjCost}</span></div>
+        <div class="detail-row"><span class="detail-label">Gross Profit</span><span class="detail-value" style="color:var(--green);">฿${profit}</span></div>
+        <div class="detail-row"><span class="detail-label">Demand Index</span><span class="detail-value">${p.demand}/100</span></div>
+        <div class="detail-row"><span class="detail-label">Competition</span><span class="detail-value">${p.competition}/100</span></div>
+        <div class="detail-row"><span class="detail-label">TikTok Virality</span><span class="detail-value">${p.virality}/100</span></div>
+        <div class="detail-row"><span class="detail-label">Season</span><span class="detail-value" style="font-family:'Outfit',sans-serif; font-size:12px;">${p.season}</span></div>
+        <div class="detail-row"><span class="detail-label">Weight</span><span class="detail-value">${p.weight}</span></div>
+        <div class="detail-row"><span class="detail-label">Shipping</span><span class="detail-value">${p.ship}</span></div>
+        <div class="detail-row"><span class="detail-label">Delivery</span><span class="detail-value" style="font-family:'Outfit',sans-serif; font-size:12px;">${p.delivery}</span></div>
+        <div style="margin-top:12px; padding:12px; background:var(--cyan-dim); border-radius:8px; border:1px solid rgba(6,182,212,0.2);">
+          <div style="font-size:11px; font-weight:700; color:var(--cyan); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">💡 FT Strategy Tip</div>
+          <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;">${p.tip}</div>
+        </div>
+        <div class="product-tags">
+          ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+renderProducts();
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active');
+      b.style.background = 'transparent';
+    });
+    btn.classList.add('active');
+    btn.style.background = btn.dataset.filter === 'all' ? 'var(--purple-dim)' :
+      btn.dataset.filter === 'beauty' ? 'rgba(244,114,182,0.12)' :
+      btn.dataset.filter === 'gadget' ? 'var(--cyan-dim)' :
+      btn.dataset.filter === 'home' ? 'var(--yellow-dim)' :
+      btn.dataset.filter === 'pet' ? 'var(--green-dim)' : 'rgba(249,115,22,0.12)';
+    renderProducts(btn.dataset.filter);
+  });
+});
+
+// ═══════════════════════════════════════════
+// MARGIN CALCULATOR ENGINE
+// ═══════════════════════════════════════════
+const platformFees = {
+  shopee: { commission: 0.04, tech: 0.05, payment: 0.02, name: 'Shopee', label: '~11% total' },
+  lazada: { commission: 0.03, tech: 0, payment: 0.02, name: 'Lazada', label: '~5% total' },
+  tiktok: { commission: 0.035, tech: 0, payment: 0.0184, name: 'TikTok Shop', label: '~5.34% total' }
+};
+
+function calculateMargin() {
+  const cost = parseFloat(document.getElementById('calcCost').value) || 0;
+  const price = parseFloat(document.getElementById('calcPrice').value) || 0;
+  const platform = document.getElementById('calcPlatform').value;
+  const ship = parseFloat(document.getElementById('calcShip').value) || 0;
+  const ads = parseFloat(document.getElementById('calcAds').value) || 0;
+  const cjShip = parseFloat(document.getElementById('calcCJShip').value) || 0;
+  const pack = parseFloat(document.getElementById('calcPack').value) || 0;
+
+  const fees = platformFees[platform];
+  const commissionAmt = price * fees.commission;
+  const techAmt = price * fees.tech;
+  const paymentAmt = price * fees.payment;
+  const totalFees = commissionAmt + techAmt + paymentAmt;
+  const totalCost = cost + cjShip + ship + ads + pack + totalFees;
+  const profit = price - totalCost;
+  const margin = price > 0 ? (profit / price * 100) : 0;
+  const roi = cost > 0 ? (profit / cost * 100) : 0;
+
+  let verdictClass, verdictText;
+  if (margin >= 40) { verdictClass = 'verdict-go'; verdictText = '🟢 GO — Strong margin. Launch this product.'; }
+  else if (margin >= 25) { verdictClass = 'verdict-maybe'; verdictText = '🟡 MAYBE — Viable but tight. Optimize costs or raise price.'; }
+  else { verdictClass = 'verdict-nogo'; verdictText = '🔴 NO-GO — Margin too thin after fees. Find cheaper source or raise price.'; }
+
+  const profitColor = profit >= 0 ? 'var(--green)' : 'var(--red)';
+  const marginColor = margin >= 40 ? 'var(--green)' : margin >= 25 ? 'var(--yellow)' : 'var(--red)';
+
+  document.getElementById('calcResult').innerHTML = `
+    <div class="card-header"><span class="card-label">Profit Analysis — ${fees.name}</span></div>
+    <div class="result-hero">
+      <div class="result-hero-label">NET PROFIT PER ORDER</div>
+      <div class="result-hero-value" style="color:${profitColor};">฿${profit.toFixed(0)}</div>
+    </div>
+    <div class="result-breakdown">
+      <div class="breakdown-row">
+        <span class="breakdown-label">Selling Price</span>
+        <span class="breakdown-value">฿${price.toFixed(0)}</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">− CJ Product Cost</span>
+        <span class="breakdown-value" style="color:var(--red);">−฿${cost.toFixed(0)}</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">− CJ Shipping to TH</span>
+        <span class="breakdown-value" style="color:var(--red);">−฿${cjShip.toFixed(0)}</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">− Shipping to Customer</span>
+        <span class="breakdown-value" style="color:var(--red);">−฿${ship.toFixed(0)}</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">− Ad Spend / Order</span>
+        <span class="breakdown-value" style="color:var(--red);">−฿${ads.toFixed(0)}</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">− Packaging</span>
+        <span class="breakdown-value" style="color:var(--red);">−฿${pack.toFixed(0)}</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">− Commission (${(fees.commission*100).toFixed(1)}%)</span>
+        <span class="breakdown-value" style="color:var(--red);">−฿${commissionAmt.toFixed(0)}</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">− Tech Service Fee (${(fees.tech*100).toFixed(0)}%)</span>
+        <span class="breakdown-value" style="color:var(--red);">−฿${techAmt.toFixed(0)}</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">− Payment Processing (${(fees.payment*100).toFixed(1)}%)</span>
+        <span class="breakdown-value" style="color:var(--red);">−฿${paymentAmt.toFixed(0)}</span>
+      </div>
+      <div class="breakdown-row" style="border-top:2px solid var(--border); padding-top:14px; margin-top:8px;">
+        <span class="breakdown-label" style="font-weight:700; color:var(--text-primary);">Net Margin</span>
+        <span class="breakdown-value" style="color:${marginColor}; font-size:18px;">${margin.toFixed(1)}%</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">ROI on Cost</span>
+        <span class="breakdown-value" style="color:${profitColor};">${roi.toFixed(0)}%</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">Total Platform Fees</span>
+        <span class="breakdown-value">฿${totalFees.toFixed(0)} (${(totalFees/price*100).toFixed(1)}%)</span>
+      </div>
+    </div>
+    <div class="verdict-card ${verdictClass}">${verdictText}</div>
+    <div style="margin-top:16px; padding:12px; background:var(--bg-elevated); border-radius:8px; font-size:12px; color:var(--text-muted); line-height:1.6;">
+      💡 <strong>Tip:</strong> To hit 100 orders/month at this margin = <strong style="color:var(--cyan);">฿${(profit * 100).toFixed(0)}</strong> monthly profit. At 300 orders/month = <strong style="color:var(--green);">฿${(profit * 300).toFixed(0)}</strong>/month.
+    </div>
+  `;
+}
+
+// Listen to all calculator inputs
+['calcCost','calcPrice','calcPlatform','calcShip','calcAds','calcCJShip','calcPack'].forEach(id => {
+  document.getElementById(id).addEventListener('input', calculateMargin);
+  document.getElementById(id).addEventListener('change', calculateMargin);
+});
+calculateMargin();
+
+// ═══════════════════════════════════════════
+// SEASONAL MAP DATA
+// ═══════════════════════════════════════════
+const months = [
+  {
+    name: 'JAN', heat: 7, heatClass: 'heat-warm', events: 'New Year Sales\nResolution Season',
+    categories: [
+      { name: '💪 Fitness Gear', tip: 'New Year resolutions drive fitness product demand 2x. Resistance bands, posture correctors peak.', timing: 'timing-now' },
+      { name: '🏠 Home Organization', tip: 'Post-holiday decluttering. Storage, cable organizers, bed accessories.', timing: 'timing-now' },
+      { name: '💄 Skincare', tip: 'New Year "new me" skincare routines. LED masks, ice rollers.', timing: 'timing-now' }
+    ]
+  },
+  {
+    name: 'FEB', heat: 7, heatClass: 'heat-warm', events: 'Valentine\'s Day\n2.2 Mega Sale',
+    categories: [
+      { name: '🎁 Gift Sets', tip: 'Bundle beauty products as gift sets. Shower steamers + bath bombs = Valentine package.', timing: 'timing-now' },
+      { name: '💄 Beauty', tip: 'Self-care gifting peaks. Heatless curlers, LED masks, scalp massagers.', timing: 'timing-now' },
+      { name: '📱 Gadgets', tip: 'Couple gadgets: matching phone cases, ring lights for selfies.', timing: 'timing-soon' }
+    ]
+  },
+  {
+    name: 'MAR', heat: 8, heatClass: 'heat-hot', events: 'Summer Starts\n3.3 Sale',
+    categories: [
+      { name: '🐾 Pet Cooling', tip: 'Pet shedding season begins. Grooming gloves + cooling mats surge.', timing: 'timing-now' },
+      { name: '❄️ Cooling Products', tip: 'Pre-Songkran prep. Portable fans, neck fans begin trending upward.', timing: 'timing-now' },
+      { name: '🏠 Home Refresh', tip: 'Spring cleaning energy. Organization products, cable management.', timing: 'timing-soon' }
+    ]
+  },
+  {
+    name: 'APR', heat: 10, heatClass: 'heat-fire', events: '🔥 SONGKRAN 🔥\n4.4 Mega Sale',
+    categories: [
+      { name: '🌊 Waterproof Accessories', tip: 'PEAK MONTH. Waterproof phone cases, portable fans, cooling products are must-stock.', timing: 'timing-now' },
+      { name: '🐾 Pet Summer', tip: 'Cooling pet mats, portable water bottles, travel feeders for holiday trips.', timing: 'timing-now' },
+      { name: '💄 Skin Recovery', tip: 'Sun protection + post-sun recovery. Ice rollers, face masks, aromatherapy.', timing: 'timing-now' },
+      { name: '🚗 Travel Gear', tip: 'Car organizers, portable blenders, collapsible lunch boxes for road trips.', timing: 'timing-now' }
+    ]
+  },
+  {
+    name: 'MAY', heat: 8, heatClass: 'heat-hot', events: 'Mother\'s Day TH\n5.5 Sale',
+    categories: [
+      { name: '🎁 Gift Items', tip: 'Thai Mother\'s Day (Aug 12) is later, but Western influence means May gifting too. Beauty sets, desk lamps.', timing: 'timing-soon' },
+      { name: '❄️ Summer Continues', tip: 'Cooling products still strong. Fan demand stays high through September.', timing: 'timing-now' },
+      { name: '💪 Fitness', tip: 'Summer body motivation. Resistance bands, posture correctors, portable blenders.', timing: 'timing-now' }
+    ]
+  },
+  {
+    name: 'JUN', heat: 7, heatClass: 'heat-warm', events: '6.6 Mid-Year Sale\nSummer Peak',
+    categories: [
+      { name: '📱 Mid-Year Deals', tip: '6.6 is major Shopee/Lazada event. Stock up inventory. Prepare bundle deals.', timing: 'timing-now' },
+      { name: '🐾 Pet Products', tip: 'Continued summer pet care. Smart feeders for vacation travel.', timing: 'timing-now' },
+      { name: '💄 Beauty', tip: 'Anti-aging, skin repair products for sun-damaged skin.', timing: 'timing-soon' }
+    ]
+  },
+  {
+    name: 'JUL', heat: 7, heatClass: 'heat-warm', events: 'School Season\n7.7 Sale',
+    categories: [
+      { name: '📚 Student Products', tip: 'Desktop vacuums, cable organizers, ring lights, desk lamps for students.', timing: 'timing-now' },
+      { name: '🏠 Back to School', tip: 'Organization products, lunch boxes, portable fans for school.', timing: 'timing-now' },
+      { name: '📱 Tech Accessories', tip: 'Phone accessories for new semester. Cases, chargers, ring lights.', timing: 'timing-now' }
+    ]
+  },
+  {
+    name: 'AUG', heat: 8, heatClass: 'heat-hot', events: 'Thai Mother\'s Day\n8.8 Sale',
+    categories: [
+      { name: '🎁 Mother\'s Day Gifts', tip: 'MAJOR event in Thailand. Beauty gift sets, desk lamps, aromatherapy. Prepare 2 weeks early.', timing: 'timing-now' },
+      { name: '💄 Premium Beauty', tip: 'LED face masks, heatless curlers, scalp massagers as gifts.', timing: 'timing-now' },
+      { name: '🏠 Home Comforts', tip: 'Wireless charging lamps, bed accessories for mom\'s comfort.', timing: 'timing-now' }
+    ]
+  },
+  {
+    name: 'SEP', heat: 8, heatClass: 'heat-hot', events: '🔥 9.9 MEGA 🔥\nBiggest Q3 Sale',
+    categories: [
+      { name: '🛒 ALL Categories', tip: '9.9 is massive — Shopee recorded 1M+ orders in first 30 min. Discount aggressively on top SKUs.', timing: 'timing-now' },
+      { name: '📱 Gadgets', tip: 'Tech impulse buys peak during mega sales. All gadget SKUs should be in stock.', timing: 'timing-now' },
+      { name: '💄 Beauty', tip: 'Stock best sellers. Beauty is #1 discovery category during mega campaigns.', timing: 'timing-now' }
+    ]
+  },
+  {
+    name: 'OCT', heat: 7, heatClass: 'heat-warm', events: '10.10 Sale\nCool Season Start',
+    categories: [
+      { name: '🏠 Home & Living', tip: 'Transition to cool season. Cozy home products, desk lamps, aromatherapy steamers.', timing: 'timing-now' },
+      { name: '🐾 Pet Comfort', tip: 'Pet beds, grooming products for cooler weather grooming.', timing: 'timing-soon' },
+      { name: '💪 Fitness', tip: 'Cool weather = outdoor exercise comfort. Fitness demand rises.', timing: 'timing-now' }
+    ]
+  },
+  {
+    name: 'NOV', heat: 9, heatClass: 'heat-fire', events: '🔥 11.11 MEGA 🔥\nSingles\' Day',
+    categories: [
+      { name: '🛒 EVERYTHING', tip: '11.11 = highest GMV month. All SKUs should be fully stocked. Run flash deals every 2 hours.', timing: 'timing-now' },
+      { name: '🎁 Gift Prep', tip: 'Consumers start buying Christmas/New Year gifts. Premium items shine.', timing: 'timing-now' },
+      { name: '💄 Beauty Tech', tip: 'LED masks, beauty gadgets as self-treat purchases. Highest beauty spend month.', timing: 'timing-now' }
+    ]
+  },
+  {
+    name: 'DEC', heat: 10, heatClass: 'heat-fire', events: '🔥 12.12 MEGA 🔥\nYear-End',
+    categories: [
+      { name: '🎄 Gift Everything', tip: 'Peak gifting season. ALL products positioned as gifts. Bundle deals are king.', timing: 'timing-now' },
+      { name: '📱 Tech Gifts', tip: 'Wireless charging lamps, portable blenders, smart pet feeders as premium gifts.', timing: 'timing-now' },
+      { name: '💄 Beauty Sets', tip: 'Create holiday beauty gift boxes. Margins are less important than volume.', timing: 'timing-now' },
+      { name: '🏠 Home Refresh', tip: 'New Year home refresh. Organization, lighting, aesthetic upgrades.', timing: 'timing-now' }
+    ]
+  }
+];
+
+// ─── RENDER CALENDAR ───
+const currentMonth = new Date().getMonth();
+const calGrid = document.getElementById('calendarGrid');
+calGrid.innerHTML = months.map((m, i) => `
+  <div class="month-card ${i === currentMonth ? 'current' : ''}" onclick="showMonthDetail(${i})">
+    <div class="month-name">${m.name}</div>
+    <div class="month-heat ${m.heatClass}">${m.heat}/10</div>
+    <div class="month-events">${m.events.replace(/\n/g, '<br>')}</div>
+    ${i === currentMonth ? '<div style="font-size:10px;color:var(--cyan);margin-top:4px;font-weight:700;">◆ NOW</div>' : ''}
+  </div>
+`).join('');
+
+function showMonthDetail(idx) {
+  const m = months[idx];
+  document.getElementById('seasonDetail').innerHTML = `
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+      <div class="month-heat ${m.heatClass}" style="font-size:36px;">${m.heat}/10</div>
+      <div>
+        <div style="font-size:20px;font-weight:800;">${m.name} — Demand Heat</div>
+        <div style="font-size:13px;color:var(--text-muted);">${m.events.replace(/\n/g, ' • ')}</div>
+      </div>
+    </div>
+    <div class="season-categories">
+      ${m.categories.map(c => `
+        <div class="season-cat-card">
+          <div class="season-cat-name">${c.name}</div>
+          <div class="season-cat-tip">${c.tip}</div>
+          <span class="timing-badge ${c.timing}">${c.timing === 'timing-now' ? '● STOCK NOW' : c.timing === 'timing-soon' ? '◐ PREP SOON' : '○ PLAN LATER'}</span>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+showMonthDetail(currentMonth);
+
+// ═══════════════════════════════════════════
+// COMPETITOR GAP ANALYSIS
+// ═══════════════════════════════════════════
+const gaps = [
+  {
+    icon: '🇨🇳', bg: 'var(--red-dim)',
+    title: 'Chinese Seller 30% Price Undercut',
+    desc: 'Chinese sellers dominate 95% of some categories by pricing 30% below Thai sellers. BUT they have weak Thai-language listings, no LINE support, and slow customer service. Your edge: Thai-first content, local-language support, and emotional marketing they can\'t replicate.',
+    action: '→ Compete on experience, not price. Thai language + LINE support + fast response = premium positioning at same price point.'
+  },
+  {
+    icon: '🎬', bg: 'var(--purple-dim)',
+    title: 'Video Content Gap on Shopee/Lazada',
+    desc: 'Most dropshippers use the same generic product photos from AliExpress. Less than 15% of Thai sellers create custom short-form video content. TikTok virality data shows products with before/after videos convert 3x better.',
+    action: '→ Create 3+ custom Thai-language videos per product. This alone puts you in the top 15% of sellers.'
+  },
+  {
+    icon: '📦', bg: 'var(--cyan-dim)',
+    title: 'Delivery Speed Perception Gap',
+    desc: 'Thai consumers now expect 3-7 day delivery. CJ Dropshipping\'s Thailand warehouse enables 5-7 day delivery — matching domestic sellers. Most dropshippers still ship from China (14-21 days) and lose customers.',
+    action: '→ Use CJ Thailand warehouse for top 5 SKUs. Display "Ship from Thailand 🇹🇭" badge = massive conversion boost.'
+  },
+  {
+    icon: '🔄', bg: 'var(--green-dim)',
+    title: 'Bundle Strategy Gap',
+    desc: 'Competitors sell single items. Thai shoppers love value bundles ("ชุดสุดคุ้ม"). Bundling 2-3 complementary items increases average order value by 40-60% while competitors fight on single-item price.',
+    action: '→ Create themed bundles: "Summer Survival Kit" (fan + ice roller + pet mat), "Desk Upgrade Set" (lamp + vacuum + cable organizer).'
+  },
+  {
+    icon: '🤝', bg: 'var(--yellow-dim)',
+    title: 'Post-Purchase Relationship Gap',
+    desc: 'Most Shopee/Lazada sellers treat each sale as transactional. Zero follow-up. Thai consumers respond strongly to personal attention and LINE messaging. Repeat customer rate for sellers with LINE follow-up is 3x higher.',
+    action: '→ Set up LINE Official Account. Send thank-you + usage tips 3 days after delivery. Offer ฿30 off next order = 35%+ repeat rate.'
+  },
+  {
+    icon: '🧪', bg: 'rgba(168,85,247,0.12)',
+    title: 'Niche Depth vs. Viral Chasing',
+    desc: 'Most Thai dropshippers chase viral products and abandon them when trends fade. Top Shopee data shows sellers who go deep in 2-3 niches (expanding SKU variants, not new niches) outperform viral chasers 4:1 over 12 months.',
+    action: '→ Pick your top 2 niches from Product Radar results. Go 10 products deep in each rather than 1 product across 20 niches.'
+  }
+];
+
+document.getElementById('gapGrid').innerHTML = gaps.map(g => `
+  <div class="gap-card">
+    <div class="gap-icon" style="background:${g.bg}; font-size:28px;">${g.icon}</div>
+    <div class="gap-title">${g.title}</div>
+    <div class="gap-desc">${g.desc}</div>
+    <div class="gap-action">${g.action}</div>
+  </div>
+`).join('');
+
+</script>
+</body>
+</html>

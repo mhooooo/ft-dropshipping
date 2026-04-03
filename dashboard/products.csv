@@ -1,0 +1,11 @@
+product_id,product_name,category,cj_cost_thb,selling_price_thb,shipping_cost_thb,packaging_cost_thb,platform_fee_pct,margin_thb,margin_pct,est_monthly_units,monthly_revenue_thb,trend_score
+P001,Teeth Whitening Strips (14pcs),Beauty & Personal Care,95,399,120,30,4.0,138.04,34.6,80,31920,92
+P002,Pet Hair Remover Roller,Pet Supplies,55,349,100,25,3.5,156.78,44.9,120,41880,88
+P003,Electric Gua Sha Massager,Beauty & Personal Care,120,599,130,35,4.5,287.05,47.9,60,35940,95
+P004,USB LED Night Light (Motion Sensor),Home & Living,40,259,100,20,3.0,91.23,35.2,150,38850,78
+P005,Portable Blender/Juicer 400ml,Kitchen,130,699,150,40,4.0,351.04,50.2,90,62910,97
+P006,Magnetic Phone Car Mount,Electronics,35,299,100,20,3.5,133.54,44.7,100,29900,82
+P007,Silicone Dish Sponge (5-pack),Kitchen & Home,25,199,100,20,3.0,48.03,24.1,200,39800,70
+P008,LED Teeth Whitening Kit,Beauty & Personal Care,150,799,140,45,4.5,428.05,53.6,45,35955,90
+P009,Mini Portable Fan (Neck),Lifestyle,85,499,120,30,4.0,244.04,48.9,110,54890,96
+P010,Acne Pimple Patch (72pcs),Beauty & Personal Care,30,249,100,20,3.5,90.29,36.3,180,44820,85
