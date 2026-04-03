@@ -464,7 +464,7 @@ body {
   -webkit-backdrop-filter: blur(16px);
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  cursor: default;
+  cursor: pointer;
   opacity: 0;
   transform: translateY(30px);
 }
@@ -2048,6 +2048,16 @@ function closeModalDirect() {
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModalDirect();
+});
+
+// Make entire cards clickable
+const cardModalMap = {1:'plan',2:'dashboard',3:'podcast',4:'video',5:'landing',6:'marketing',7:'warroom',8:'opensource',9:'skills',10:'assistant',11:'jarvis'};
+document.querySelectorAll('.d-card').forEach(card => {
+  card.addEventListener('click', e => {
+    if (e.target.closest('.d-card-action')) return;
+    const id = card.dataset.id;
+    if (cardModalMap[id]) openModal(cardModalMap[id]);
+  });
 });
 
 // ===== FILTER =====
